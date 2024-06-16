@@ -1,25 +1,20 @@
+// src/App.js
 import React, { useState } from 'react';
-import Header from './components/Header';
-import ResumeForm from './components/ResumeForm';
-import ResumePreview from './components/ResumePreview';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Form from './components/Form';
+import Resume from './components/Resume';
 
 const App = () => {
-  const [resumeData, setResumeData] = useState(null);
+    const [resumeData, setResumeData] = useState({});
 
-  const handleFormSubmit = (data) => {
-    setResumeData(data);
-  };
-
-  return (
-    <div className="app">
-      <Header />
-      <div className="content">
-        <ResumeForm onSubmit={handleFormSubmit} />
-        {resumeData && <ResumePreview resumeData={resumeData} />}
-      </div>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Form setResumeData={setResumeData} />} />
+                <Route path="/resume" element={<Resume resumeData={resumeData} />} />
+            </Routes>
+        </Router>
+    );
 };
 
 export default App;

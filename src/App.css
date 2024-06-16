@@ -1,16 +1,61 @@
-.app {
-  text-align: center;
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 2rem auto;
+form {
+  margin: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
 }
 
-.error {
-  color: red;
-  font-size: 0.8rem;
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+.resume {
+  margin: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.resume h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.resume h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.resume .contact, .resume .skills, .resume .education, .resume .experience, .resume .languages {
+  margin-bottom: 20px;
+}
+
+.resume .contact p, .resume .skills p, .resume .languages p {
+  margin: 5px 0;
 }
