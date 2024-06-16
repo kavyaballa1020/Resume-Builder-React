@@ -11,6 +11,7 @@ form {
   padding: 20px;
   background: #fff;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 input, textarea {
@@ -40,22 +41,13 @@ button:hover {
   padding: 20px;
   background: #fff;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.resume h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+.resume h1, .resume h2, .resume h3, .resume h4 {
+  margin: 10px 0;
 }
 
-.resume h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.resume .contact, .resume .skills, .resume .education, .resume .experience, .resume .languages {
-  margin-bottom: 20px;
-}
-
-.resume .contact p, .resume .skills p, .resume .languages p {
+.resume .contact p, .resume .skills p, .resume .education p, .resume .experience p, .resume .languages p {
   margin: 5px 0;
 }
