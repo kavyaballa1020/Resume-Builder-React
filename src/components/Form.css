@@ -1,44 +1,57 @@
 /* src/components/Form.css */
 
-form {
+.form-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    margin-top: 0;
+.form-container h2 {
+    margin-bottom: 15px;
+    color: #333;
 }
 
-input, textarea {
+.form-input {
     width: calc(100% - 20px);
-    margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-textarea {
-    height: 100px;
+.nested-form-group {
+    margin-bottom: 15px;
 }
 
-button {
-    margin-top: 10px;
+.add-button {
+    display: inline-block;
     padding: 10px 20px;
-    background: #333;
-    color: #fff;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-button[type="button"] {
-    background: #555;
+.add-button:hover {
+    background-color: #0056b3;
 }
 
-button[type="button"]:hover, button[type="submit"]:hover {
-    background: #444;
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #218838;
 }

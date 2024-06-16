@@ -1,72 +1,96 @@
 /* src/components/Resume.css */
 
-.resume {
-    font-family: Arial, sans-serif;
-    color: #333;
-    padding: 20px;
+.resume-container {
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
-header {
+.header {
     text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
-header h1 {
-    font-size: 36px;
+.header h1 {
     margin: 0;
+    font-size: 2.5em;
 }
 
-header h2 {
-    font-size: 24px;
-    margin: 5px 0 0 0;
-    color: #555;
+.header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #666;
 }
 
-.resume-body {
+.content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 }
 
-.resume-body section {
+.left-column {
+    width: 30%;
+    padding-right: 20px;
+    background-color: #f8f8f8; /* light grey background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.right-column {
+    width: 70%;
+    padding-left: 20px;
+}
+
+.left-column section,
+.right-column section {
     margin-bottom: 20px;
 }
 
-.contact, .skills, .education, .languages {
-    width: 48%;
-}
-
-.profile, .experience {
-    width: 100%;
-}
-
-.contact h3, .skills h3, .education h3, .languages h3, .profile h3, .experience h3 {
+.left-column h3,
+.right-column h3 {
+    font-size: 1.2em;
     border-bottom: 2px solid #333;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
 
-.skills ul, .languages ul, .experience ul {
+.left-column ul,
+.right-column ul {
     list-style-type: none;
     padding: 0;
 }
 
-.skills li, .languages li {
-    background: #f4f4f4;
+.left-column ul li,
+.right-column ul li {
+    background: #f0f0f0;
     margin: 5px 0;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.experience div {
-    margin-bottom: 15px;
+.left-column p i {
+    margin-right: 10px;
 }
 
-.experience h4 {
-    margin: 0;
+.download-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
-.resume p {
-    margin: 5px 0;
+.download-button:hover {
+    background-color: #138496;
 }
