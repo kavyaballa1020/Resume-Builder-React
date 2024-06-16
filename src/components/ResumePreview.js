@@ -1,7 +1,14 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './ResumePreview.css';
 
 const ResumePreview = ({ resumeData }) => {
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push('/');
+  };
+
   const handlePrint = () => {
     window.print();
   };
@@ -9,6 +16,7 @@ const ResumePreview = ({ resumeData }) => {
   return (
     <div className="resume-preview">
       <button onClick={handlePrint} className="print-button">Print Resume</button>
+      <button onClick={handleEdit} className="edit-button">Edit Resume</button>
       <h2>{resumeData.name}</h2>
       <p><strong>Email:</strong> {resumeData.email}</p>
       <p><strong>Phone:</strong> {resumeData.phone}</p>
