@@ -24,53 +24,59 @@ const Resume = ({ resumeData }) => {
         <div>
             <div ref={resumeRef} className="resume-container">
                 <div className="header">
-                    <h1>{resumeData.name}</h1>
-                    <h2>{resumeData.title}</h2>
+                    <h1>{resumeData.name || 'Your Name'}</h1>
+                    <h2>{resumeData.title || 'Your Title'}</h2>
                 </div>
                 <div className="content">
                     <div className="left-column">
                         <section>
                             <h3>Contact</h3>
-                            <p><i className="fas fa-phone-alt"></i> {resumeData.contact.phone}</p>
-                            <p><i className="fas fa-envelope"></i> {resumeData.contact.email}</p>
-                            <p><i className="fas fa-globe"></i> {resumeData.contact.website}</p>
-                            <p><i className="fas fa-map-marker-alt"></i> {resumeData.contact.address}</p>
+                            {resumeData.contact ? (
+                                <>
+                                    <p><i className="fas fa-phone-alt"></i> {resumeData.contact.phone}</p>
+                                    <p><i className="fas fa-envelope"></i> {resumeData.contact.email}</p>
+                                    <p><i className="fas fa-globe"></i> {resumeData.contact.website}</p>
+                                    <p><i className="fas fa-map-marker-alt"></i> {resumeData.contact.address}</p>
+                                </>
+                            ) : (
+                                <p>No contact information available.</p>
+                            )}
                         </section>
                         <section>
                             <h3>Skills</h3>
                             <ul>
-                                {resumeData.skills.map((skill, index) => (
+                                {resumeData.skills ? resumeData.skills.map((skill, index) => (
                                     <li key={index}>{skill}</li>
-                                ))}
+                                )) : <li>No skills listed.</li>}
                             </ul>
                         </section>
                         <section>
                             <h3>Education</h3>
-                            {resumeData.education.map((edu, index) => (
+                            {resumeData.education ? resumeData.education.map((edu, index) => (
                                 <div key={index}>
                                     <p>{edu.degree}</p>
                                     <p>{edu.institution}</p>
                                     <p>{edu.year}</p>
                                 </div>
-                            ))}
+                            )) : <p>No education details available.</p>}
                         </section>
                         <section>
                             <h3>Languages</h3>
                             <ul>
-                                {resumeData.languages.map((lang, index) => (
+                                {resumeData.languages ? resumeData.languages.map((lang, index) => (
                                     <li key={index}>{lang}</li>
-                                ))}
+                                )) : <li>No languages listed.</li>}
                             </ul>
                         </section>
                     </div>
                     <div className="right-column">
                         <section>
                             <h3>Profile</h3>
-                            <p>{resumeData.profile}</p>
+                            <p>{resumeData.profile || 'No profile available.'}</p>
                         </section>
                         <section>
                             <h3>Work Experience</h3>
-                            {resumeData.experience.map((job, index) => (
+                            {resumeData.experience ? resumeData.experience.map((job, index) => (
                                 <div key={index}>
                                     <h4>{job.position}</h4>
                                     <p>{job.company} | {job.years}</p>
@@ -80,7 +86,7 @@ const Resume = ({ resumeData }) => {
                                         ))}
                                     </ul>
                                 </div>
-                            ))}
+                            )) : <p>No work experience available.</p>}
                         </section>
                     </div>
                 </div>
