@@ -1,4 +1,3 @@
-// src/components/Resume.js
 import React, { useRef } from 'react';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -35,7 +34,12 @@ const Resume = ({ resumeData }) => {
                                 <>
                                     <p><i className="fas fa-phone-alt"></i> {resumeData.contact.phone}</p>
                                     <p><i className="fas fa-envelope"></i> {resumeData.contact.email}</p>
-                                    <p><i className="fas fa-globe"></i> {resumeData.contact.website}</p>
+                                    {resumeData.contact.linkedin && (
+                                        <p><i className="fab fa-linkedin"></i> <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+                                    )}
+                                    {resumeData.contact.github && (
+                                        <p><i className="fab fa-github"></i> <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+                                    )}
                                     <p><i className="fas fa-map-marker-alt"></i> {resumeData.contact.address}</p>
                                 </>
                             ) : (
@@ -80,11 +84,13 @@ const Resume = ({ resumeData }) => {
                                 <div key={index}>
                                     <h4>{job.position}</h4>
                                     <p>{job.company} | {job.years}</p>
-                                    <ul>
-                                        {job.responsibilities.map((resp, respIndex) => (
-                                            <li key={respIndex}>{resp}</li>
-                                        ))}
-                                    </ul>
+                                    {job.certificates && (
+                                        <ul>
+                                            {job.certificates.map((cert, certIndex) => (
+                                                <li key={certIndex}>{cert}</li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </div>
                             )) : <p>No work experience available.</p>}
                         </section>

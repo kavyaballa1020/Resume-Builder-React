@@ -1,4 +1,3 @@
-// src/components/Form.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Form.css';
@@ -10,7 +9,8 @@ const Form = ({ setResumeData }) => {
         contact: {
             phone: '',
             email: '',
-            website: '',
+            linkedin: '',
+            github: '',
             address: ''
         },
         profile: '',
@@ -19,7 +19,7 @@ const Form = ({ setResumeData }) => {
             { degree: '', institution: '', year: '' }
         ],
         experience: [
-            { position: '', company: '', years: '', responsibilities: [''] }
+            { position: '', company: '', years: '', certificates: [''] }
         ],
         languages: ['']
     });
@@ -56,19 +56,6 @@ const Form = ({ setResumeData }) => {
         setFormData({ ...formData, [key]: updatedArray });
     };
 
-    const handleNestedArrayItemChange = (e, index, nestedIndex, key, nestedKey) => {
-        const { value } = e.target;
-        const updatedArray = [...formData[key]];
-        updatedArray[index][nestedKey][nestedIndex] = value;
-        setFormData({ ...formData, [key]: updatedArray });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setResumeData(formData);
-        navigate('/resume');
-    };
-
     const addSkill = () => {
         setFormData({ ...formData, skills: [...formData.skills, ''] });
     };
@@ -83,18 +70,24 @@ const Form = ({ setResumeData }) => {
     const addExperience = () => {
         setFormData({
             ...formData,
-            experience: [...formData.experience, { position: '', company: '', years: '', responsibilities: [''] }]
+            experience: [...formData.experience, { position: '', company: '', years: '', certificates: [''] }]
         });
     };
 
-    const addResponsibility = (index) => {
+    const addCertificate = (index) => {
         const updatedExperience = [...formData.experience];
-        updatedExperience[index].responsibilities.push('');
+        updatedExperience[index].certificates.push('');
         setFormData({ ...formData, experience: updatedExperience });
     };
 
     const addLanguage = () => {
         setFormData({ ...formData, languages: [...formData.languages, ''] });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setResumeData(formData);
+        navigate('/resume');
     };
 
     return (
@@ -106,7 +99,8 @@ const Form = ({ setResumeData }) => {
             <h2>Contact Information</h2>
             <input className="form-input" type="text" name="contact.phone" placeholder="Phone" value={formData.contact.phone} onChange={handleChange} required />
             <input className="form-input" type="email" name="contact.email" placeholder="Email" value={formData.contact.email} onChange={handleChange} required />
-            <input className="form-input" type="text" name="contact.website" placeholder="Website" value={formData.contact.website} onChange={handleChange} />
+            <input className="form-input" type="text" name="contact.linkedin" placeholder="LinkedIn Profile" value={formData.contact.linkedin} onChange={handleChange} />
+            <input className="form-input" type="text" name="contact.github" placeholder="GitHub Profile" value={formData.contact.github} onChange={handleChange} />
             <input className="form-input" type="text" name="contact.address" placeholder="Address" value={formData.contact.address} onChange={handleChange} />
 
             <h2>Profile</h2>
@@ -134,15 +128,16 @@ const Form = ({ setResumeData }) => {
                     <input className="form-input" type="text" placeholder="Position" value={job.position} onChange={(e) => handleNestedArrayChange(e, index, 'position', 'experience')} required />
                     <input className="form-input" type="text" placeholder="Company" value={job.company} onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')} required />
                     <input className="form-input" type="text" placeholder="Years" value={job.years} onChange={(e) => handleNestedArrayChange(e, index, 'years', 'experience')} required />
-                    <h3>Responsibilities</h3>
-                    {job.responsibilities.map((resp, respIndex) => (
-                        <input key={respIndex} className="form-input" type="text" placeholder="Responsibility" value={resp} onChange={(e) => handleNestedArrayItemChange(e, index, respIndex, 'experience', 'responsibilities')} />
+                    <button type="button" className="add-button" onClick={addExperience}>Add Experience</button>
+                    
+                    <h3>Certificates</h3>
+                    {job.certificates.map((cert, certIndex) => (
+                        <input key={certIndex} className="form-input" type="text" placeholder="Certificate" value={cert} onChange={(e) => handleArrayChange(e, certIndex, 'certificates')} />
                     ))}
-                    <button type="button" className="add-button" onClick={() => addResponsibility(index)}>Add Responsibility</button>
                 </div>
             ))}
-            <button type="button" className="add-button" onClick={addExperience}>Add Experience</button>
-
+            
+            <button type="button" className="add-button" onClick={() => addCertificate(certIndex)}>Add Certificate</button>
             <h2>Languages</h2>
             {formData.languages.map((lang, index) => (
                 <input key={index} className="form-input" type="text" placeholder="Language" value={lang} onChange={(e) => handleArrayChange(e, index, 'languages')} />
