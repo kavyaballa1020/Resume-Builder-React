@@ -67,7 +67,6 @@ const Form = ({ setResumeData }) => {
             }
         }
     };
-
     const handleArrayChange = (e, index, key) => {
         const { value } = e.target;
         const updatedArray = [...formData[key]];
@@ -92,17 +91,9 @@ const Form = ({ setResumeData }) => {
         });
     };
 
-    const addResponsibility = (index) => {
-        const updatedExperience = [...formData.experience];
-        updatedExperience[index].responsibilities.push('');
-        setFormData({ ...formData, experience: updatedExperience });
-    };
-
     const addLanguage = () => {
         setFormData({ ...formData, languages: [...formData.languages, ''] });
     };
-
-    // Other functions (addSkill, addEducation, etc.) remain unchanged
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -140,7 +131,6 @@ const Form = ({ setResumeData }) => {
             <input className="form-input" type="text" name="contact.address" placeholder="Address" value={formData.contact.address} onChange={handleChange} />
 
             <h2>Profile</h2>
-            {/* Selection input for profile type */}
             <select className="form-input" name="profile" onChange={handleChange} required>
                 <option value="">Select Profile</option>
                 <option value="fullStack">Full Stack Developer</option>
@@ -171,19 +161,13 @@ const Form = ({ setResumeData }) => {
 
             <h2>Experience</h2>
             {formData.experience.map((job, index) => (
-                <div key={index} className="nested-form-group">
-                    <input className="form-input" type="text" placeholder="Position" value={job.position} onChange={(e) => handleNestedArrayChange(e, index, 'position', 'experience')} required />
-                    <input className="form-input" type="text" placeholder="Company" value={job.company} onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')} required />
-                    <input className="form-input" type="text" placeholder="Years" value={job.years} onChange={(e) => handleNestedArrayChange(e, index, 'years', 'experience')} required />
-                    <h3>Responsibilities</h3>
-                    {job.responsibilities.map((resp, respIndex) => (
-                        <input key={respIndex} className="form-input" type="text" placeholder="Responsibility" value={resp} onChange={(e) => handleNestedArrayItemChange(e, index, respIndex, 'experience', 'responsibilities')} />
-                    ))}
-                    <button type="button" className="add-button" onClick={() => addResponsibility(index)}>Add Responsibility</button>
+            <div key={index} className="nested-form-group">
+            <input className="form-input" type="text" placeholder="Position" value={job.position} onChange={(e) => handleNestedArrayChange(e, index, 'position', 'experience')} required />
+            <input className="form-input" type="text" placeholder="Company" value={job.company} onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')} required />
+             <input className="form-input" type="text" placeholder="Years" value={job.years} onChange={(e) => handleNestedArrayChange(e, index, 'years', 'experience')} required />
+            <button type="button" className="add-button" onClick={addExperience}>Add Experience</button>
                 </div>
             ))}
-            <button type="button" className="add-button" onClick={addExperience}>Add Experience</button>
-
             <h2>Languages</h2>
             {formData.languages.map((lang, index) => (
                 <input key={index} className="form-input" type="text" placeholder="Language" value={lang} onChange={(e) => handleArrayChange(e, index, 'languages')} />
