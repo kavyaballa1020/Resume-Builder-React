@@ -134,10 +134,13 @@ const Form = ({ setResumeData }) => {
                     {job.certificates.map((cert, certIndex) => (
                         <input key={certIndex} className="form-input" type="text" placeholder="Certificate" value={cert} onChange={(e) => handleArrayChange(e, certIndex, 'certificates')} />
                     ))}
+                    
+                    <button type="button" className="add-button" onClick={() => addCertificate(index)}>Add Certificate</button>
                 </div>
             ))}
             
-            <button type="button" className="add-button" onClick={() => addCertificate(certIndex)}>Add Certificate</button>
+          
+
             <h2>Languages</h2>
             {formData.languages.map((lang, index) => (
                 <input key={index} className="form-input" type="text" placeholder="Language" value={lang} onChange={(e) => handleArrayChange(e, index, 'languages')} />
