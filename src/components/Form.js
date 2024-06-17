@@ -90,7 +90,6 @@ const Form = ({ setResumeData }) => {
             experience: [...formData.experience, { position: '', company: '', years: '', responsibilities: [''] }]
         });
     };
-
     const addLanguage = () => {
         setFormData({ ...formData, languages: [...formData.languages, ''] });
     };
@@ -107,12 +106,7 @@ const Form = ({ setResumeData }) => {
         setFormData({ ...formData, [key]: updatedArray });
     };
 
-    const handleNestedArrayItemChange = (e, index, nestedIndex, key, nestedKey) => {
-        const { value } = e.target;
-        const updatedArray = [...formData[key]];
-        updatedArray[index][nestedKey][nestedIndex] = value;
-        setFormData({ ...formData, [key]: updatedArray });
-    };
+    
 
   
 

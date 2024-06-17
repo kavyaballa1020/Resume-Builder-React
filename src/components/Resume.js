@@ -94,6 +94,7 @@ const Resume = ({ resumeData }) => {
                                 </div>
                             )) : <p>No work experience available.</p>}
                         </section>
+                        
                     </div>
                 </div>
             </div>
