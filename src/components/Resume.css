@@ -73,6 +73,7 @@
 .right-column ul li {
     margin: 5px 0;
     padding: 10px;
+    background: #e2e2e2;
     border-radius: 5px;
 }
 
@@ -85,19 +86,19 @@
     flex-wrap: wrap;
 }
 
-.two-column-item {
-    width: 50%;
-    padding: 5px;
-    box-sizing: border-box;
-}
+
 
 .two-column-item {
-    background: #e8e7e7;
+    background: #d3d2d2;
     border-radius: 20px;
     color: rgb(0, 0, 0);
     padding: 10px;
+    width: 50%;
+    padding: 5px;
+    box-sizing: border-box;
     margin-bottom: 5px;
-    border-radius: 20px;
+    border-radius: 10px;
+    text-transform: capitalize;
 }
 
 .download-button {
@@ -105,17 +106,17 @@
     width: 200px;
     margin: 20px auto;
     padding: 15px;
-    background-color: #17a2b8;
+    background: linear-gradient(to top,black,grey);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
 }
 
 .download-button:hover {
-    background-color: #138496;
+    background: linear-gradient(to bottom,black,grey);
 }
 
 .experience-list,
