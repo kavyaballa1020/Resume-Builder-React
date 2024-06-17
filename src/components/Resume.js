@@ -85,17 +85,27 @@ const Resume = ({ resumeData }) => {
                             )) : <p>No education details available.</p>}
                         </section>
                         <section>
-                            <h3>Work Experience</h3>
-                            {resumeData.experience ? resumeData.experience.map((job, index) => (
-                                <div key={index}>
-                                    <h4><em>{job.position}</em></h4>
-                                    <p><em>{job.company}</em></p>
-                                    <p className="job-duration">{job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
-                                    {/* Assuming job.responsibilities is an array */}
-                                    
-                                </div>
-                            )) : <p>No work experience available.</p>}
-                        </section>
+    <h3>Work Experience</h3>
+    {resumeData.experience ? (
+        <div className="experience-list">
+            {resumeData.experience.map((job, index) => (
+                <div key={index} className="experience-item">
+                    <div className="vertical-line"></div>
+                    <div className="experience-details">
+                        <h4>{job.position}</h4>
+                        <p>{job.company}</p>
+                        <p className="job-duration">{job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
+                    </div>
+                    <div className="vertical-line"></div>
+                </div>
+            ))}
+        </div>
+    ) : (
+        <p>No work experience available.</p>
+    )}
+</section>
+
+
                     </div>
                 </div>
             </div>
