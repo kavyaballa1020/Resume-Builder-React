@@ -72,7 +72,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
     color: rgb(99, 99, 103);
-    
+
 
 }
 
@@ -134,7 +134,10 @@
     color: #333; 
     text-transform: capitalize;
 }
-
+.intern{
+    color: #515151;
+    font-style: normal;
+}
 .experience-details p {
     margin: 5px 0;
     font-style: italic; /* Margin for job details */
@@ -160,7 +163,7 @@
 }
 
 .right-column .experience-item {
-    padding-left: 40px; /* Increase padding for better alignment */
+    padding-left: 30px; /* Increase padding for better alignment */
 }
 
 .experience-item:last-child {

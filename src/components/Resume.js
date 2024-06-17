@@ -95,6 +95,11 @@ const Resume = ({ resumeData }) => {
                         <h4>{job.position}</h4>
                         <p>{job.company}</p>
                         <p className="job-duration">{job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
+                        {job.internships && (
+                            <div>
+                                <p className='intern'>{job.internships}</p>
+                            </div>
+                        )}
                     </div>
                     <div className="vertical-line"></div>
                 </div>
@@ -104,6 +109,7 @@ const Resume = ({ resumeData }) => {
         <p>No work experience available.</p>
     )}
 </section>
+
 
 
                     </div>

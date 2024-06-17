@@ -19,7 +19,7 @@ const Form = ({ setResumeData }) => {
             { degree: '', institution: '', year: '' }
         ],
         experience: [
-            { position: '', company: '', startMonth: '', startYear: '', endMonth: '', endYear: '', responsibilities: [''] }
+            { position: '', company: '', startMonth: '', startYear: '', endMonth: '', endYear: '',  internships: '' }
         ],
         certificates: [''],
         languages: ['']
@@ -103,15 +103,21 @@ const Form = ({ setResumeData }) => {
     const handleNestedArrayChange = (e, index, nestedKey, key) => {
         const { value } = e.target;
         const updatedArray = [...formData[key]];
-        updatedArray[index][nestedKey] = value;
+        if (nestedKey === 'internships') {
+            updatedArray[index][nestedKey] = value;
+        } else {
+            updatedArray[index][nestedKey] = value;
+        }
         setFormData({ ...formData, [key]: updatedArray });
     };
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setResumeData(formData);
         navigate('/resume');
     };
+    
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
@@ -155,18 +161,18 @@ const Form = ({ setResumeData }) => {
             <button type="button" className="add-button" onClick={addEducation}>Add Education</button>
 
             <h2>Experience</h2>
-            {formData.experience.map((exp, index) => (
-                <div key={index} className="nested-form-group">
-                    <input className="form-input" type="text" placeholder="Position" value={exp.position} onChange={(e) => handleNestedArrayChange(e, index, 'position', 'experience')} />
-                    <input className="form-input" type="text" placeholder="Company" value={exp.company} onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')} />
-                    <input className="form-input" type="text" placeholder="Start Month" value={exp.startMonth} onChange={(e) => handleNestedArrayChange(e, index, 'startMonth', 'experience')} />
-                    <input className="form-input" type="text" placeholder="Start Year" value={exp.startYear} onChange={(e) => handleNestedArrayChange(e, index, 'startYear', 'experience')} />
-                    <input className="form-input" type="text" placeholder="End Month" value={exp.endMonth} onChange={(e) => handleNestedArrayChange(e, index, 'endMonth', 'experience')} />
-                    <input className="form-input" type="text" placeholder="End Year" value={exp.endYear} onChange={(e) => handleNestedArrayChange(e, index, 'endYear', 'experience')} />
-                    
-                </div>
-            ))}
-            <button type="button" className="add-button" onClick={handleAddExperience}>Add Experience</button>
+{formData.experience.map((exp, index) => (
+    <div key={index} className="nested-form-group">
+        <input className="form-input" type="text" placeholder="Position" value={exp.position} onChange={(e) => handleNestedArrayChange(e, index, 'position', 'experience')} />
+        <input className="form-input" type="text" placeholder="Company" value={exp.company} onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')} />
+        <input className="form-input" type="text" placeholder="Start Month" value={exp.startMonth} onChange={(e) => handleNestedArrayChange(e, index, 'startMonth', 'experience')} />
+        <input className="form-input" type="text" placeholder="Start Year" value={exp.startYear} onChange={(e) => handleNestedArrayChange(e, index, 'startYear', 'experience')} />
+        <input className="form-input" type="text" placeholder="End Month" value={exp.endMonth} onChange={(e) => handleNestedArrayChange(e, index, 'endMonth', 'experience')} />
+        <input className="form-input" type="text" placeholder="End Year" value={exp.endYear} onChange={(e) => handleNestedArrayChange(e, index, 'endYear', 'experience')} />
+        <textarea className="form-input" placeholder="Explain Briefly about your Experience and  Projects and languages used" value={exp.internships} onChange={(e) => handleNestedArrayChange(e, index, 'internships', 'experience')} />
+    </div>
+))}
+<button type="button" className="add-button" onClick={handleAddExperience}>Add Experience</button>
 
             <h2>Certificates</h2>
             {formData.certificates.map((certificate, index) => (
