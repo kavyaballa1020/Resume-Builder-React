@@ -29,7 +29,7 @@ const Resume = ({ resumeData }) => {
                 <div className="content">
                     <div className="left-column">
                         <section>
-                            <h3>Contact</h3>
+                        <h3><i className="fas fa-address-book"></i> Contact</h3>
                             {resumeData.contact ? (
                                 <>
                                     <p><i className="fas fa-phone-alt"></i> {resumeData.contact.phone}</p>
@@ -47,7 +47,7 @@ const Resume = ({ resumeData }) => {
                             )}
                         </section>
                         <section>
-                            <h3>Skills</h3>
+                        <h3><i className="fas fa-cogs"></i> Skills</h3>
                             <div className="two-column-list">
                                 {resumeData.skills ? resumeData.skills.map((skill, index) => (
                                     <div key={index} className="two-column-item">{skill}</div>
@@ -55,7 +55,7 @@ const Resume = ({ resumeData }) => {
                             </div>
                         </section>
                         <section>
-                            <h3>Certificates</h3>
+                        <h3><i className="fas fa-award"></i> Certificates</h3>
                             <ul>
                                 {resumeData.certificates ? resumeData.certificates.map((cert, index) => (
                                     <li key={index}>{cert}</li>
@@ -63,7 +63,7 @@ const Resume = ({ resumeData }) => {
                             </ul>
                         </section>
                         <section>
-                            <h3>Languages</h3>
+                        <h3><i className="fas fa-globe-americas"></i> Languages</h3>
                             <div className="two-column-list">
                                 {resumeData.languages ? resumeData.languages.map((lang, index) => (
                                     <div key={index} className="two-column-item">{lang}</div>
@@ -73,11 +73,11 @@ const Resume = ({ resumeData }) => {
                     </div>
                     <div className="right-column">
                         <section>
-                            <h3>Profile</h3>
+                        <h3><i className="fas fa-user"></i> Profile</h3>
                             <p>{resumeData.profile || 'No profile available.'}</p>
                         </section>
                         <section>
-                            <h3>Education</h3>
+                        <h3><i className="fas fa-graduation-cap"></i> Education</h3>
                             {resumeData.education ? (
                                 <div className="education-list">
                                     {resumeData.education.map((edu, index) => (
@@ -96,7 +96,7 @@ const Resume = ({ resumeData }) => {
                             )}
                         </section>
                         <section>
-                            <h3>Work Experience</h3>
+                        <h3><i className="fas fa-briefcase"></i> Work Experience</h3>
                             {resumeData.experience ? (
                                 <div className="experience-list">
                                     {resumeData.experience.map((job, index) => (
