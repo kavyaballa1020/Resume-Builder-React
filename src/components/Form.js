@@ -169,7 +169,8 @@ const Form = ({ setResumeData }) => {
         <input className="form-input" type="text" placeholder="Start Year" value={exp.startYear} onChange={(e) => handleNestedArrayChange(e, index, 'startYear', 'experience')} />
         <input className="form-input" type="text" placeholder="End Month" value={exp.endMonth} onChange={(e) => handleNestedArrayChange(e, index, 'endMonth', 'experience')} />
         <input className="form-input" type="text" placeholder="End Year" value={exp.endYear} onChange={(e) => handleNestedArrayChange(e, index, 'endYear', 'experience')} />
-        <textarea className="form-input" placeholder="Explain Briefly about your Experience and  Projects and languages used" value={exp.internships} onChange={(e) => handleNestedArrayChange(e, index, 'internships', 'experience')} />
+        <textarea className="form-input textarea" placeholder="Explain Briefly about your Experience and Projects and languages used" value={exp.internships} onChange={(e) => handleNestedArrayChange(e, index, 'internships', 'experience')} />
+
     </div>
 ))}
 <button type="button" className="add-button" onClick={handleAddExperience}>Add Experience</button>

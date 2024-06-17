@@ -25,7 +25,10 @@
 .nested-form-group {
     margin-bottom: 15px;
 }
-
+.form-input.textarea {
+    height: 150px; /* Adjust height as per your design */
+    resize: vertical; /* Allows vertical resizing */
+}
 .add-button {
     display: inline-block;
     padding: 10px 20px;

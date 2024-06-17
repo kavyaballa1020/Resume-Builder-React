@@ -56,7 +56,7 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3>Certificates</h3>
-                            <ul>{resumeData.certificates ? resumeData.certificates.map((cert, index) => 
+                            <ul>{resumeData.certificates ? resumeData.certificates.map((cert, index) =>
                                 (<li key={index}>{cert}</li>)) : <li>No certificates listed.</li>}
                             </ul>
                         </section>
@@ -77,41 +77,42 @@ const Resume = ({ resumeData }) => {
                         <section>
                             <h3>Education</h3>
                             {resumeData.education ? resumeData.education.map((edu, index) => (
-                                <div key={index}>
-                                    <p>{edu.degree}</p>
-                                    <p>{edu.institution}</p>
-                                    <p>{edu.year}</p>
+                                <div key={index} className="experience-item">
+                                    <div className="vertical-line"></div>
+                                    <div className="experience-details">
+                                        <h4>{edu.degree}</h4>
+                                        <p>{edu.institution}</p>
+                                        <p>{edu.year}</p>
+                                    </div>
+                                    <div className="vertical-line"></div>
                                 </div>
                             )) : <p>No education details available.</p>}
                         </section>
                         <section>
-    <h3>Work Experience</h3>
-    {resumeData.experience ? (
-        <div className="experience-list">
-            {resumeData.experience.map((job, index) => (
-                <div key={index} className="experience-item">
-                    <div className="vertical-line"></div>
-                    <div className="experience-details">
-                        <h4>{job.position}</h4>
-                        <p>Company : {job.company}</p>
-                        <p className="job-duration">Duration : {job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
-                        {job.internships && (
-                            <div>
-                                <p className='intern'>Description : {job.internships}</p>
-                            </div>
-                        )}
-                    </div>
-                    <div className="vertical-line"></div>
-                </div>
-            ))}
-        </div>
-    ) : (
-        <p>No work experience available.</p>
-    )}
-</section>
-
-
-
+                            <h3>Work Experience</h3>
+                            {resumeData.experience ? (
+                                <div className="experience-list">
+                                    {resumeData.experience.map((job, index) => (
+                                        <div key={index} className="experience-item">
+                                            <div className="vertical-line"></div>
+                                            <div className="experience-details">
+                                                <h4>{job.position}</h4>
+                                                <p>Company: {job.company}</p>
+                                                <p className="job-duration">Duration: {job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
+                                                {job.internships && (
+                                                    <div>
+                                                        <p className='intern'>Description: {job.internships}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className="vertical-line"></div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p>No work experience available.</p>
+                            )}
+                        </section>
                     </div>
                 </div>
             </div>
