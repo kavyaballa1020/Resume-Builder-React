@@ -48,11 +48,11 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3>Skills</h3>
-                            <ul>
+                            <div className="two-column-list">
                                 {resumeData.skills ? resumeData.skills.map((skill, index) => (
-                                    <li key={index}>{skill}</li>
-                                )) : <li>No skills listed.</li>}
-                            </ul>
+                                    <div key={index} className="two-column-item">{skill}</div>
+                                )) : <div className="two-column-item">No skills listed.</div>}
+                            </div>
                         </section>
                         <section>
                             <h3>Certificates</h3>
@@ -64,11 +64,11 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3>Languages</h3>
-                            <ul>
+                            <div className="two-column-list">
                                 {resumeData.languages ? resumeData.languages.map((lang, index) => (
-                                    <li key={index}>{lang}</li>
-                                )) : <li>No languages listed.</li>}
-                            </ul>
+                                    <div key={index} className="two-column-item">{lang}</div>
+                                )) : <div className="two-column-item">No languages listed.</div>}
+                            </div>
                         </section>
                     </div>
                     <div className="right-column">
