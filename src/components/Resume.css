@@ -84,7 +84,7 @@
 
 .left-column ul li,
 .right-column ul li {
-    background: #dbdbdb;
+    background: #e8e7e7;
     margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
@@ -135,30 +135,32 @@
     text-transform: capitalize;
 }
 .intern{
-    color: #515151;
-    font-style: normal;
+    color: #6f6f6f !important;
+    font-style: normal !important;
+    text-transform: capitalize !important;
 }
 .experience-details p {
     margin: 5px 0;
-    font-style: italic; /* Margin for job details */
-    color: #666;
-    text-transform: capitalize; /* Slightly lighter color for details */
+    font-style: italic !important; /* Margin for job details */
+    color: #202020;
+    font-size:16px;
+    text-transform:capitalize; /* Slightly lighter color for details */
 }
 
 .job-duration {
-    font-style: italic;
-    color: #888; /* Lighter color for job duration */
+    font-style: italic !important;
+    color: #a5a5a5; /* Lighter color for job duration */
     margin-top: 5px;
-    text-transform: capitalize; /* Margin top for spacing */
+    text-transform: capitalize !important; /* Margin top for spacing */
 }
 
 .experience-item:before {
     content: '';
     position: absolute;
     top: 0;
-    left: 8px; /* Adjust position of the vertical line */
+    left: 8px; 
     height: 100%;
-    width: 2px; /* Increase width of the vertical line */
+    width: 2px; 
     background-color: #989898; /* Accent color for vertical line */
 }
 

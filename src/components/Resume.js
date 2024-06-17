@@ -93,11 +93,11 @@ const Resume = ({ resumeData }) => {
                     <div className="vertical-line"></div>
                     <div className="experience-details">
                         <h4>{job.position}</h4>
-                        <p>{job.company}</p>
-                        <p className="job-duration">{job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
+                        <p>Company : {job.company}</p>
+                        <p className="job-duration">Duration : {job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
                         {job.internships && (
                             <div>
-                                <p className='intern'>{job.internships}</p>
+                                <p className='intern'>Description : {job.internships}</p>
                             </div>
                         )}
                     </div>
