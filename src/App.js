@@ -7,7 +7,6 @@ import './App.css';
 
 const App = () => {
     const [resumeData, setResumeData] = useState({});
-
     return (
         <Router>
             <Routes>
