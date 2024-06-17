@@ -44,6 +44,13 @@
     padding-left: 20px;
 }
 
+.right-column .job-duration {
+    font-style: italic;
+    color: #666; /* Adjust color as needed */
+    margin-top: 5px; /* Adjust spacing between company name and date */
+    text-decoration: none; /* Ensure no underline or default decoration */
+}
+
 .left-column section,
 .right-column section {
     margin-bottom: 20px;
@@ -89,6 +96,7 @@
     text-align: center;
     text-decoration: none;
 }
+
 .download-button:hover {
     background-color: #138496;
 }

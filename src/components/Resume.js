@@ -56,9 +56,9 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3>Certificates</h3>
-                                <ul>{resumeData.certificates ? resumeData.certificates.map((cert, index) => 
+                            <ul>{resumeData.certificates ? resumeData.certificates.map((cert, index) => 
                                 (<li key={index}>{cert}</li>)) : <li>No certificates listed.</li>}
-                                </ul>
+                            </ul>
                         </section>
                         <section>
                             <h3>Languages</h3>
@@ -68,7 +68,6 @@ const Resume = ({ resumeData }) => {
                                 )) : <li>No languages listed.</li>}
                             </ul>
                         </section>
-                       
                     </div>
                     <div className="right-column">
                         <section>
@@ -89,20 +88,14 @@ const Resume = ({ resumeData }) => {
                             <h3>Work Experience</h3>
                             {resumeData.experience ? resumeData.experience.map((job, index) => (
                                 <div key={index}>
-                                    <h4>{job.position}</h4>
-                                    <p>{job.company} | {job.years}</p>
-                                    {job.certificates && (
-                                        <ul>
-                                            {job.certificates.map((cert, certIndex) => (
-                                                <li key={certIndex}>{cert}</li>
-                                            ))}
-                                        </ul>
-                                    )}
+                                    <h4><em>{job.position}</em></h4>
+                                    <p><em>{job.company}</em></p>
+                                    <p className="job-duration">{job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
+                                    {/* Assuming job.responsibilities is an array */}
+                                    
                                 </div>
                             )) : <p>No work experience available.</p>}
                         </section>
-                        
-
                     </div>
                 </div>
             </div>
