@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
+import './Resume.css';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import './Resume.css';
 
 const Resume = ({ resumeData }) => {
     const resumeRef = useRef();
@@ -20,8 +20,8 @@ const Resume = ({ resumeData }) => {
     };
 
     return (
-        <div>
-            <div ref={resumeRef} className="resume-container">
+        <div className="resume-wrapper">
+            <div className="resume-container" ref={resumeRef}>
                 <div className="header">
                     <h1>{resumeData.name || 'Your Name'}</h1>
                     <h2>{resumeData.title || 'Your Title'}</h2>
@@ -56,8 +56,10 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3>Certificates</h3>
-                            <ul>{resumeData.certificates ? resumeData.certificates.map((cert, index) =>
-                                (<li key={index}>{cert}</li>)) : <li>No certificates listed.</li>}
+                            <ul>
+                                {resumeData.certificates ? resumeData.certificates.map((cert, index) => (
+                                    <li key={index}>{cert}</li>
+                                )) : <li>No certificates listed.</li>}
                             </ul>
                         </section>
                         <section>
@@ -76,17 +78,22 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3>Education</h3>
-                            {resumeData.education ? resumeData.education.map((edu, index) => (
-                                <div key={index} className="experience-item">
-                                    <div className="vertical-line"></div>
-                                    <div className="experience-details">
-                                        <h4>{edu.degree}</h4>
-                                        <p>{edu.institution}</p>
-                                        <p>{edu.year}</p>
-                                    </div>
-                                    <div className="vertical-line"></div>
+                            {resumeData.education ? (
+                                <div className="education-list">
+                                    {resumeData.education.map((edu, index) => (
+                                        <div key={index} className="education-item">
+                                            <div className="vertical-line"></div>
+                                            <div className="education-details">
+                                                <h4>{edu.degree}</h4>
+                                                <p>Institution : {edu.institution}</p>
+                                                <p>Duration : {edu.startYear} - {edu.endYear}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            )) : <p>No education details available.</p>}
+                            ) : (
+                                <p>No education details available.</p>
+                            )}
                         </section>
                         <section>
                             <h3>Work Experience</h3>
@@ -96,16 +103,13 @@ const Resume = ({ resumeData }) => {
                                         <div key={index} className="experience-item">
                                             <div className="vertical-line"></div>
                                             <div className="experience-details">
-                                                <h4>{job.position}</h4>
-                                                <p>Company: {job.company}</p>
-                                                <p className="job-duration">Duration: {job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
+                                                <h4 >{job.position}</h4>
+                                                <p >Company: {job.company}</p>
+                                                <p className='job-duration'>Duration: {job.startMonth} {job.startYear} - {job.endMonth} {job.endYear}</p>
                                                 {job.internships && (
-                                                    <div>
-                                                        <p className='intern'>Description: {job.internships}</p>
-                                                    </div>
+                                                    <p className="intern">Description: {job.internships}</p>
                                                 )}
                                             </div>
-                                            <div className="vertical-line"></div>
                                         </div>
                                     ))}
                                 </div>

@@ -20,16 +20,12 @@
 .header h1 {
     margin: 0;
     font-size: 2.5em;
-    text-transform: capitalize;
-
 }
 
 .header h2 {
     margin: 0;
     font-size: 1.5em;
     color: #666;
-    text-transform: capitalize;
-
 }
 
 .content {
@@ -39,7 +35,7 @@
 .left-column {
     width: 30%;
     padding-right: 20px;
-    background-color: #f2f2f2; /* light grey background */
+    background-color: #f2f2f2;
     padding: 20px;
     border-radius: 10px;
 }
@@ -47,13 +43,6 @@
 .right-column {
     width: 70%;
     padding-left: 20px;
-}
-
-.right-column .job-duration {
-    font-style: italic;
-    color: #666; 
-    margin-top: 5px; 
-    text-decoration: none; 
 }
 
 .left-column section,
@@ -72,8 +61,6 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
     color: rgb(99, 99, 103);
-
-
 }
 
 .left-column ul,
@@ -111,69 +98,81 @@
 .download-button:hover {
     background-color: #138496;
 }
-.experience-list {
-    margin-top: 20px; 
-    list-style: none; 
-    padding-left: 0; /* Reset left padding */
+
+.experience-list,
+.education-list {
+    margin-top: 20px;
+    list-style: none;
+    padding-left: 0;
 }
 
-.experience-item {
+.experience-item,
+.education-item {
     position: relative;
-    padding-bottom: 20px; /* Bottom padding for spacing between items */
-    margin-bottom: 20px; /* Margin between items */
-}
-.experience-item .internships {
-    max-height: 150px; /* Adjust max height as per your design */
-    overflow: auto; /* Enable vertical scrolling */
-    padding: 5px 10px; /* Optional: Adjust padding as needed */
-    border: 1px solid #ccc; /* Optional: Add border for clarity */
-    border-radius: 5px; /* Optional: Rounded corners */
-}
-.experience-details {
-    padding-left: 20px; /* Left padding for indentation */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.experience-details h4 {
-    margin-top: 0; /* Remove top margin for job title */
-    font-style: italic;
-    font-size: 1.2em; /* Adjust font size */
-    color: #333; 
-    text-transform: capitalize;
+
+.experience-details,
+.education-details {
+    padding-left: 20px;
 }
-.intern{
+
+.experience-details h4,
+.education-details h4 {
+    font-style: italic;
+    font-size: 1.2em;
+    color: #333;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.intern,
+.education-item p {
     color: #6f6f6f !important;
     font-style: normal !important;
     text-transform: capitalize !important;
 }
-.experience-details p {
+
+.experience-details p,
+.education-details p {
     margin: 5px 0;
-    font-style: italic !important; /* Margin for job details */
-    color: #202020;
-    font-size:16px;
-    text-transform:capitalize; /* Slightly lighter color for details */
-}
-
-.job-duration {
     font-style: italic !important;
-    color: #a5a5a5; /* Lighter color for job duration */
-    margin-top: 5px;
-    text-transform: capitalize !important; /* Margin top for spacing */
+    color: #202020;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.job-duration {
+    font-style: italic;
+    color: rgb(101, 101, 101) !important;
 }
 
-.experience-item:before {
+.education-details p {
+    font-style: italic !important;
+    color: #000000 ;
+    margin-top: 5px;
+    text-transform: capitalize !important;
+}
+
+.experience-item:before,
+.education-item:before {
     content: '';
     position: absolute;
     top: 0;
-    left: 8px; 
+    left: 8px;
     height: 100%;
-    width: 2px; 
-    background-color: #989898; /* Accent color for vertical line */
+    width: 2px;
+    background-color: #989898;
 }
 
-.right-column .experience-item {
-    padding-left: 30px; /* Increase padding for better alignment */
+.right-column .experience-item,
+.right-column .education-item {
+    padding-left: 30px;
 }
 
-.experience-item:last-child {
-    margin-bottom: 0; /* Remove bottom margin for the last item */
+.experience-item:last-child,
+.education-item:last-child {
+    margin-bottom: 0;
 }

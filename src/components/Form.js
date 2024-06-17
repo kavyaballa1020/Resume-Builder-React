@@ -110,7 +110,7 @@ const Form = ({ setResumeData }) => {
         }
         setFormData({ ...formData, [key]: updatedArray });
     };
-    
+ 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -151,14 +151,16 @@ const Form = ({ setResumeData }) => {
             <button type="button" className="add-button" onClick={addSkill}>Add Skill</button>
 
             <h2>Education</h2>
-            {formData.education.map((edu, index) => (
-                <div key={index} className="nested-form-group">
-                    <input className="form-input" type="text" placeholder="Degree" value={edu.degree} onChange={(e) => handleNestedArrayChange(e, index, 'degree', 'education')} required />
-                    <input className="form-input" type="text" placeholder="Institution" value={edu.institution} onChange={(e) => handleNestedArrayChange(e, index, 'institution', 'education')} required />
-                    <input className="form-input" type="text" placeholder="Year" value={edu.year} onChange={(e) => handleNestedArrayChange(e, index, 'year', 'education')} required />
-                </div>
-            ))}
-            <button type="button" className="add-button" onClick={addEducation}>Add Education</button>
+{formData.education.map((edu, index) => (
+    <div key={index} className="nested-form-group">
+        <input className="form-input" type="text" placeholder="Degree" value={edu.degree} onChange={(e) => handleNestedArrayChange(e, index, 'degree', 'education')} required />
+        <input className="form-input" type="text" placeholder="Institution" value={edu.institution} onChange={(e) => handleNestedArrayChange(e, index, 'institution', 'education')} required />
+        <input className="form-input" type="text" placeholder="Start Year" value={edu.startYear} onChange={(e) => handleNestedArrayChange(e, index, 'startYear', 'education')} required />
+        <input className="form-input" type="text" placeholder="End Year" value={edu.endYear} onChange={(e) => handleNestedArrayChange(e, index, 'endYear', 'education')} required />
+    </div>
+))}
+<button type="button" className="add-button" onClick={addEducation}>Add Education</button>
+
 
             <h2>Experience</h2>
 {formData.experience.map((exp, index) => (
