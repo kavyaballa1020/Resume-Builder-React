@@ -55,14 +55,10 @@ const Resume = ({ resumeData }) => {
                             </ul>
                         </section>
                         <section>
-                            <h3>Education</h3>
-                            {resumeData.education ? resumeData.education.map((edu, index) => (
-                                <div key={index}>
-                                    <p>{edu.degree}</p>
-                                    <p>{edu.institution}</p>
-                                    <p>{edu.year}</p>
-                                </div>
-                            )) : <p>No education details available.</p>}
+                            <h3>Certificates</h3>
+                                <ul>{resumeData.certificates ? resumeData.certificates.map((cert, index) => 
+                                (<li key={index}>{cert}</li>)) : <li>No certificates listed.</li>}
+                                </ul>
                         </section>
                         <section>
                             <h3>Languages</h3>
@@ -72,11 +68,22 @@ const Resume = ({ resumeData }) => {
                                 )) : <li>No languages listed.</li>}
                             </ul>
                         </section>
+                       
                     </div>
                     <div className="right-column">
                         <section>
                             <h3>Profile</h3>
                             <p>{resumeData.profile || 'No profile available.'}</p>
+                        </section>
+                        <section>
+                            <h3>Education</h3>
+                            {resumeData.education ? resumeData.education.map((edu, index) => (
+                                <div key={index}>
+                                    <p>{edu.degree}</p>
+                                    <p>{edu.institution}</p>
+                                    <p>{edu.year}</p>
+                                </div>
+                            )) : <p>No education details available.</p>}
                         </section>
                         <section>
                             <h3>Work Experience</h3>
@@ -95,6 +102,7 @@ const Resume = ({ resumeData }) => {
                             )) : <p>No work experience available.</p>}
                         </section>
                         
+
                     </div>
                 </div>
             </div>

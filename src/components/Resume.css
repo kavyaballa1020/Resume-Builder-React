@@ -52,6 +52,7 @@
 .left-column h3,
 .right-column h3 {
     font-size: 1.2em;
+    text-transform: uppercase;
     border-bottom: 2px dotted #5a5858;
     padding-bottom: 5px;
     margin-bottom: 10px;

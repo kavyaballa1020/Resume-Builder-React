@@ -22,6 +22,7 @@ const Form = ({ setResumeData }) => {
         experience: [
             { position: '', company: '', years: '', responsibilities: [''] }
         ],
+        certificates: [''],
         languages: ['']
     });
 
@@ -90,6 +91,10 @@ const Form = ({ setResumeData }) => {
             experience: [...formData.experience, { position: '', company: '', years: '', responsibilities: [''] }]
         });
     };
+    const addCertificate = () => {
+        setFormData({ ...formData, certificates: [...formData.certificates, ''] });
+    };
+    
     const addLanguage = () => {
         setFormData({ ...formData, languages: [...formData.languages, ''] });
     };
@@ -162,6 +167,12 @@ const Form = ({ setResumeData }) => {
             <button type="button" className="add-button" onClick={addExperience}>Add Experience</button>
                 </div>
             ))}
+            <h2>Certificates</h2>
+{formData.certificates.map((certificate, index) => (
+    <input key={index} className="form-input" type="text" placeholder="Certificate" value={certificate} onChange={(e) => handleArrayChange(e, index, 'certificates')} />
+))}
+<button type="button" className="add-button" onClick={addCertificate}>Add Certificate</button>
+
             <h2>Languages</h2>
             {formData.languages.map((lang, index) => (
                 <input key={index} className="form-input" type="text" placeholder="Language" value={lang} onChange={(e) => handleArrayChange(e, index, 'languages')} />
