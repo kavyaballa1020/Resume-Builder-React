@@ -14,17 +14,22 @@
     border-bottom: 2px solid #333;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    text-transform: capitalize;
 }
 
 .header h1 {
     margin: 0;
     font-size: 2.5em;
+    text-transform: capitalize;
+
 }
 
 .header h2 {
     margin: 0;
     font-size: 1.5em;
     color: #666;
+    text-transform: capitalize;
+
 }
 
 .content {
@@ -67,6 +72,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
     color: rgb(99, 99, 103);
+    
 
 }
 
@@ -125,18 +131,22 @@
     margin-top: 0; /* Remove top margin for job title */
     font-style: italic;
     font-size: 1.2em; /* Adjust font size */
-    color: #333; /* Dark color for job title */
+    color: #333; 
+    text-transform: capitalize;
 }
 
 .experience-details p {
-    margin: 5px 0; /* Margin for job details */
-    color: #666; /* Slightly lighter color for details */
+    margin: 5px 0;
+    font-style: italic; /* Margin for job details */
+    color: #666;
+    text-transform: capitalize; /* Slightly lighter color for details */
 }
 
 .job-duration {
     font-style: italic;
     color: #888; /* Lighter color for job duration */
-    margin-top: 5px; /* Margin top for spacing */
+    margin-top: 5px;
+    text-transform: capitalize; /* Margin top for spacing */
 }
 
 .experience-item:before {
