@@ -26,8 +26,8 @@
     margin-bottom: 15px;
 }
 .form-input.textarea {
-    height: 150px; /* Adjust height as per your design */
-    resize: vertical; /* Allows vertical resizing */
+    height: 150px; 
+    resize: vertical; 
 }
 .add-button {
     display: inline-block;
