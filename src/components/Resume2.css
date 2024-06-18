@@ -1,9 +1,8 @@
-/* Resume2.css */
-
+/* Existing styles */
 .resume2 {
     display: flex;
     flex-direction: column;
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
 .resume-header {
@@ -50,7 +49,8 @@
     font-size: 18px;
     border-bottom: 1px solid #3a88bc;
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .about-me p,
@@ -93,7 +93,8 @@
     font-size: 24px;
     border-bottom: 1px solid #2c3e50;
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .experience-item,
@@ -101,13 +102,38 @@
 .award-item {
     margin-bottom: 20px;
 }
-h3{
+
+h3 {
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 900px !important;
+    font-size: 40px;
+    font-weight: 400;
+    padding-bottom: 20px; /* Ensure font weight is 400 */
 }
+
 .experience-details h4,
 .education-details h4 {
     margin: 5px 0;
     font-size: 18px;
+}
+
+.personal-info {
+    margin-bottom: 20px;
+}
+
+.personal-info h3 {
+    font-size: 26px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.personal-info p {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.personal-info p i {
+    margin-right: 20px; /* Adjust this value to set the gap */
 }
