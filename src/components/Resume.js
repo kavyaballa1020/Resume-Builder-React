@@ -47,9 +47,11 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3><i className="fas fa-cogs"></i> Skills</h3>
-                            <ul>
+                            <ul className="two-column-list">
                                 {resumeData.skills?.map((skill, index) => (
-                                    <li key={index}>{skill}</li>
+                                    <li className="two-column-item" key={index}>
+                                        {skill}
+                                    </li>
                                 ))}
                             </ul>
                         </section>
@@ -63,9 +65,11 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3><i className="fas fa-globe-americas"></i> Languages</h3>
-                            <ul>
+                            <ul className="two-column-list">
                                 {resumeData.languages?.map((lang, index) => (
-                                    <li key={index}>{lang}</li>
+                                    <li className="two-column-item" key={index}>
+                                        {lang}
+                                    </li>
                                 ))}
                             </ul>
                         </section>
@@ -98,7 +102,7 @@ const Resume = ({ resumeData }) => {
                                             <h4>{exp.position}</h4>
                                             <p>{exp.company}</p>
                                             <p>{exp.startMonth} {exp.startYear} - {exp.endMonth} {exp.endYear}</p>
-                                            <p className='Experience'>{exp.internships}</p>
+                                            <p>{exp.internships}</p>
                                         </div>
                                     </li>
                                 ))}

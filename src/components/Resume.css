@@ -115,13 +115,12 @@
 }
 .two-column-item {
     background: #dad9d9;
-    border-radius: 20px;
+    border-radius: 50px;
     color: rgb(0, 0, 0);
     padding: 10px;
     width: 50%;
     box-sizing: border-box;
     margin-bottom: 5px;
-    border-radius: 10px;
     text-transform: capitalize;
 }
 
@@ -206,7 +205,7 @@
     top: 0;
     left: 8px;
     height: 100%;
-    width: 2px;
+    width: 2.5px;
     background-color: #989898;
 }
 
