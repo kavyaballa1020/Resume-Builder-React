@@ -5,12 +5,12 @@ import Resume from './components/Resume';
 import Form2 from './components/Form2';
 import Resume2 from './components/Resume2';
 import Preloader from './components/Preloader';
-import Home from './components/Home'; // Ensure correct path to Home component
-import useFormHandlers from './components/Handler'; // Import the custom hook
+import Home from './components/Home'; 
+import useFormHandlers from './components/Handler'; 
 import './App.css';
 
 const App = () => {
-    const [loading, setLoading] = useState(true); // State to manage loading state
+    const [loading, setLoading] = useState(true); 
     const {
         formData,
         handleChange,
@@ -26,12 +26,9 @@ const App = () => {
     } = useFormHandlers();
 
     useEffect(() => {
-        // Simulate loading delay for demonstration purposes
         const timeout = setTimeout(() => {
-            setLoading(false); // Set loading to false after 2 seconds (adjust as needed)
-        }, 2000); // 2000 milliseconds (2 seconds)
-        
-        // Cleanup function to clear timeout if component unmounts
+            setLoading(false); 
+        }, 2000); 
         return () => clearTimeout(timeout);
     }, []);
 
@@ -45,10 +42,8 @@ const App = () => {
             <div className="app-container">
                 <div className="main-content">
                     <Routes>
-                        {/* Route for the home page */}
                         <Route path="/" element={<Home />} />
 
-                        {/* Route for the first resume */}
                         <Route path="/resume/1" element={
                             <div className="form-and-resume">
                                 <div className="form-wrapper">
@@ -72,7 +67,6 @@ const App = () => {
                             </div>
                         } />
 
-                        {/* Route for the second resume */}
                         <Route path="/resume/2" element={
                             <div className="form-and-resume">
                                 <div className="form-wrapper">
