@@ -16,7 +16,7 @@ const Form = ({
 }) => {
     return (
         <form onSubmit={handleSubmit} className="form-container">
-            <h2>Personal Information</h2>
+            <h2><i className="fas fa-user"></i> Personal Info</h2>
             <input
                 className="form-input"
                 type="text"
@@ -36,7 +36,7 @@ const Form = ({
                 required
             />
 
-            <h2><i className="fas fa-address-book"></i> Contact Information</h2>
+            <h2><i className="fas fa-address-book"></i> Contact Info</h2>
             <input
                 className="form-input"
                 type="text"

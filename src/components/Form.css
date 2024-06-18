@@ -35,7 +35,7 @@
 
 /* Form Inputs */
 .form-input {
-    width: 100%;
+    width: 90%;
     padding: 20px 25px;
     margin: 15px 0;
     border: none;
@@ -43,7 +43,7 @@
     background-color: #f5f5f5;
     color: #333;
     font-size: 18px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.393);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -67,11 +67,12 @@ textarea.form-input {
 h2 {
     margin-top: 50px;
     margin-bottom: 30px;
-    font-size: 36px;
+    font-size: 26px;
     color: #333;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    font-style: italic;
+    letter-spacing: 1.5px;
     position: relative;
     padding-bottom: 20px;
 }
