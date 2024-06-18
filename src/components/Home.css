@@ -1,11 +1,12 @@
 /* General Styles */
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
 }
-/* Tooltip *//* Tooltip */
+
+/* Tooltip */
 .tooltip {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
@@ -14,11 +15,11 @@ body {
     border-radius: 4px;
     font-size: 0.8rem;
     z-index: 1;
-    top: -0.1rem; /* Position the tooltip below the pictures */
+    top: 6rem; 
     left: 50%;
-    transform: translateX(-50%); /* Center the tooltip horizontally */
+    transform: translateX(-50%); 
 }
-/* Home Page Container */
+
 .home-page {
     display: flex;
     flex-direction: column;
@@ -30,7 +31,23 @@ body {
     position: relative;
 }
 
-/* Pictures Section */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
 .pictures {
     display: flex;
     justify-content: center;
@@ -43,7 +60,7 @@ body {
     margin: 0 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
@@ -52,7 +69,6 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* Zoomed Picture */
 .zoomed-picture {
     position: fixed;
     top: 0;
@@ -64,6 +80,16 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .zoomed-picture img {
@@ -72,13 +98,12 @@ body {
     object-fit: contain;
 }
 
-/* Buttons Section */
 .buttons {
     display: flex;
     justify-content: center;
 }
 
-.buttons button {
+.primary-btn {
     margin: 0 1rem;
     padding: 1rem 2rem;
     font-size: 1.2rem;
@@ -92,13 +117,12 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.buttons button:hover {
+.primary-btn:hover {
     background-color: #ff4d4d;
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .pictures {
         flex-direction: column;

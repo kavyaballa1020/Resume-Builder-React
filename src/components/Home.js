@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Resume1Image from './Resume1.jpg';
-import './Home.css'
+import './Home.css';
 
 const Home = () => {
     const [zoomedPicture, setZoomedPicture] = useState(null);
@@ -16,31 +16,36 @@ const Home = () => {
         setZoomedPicture(null);
     };
 
-    const toggleTooltip = (event) => {
-        setShowTooltip(!showTooltip);
+    const toggleTooltip = (event, show) => {
+        setShowTooltip(show);
 
         // Position the tooltip below the hovered picture
         if (tooltipRef.current) {
             tooltipRef.current.style.left = `${event.currentTarget.offsetLeft + event.currentTarget.offsetWidth / 2}px`;
+            tooltipRef.current.style.top = `${event.currentTarget.offsetTop + event.currentTarget.offsetHeight}px`;
         }
     };
 
     return (
         <div className="home-page">
+            <div className="header">
+                <h1>Welcome to My Resume Builder</h1>
+                <p>Explore my Beautiful Proffessional Resumes</p>
+            </div>
             <div className="pictures">
                 <img
                     src={Resume1Image}
                     alt="First Picture"
                     onClick={() => handlePictureClick(Resume1Image)}
-                    onMouseEnter={toggleTooltip}
-                    onMouseLeave={toggleTooltip}
+                    onMouseEnter={(e) => toggleTooltip(e, true)}
+                    onMouseLeave={(e) => toggleTooltip(e, false)}
                 />
                 <img
                     src="/path/to/second-pic.jpg"
                     alt="Second Picture"
                     onClick={() => handlePictureClick('/path/to/second-pic.jpg')}
-                    onMouseEnter={toggleTooltip}
-                    onMouseLeave={toggleTooltip}
+                    onMouseEnter={(e) => toggleTooltip(e, true)}
+                    onMouseLeave={(e) => toggleTooltip(e, false)}
                 />
                 {showTooltip && (
                     <div className="tooltip" ref={tooltipRef}>
@@ -50,10 +55,10 @@ const Home = () => {
             </div>
             <div className="buttons">
                 <Link to="/resume/1">
-                    <button>First Resume</button>
+                    <button className="primary-btn">First Resume</button>
                 </Link>
                 <Link to="/resume/2">
-                    <button>Second Resume</button>
+                    <button className="primary-btn">Second Resume</button>
                 </Link>
             </div>
             {zoomedPicture && (
