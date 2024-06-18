@@ -3,16 +3,23 @@
   justify-content: space-between;
   padding: 20px;
 }
+.main-content{
+  width: 100%;
+}
+.form-and-resume {
+  display: flex;
+  width: 100%; /* Ensure the flex container takes full width */
+}
 
 .form-wrapper {
-  width: 30%;
-  padding-right: 20px;
+  width: 30%; /* Set form wrapper width to 40% */
+  padding-right: 20px; /* Optional: Add some padding */
   height: calc(100vh - 40px); /* Adjust height as needed */
   overflow-y: auto;
 }
 
 .resume-wrapper {
-  width: 80%;
+  width: 70%; /* Set resume wrapper width to 60% */
   height: calc(100vh - 40px); /* Adjust height as needed */
   overflow-y: auto;
 }
