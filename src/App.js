@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
 import Resume from './components/Resume';
+import Preloader from './components/Preloader'; // Import Preloader
 import './App.css';
 
 const App = () => {
+    const [loading, setLoading] = useState(true); // Loading state
     const [formData, setFormData] = useState({
         name: '',
         title: '',
@@ -22,6 +24,15 @@ const App = () => {
         certificates: [],
         languages: [],
     });
+
+    useEffect(() => {
+        // Simulate an API call or any other async operation
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 2000); // Adjust the delay as necessary
+
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -134,6 +145,8 @@ const App = () => {
             experience: [...formData.experience, { position: '', company: '', startMonth: '', startYear: '', endMonth: '', endYear: '', internships: '' }],
         });
     };
+
+    // Function to handle deletion of array items
     const handleDelete = (index, field) => {
         const newArray = [...formData[field]];
         newArray.splice(index, 1);
@@ -143,7 +156,6 @@ const App = () => {
         });
     };
 
-
     // Function to handle form submission (currently just logs the form data)
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -152,24 +164,29 @@ const App = () => {
 
     return (
         <div className="app-container">
-            <div className="form-wrapper">
-                <Form
-                    formData={formData}
-                    handleChange={handleChange}
-                    handleArrayChange={handleArrayChange}
-                    addSkill={addSkill}
-                    addEducation={addEducation}
-                    addCertificate={addCertificate}
-                    addLanguage={addLanguage}
-                    handleAddExperience={handleAddExperience}
-                    handleNestedArrayChange={handleNestedArrayChange}
-                    handleSubmit={handleSubmit}
-                    handleDelete={handleDelete}
-                />
-            </div>
-            <div className="resume-wrapper">
-                <Resume resumeData={formData} />
-            </div>
+            {loading && <Preloader />}
+            {!loading && (
+                <>
+                    <div className="form-wrapper">
+                        <Form
+                            formData={formData}
+                            handleChange={handleChange}
+                            handleArrayChange={handleArrayChange}
+                            addSkill={addSkill}
+                            addEducation={addEducation}
+                            addCertificate={addCertificate}
+                            addLanguage={addLanguage}
+                            handleAddExperience={handleAddExperience}
+                            handleNestedArrayChange={handleNestedArrayChange}
+                            handleSubmit={handleSubmit}
+                            handleDelete={handleDelete}
+                        />
+                    </div>
+                    <div className="resume-wrapper">
+                        <Resume resumeData={formData} />
+                    </div>
+                </>
+            )}
         </div>
     );
 };
