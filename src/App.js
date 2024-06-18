@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
 import Resume from './components/Resume';
-import Preloader from './components/Preloader'; // Import Preloader
+import Preloader from './components/Preloader'; 
 import './App.css';
 
 const App = () => {
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true); 
     const [formData, setFormData] = useState({
         name: '',
         title: '',
@@ -16,8 +16,8 @@ const App = () => {
             github: '',
             address: '',
         },
-        profile: '', // This will hold the selected profile type ('fullStack', 'software', etc.)
-        profileText: '', // This will hold the corresponding profile text
+        profile: '', 
+        profileText: '', 
         skills: [],
         education: [],
         experience: [],
@@ -26,10 +26,10 @@ const App = () => {
     });
 
     useEffect(() => {
-        // Simulate an API call or any other async operation
+        
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 2000); // Adjust the delay as necessary
+        }, 2000); 
 
         return () => clearTimeout(timer);
     }, []);
@@ -37,7 +37,7 @@ const App = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // Handle profile selection separately
+       
         if (name === 'profile') {
             let profileText = '';
             switch (value) {
@@ -60,13 +60,12 @@ const App = () => {
                     profileText = '';
             }
 
-            // Update formData with selected profile type and corresponding text
+           
             setFormData({ ...formData, profile: value, profileText: profileText });
         } else {
-            // Handle other input fields, including nested fields
+            
             const keys = name.split('.');
             if (keys.length > 1) {
-                // Handle nested fields
                 setFormData(prevState => ({
                     ...prevState,
                     [keys[0]]: {
@@ -75,13 +74,11 @@ const App = () => {
                     }
                 }));
             } else {
-                // Handle regular fields
                 setFormData({ ...formData, [name]: value });
             }
         }
     };
 
-    // Function to handle changes in array fields
     const handleArrayChange = (e, index, field) => {
         const newValue = e.target.value;
         const newArray = [...formData[field]];
@@ -92,7 +89,6 @@ const App = () => {
         });
     };
 
-    // Function to handle changes in nested array fields
     const handleNestedArrayChange = (e, index, field, parentField) => {
         const newValue = e.target.value;
         const newArray = [...formData[parentField]];
@@ -106,7 +102,6 @@ const App = () => {
         });
     };
 
-    // Function to add a new skill
     const addSkill = () => {
         setFormData({
             ...formData,
@@ -114,7 +109,6 @@ const App = () => {
         });
     };
 
-    // Function to add a new education entry
     const addEducation = () => {
         setFormData({
             ...formData,
@@ -122,7 +116,6 @@ const App = () => {
         });
     };
 
-    // Function to add a new certificate
     const addCertificate = () => {
         setFormData({
             ...formData,
@@ -130,7 +123,6 @@ const App = () => {
         });
     };
 
-    // Function to add a new language
     const addLanguage = () => {
         setFormData({
             ...formData,
@@ -138,7 +130,6 @@ const App = () => {
         });
     };
 
-    // Function to add a new experience entry
     const handleAddExperience = () => {
         setFormData({
             ...formData,
@@ -146,7 +137,6 @@ const App = () => {
         });
     };
 
-    // Function to handle deletion of array items
     const handleDelete = (index, field) => {
         const newArray = [...formData[field]];
         newArray.splice(index, 1);
@@ -156,7 +146,6 @@ const App = () => {
         });
     };
 
-    // Function to handle form submission (currently just logs the form data)
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form submitted', formData);
