@@ -100,9 +100,11 @@
 .left-column ul li
  {
     margin: 5px 0;
-    padding: 10px;
-    background: #e2e2e2;
-    border-radius: 5px;
+    padding-left: 15px;
+    padding-bottom: 35px;
+    background: #dad9d9;
+    border-radius: 12px;
+    height:20px;
 }
 
 .left-column p i {
@@ -114,15 +116,15 @@
     flex-wrap: wrap;
 }
 .two-column-item {
-    background: #dad9d9;
     border-radius: 50px;
     color: rgb(0, 0, 0);
-    padding: 10px;
+    padding: 5px;
     width: 50%;
     box-sizing: border-box;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
+
 
 .download-button {
     display: block;
