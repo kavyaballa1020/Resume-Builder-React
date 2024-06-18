@@ -21,6 +21,7 @@ const useFormHandlers = () => {
         experience: [],
         certificates: [],
         languages: [],
+        photo:'',
     });
 
     useEffect(() => {
@@ -82,7 +83,19 @@ const useFormHandlers = () => {
             [field]: newArray,
         });
     };
-
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setFormData(prevState => ({
+                ...prevState,
+                photo: reader.result,
+            }));
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
     const handleNestedArrayChange = (e, index, field, parentField) => {
         const newValue = e.target.value;
         const newArray = [...formData[parentField]];
@@ -157,7 +170,8 @@ const useFormHandlers = () => {
         addLanguage,
         handleAddExperience,
         handleDelete,
-        handleSubmit
+        handleSubmit,
+        handleFileChange
     };
 };
 
