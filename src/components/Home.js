@@ -63,6 +63,9 @@ const Home = () => {
             </div>
             {zoomedPicture && (
                 <div className="zoomed-picture" onClick={closeZoomedPicture}>
+                    <span className="close-btn" onClick={closeZoomedPicture}>
+                        &times;
+                    </span>
                     <img src={zoomedPicture} alt="Zoomed Picture" />
                 </div>
             )}
