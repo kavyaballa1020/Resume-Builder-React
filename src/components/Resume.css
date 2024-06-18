@@ -8,6 +8,51 @@
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
+.resume-container {
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.header h2 {
+    font-size: 1.5em;
+    margin: 5px 0;
+    color: #666;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-column, .right-column {
+    width: 48%;
+}
+
+section {
+    margin: 20px 0;
+}
+
+section h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+section ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+section ul li {
+    margin-bottom: 5px;
+}
 
 .header {
     text-align: center;
