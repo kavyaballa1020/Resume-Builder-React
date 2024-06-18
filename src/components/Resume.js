@@ -28,12 +28,25 @@ const Resume = ({ resumeData }) => {
                 <div className="content">
                     <div className="left-column">
                         <section>
-                            <h3>Contact</h3>
-                            <p>📞 {resumeData.contact?.phone}</p>
-                            <p>📧 {resumeData.contact?.email}</p>
-                            {resumeData.contact?.linkedin && <p>🔗 <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>}
-                            {resumeData.contact?.github && <p>💻 <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>}
-                            <p>🏠 {resumeData.contact?.address}</p>
+<<<<<<<<<<<<<<  ✨ Codeium Command 🌟 >>>>>>>>>>>>>>>>
+                             <h3>Contact</h3>
++                            <p>
++                                <i className="fa fa-phone" aria-hidden="true"></i> {resumeData.contact?.phone}
++                            </p>
++                            <p>
++                                <i className="fa fa-envelope" aria-hidden="true"></i> {resumeData.contact?.email}
++                            </p>
++                            {resumeData.contact?.linkedin && <p> <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin" aria-hidden="true"></i> LinkedIn Profile</a></p>}
++                            {resumeData.contact?.github && <p> <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer"><i className="fa fa-github" aria-hidden="true"></i> GitHub Profile</a></p>}
++                            <p>
++                                <i className="fa fa-map-marker" aria-hidden="true"></i> {resumeData.contact?.address}
++                            </p>
+-                            <p> {resumeData.contact?.phone}</p>
+-                            <p> {resumeData.contact?.email}</p>
+-                            {resumeData.contact?.linkedin && <p> <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>}
+-                            {resumeData.contact?.github && <p> <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>}
+-                            <p> {resumeData.contact?.address}</p>
+<<<<<<<  2ec6abc3-c6d8-49a7-9515-0b60fa4bf750  >>>>>>>
                         </section>
                         <section>
                             <h3>Skills</h3>
