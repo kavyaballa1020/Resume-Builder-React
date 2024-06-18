@@ -1,0 +1,205 @@
+.form-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    border-radius: 20px 20px 0 0;
+}
+
+.form-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    border-radius: 0 0 20px 20px;
+}
+
+.form-input {
+    width: 90%;
+    padding: 20px 25px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 18px;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.393);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 10px rgba(81, 129, 184, 0.5);
+    transform: translateY(-3px);
+}
+
+.form-input:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 150px;
+}
+
+h2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 26px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 20px;
+    
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    border-radius: 2.5px;
+}
+
+.add-button,
+.submit-button {
+    padding: 18px 36px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.add-button:hover,
+.submit-button:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.delete-button {
+    padding: 15px 25px;
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.delete-button:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.form-group .form-input {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.nested-form-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.nested-form-group .form-input {
+    width: 100%;
+    margin: 10px 1%;
+}
+
+.nested-form-group .delete-button {
+    margin: 15px;
+    align-self: center;
+}
+
+select.form-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" fill="%23333"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px;
+    }
+
+    .form-input,
+    .add-button,
+    .submit-button,
+    .delete-button {
+        font-size: 16px;
+    }
+    
+    .nested-form-group .form-input {
+        width: 100%;
+    }
+}
