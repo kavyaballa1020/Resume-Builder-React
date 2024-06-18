@@ -14,6 +14,17 @@
     z-index: 9999; /* Make sure it covers other elements */
 }
 
+.brand-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 34px;
+    font-weight: 900px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #444443;
+}
+
 .spinner {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
@@ -33,17 +44,19 @@
     margin-top: 20px;
 }
 
-.welcome-text h2 {
-    font-size: 24px;
+.welcome-text h1 {
+    font-size: 34px;
+    text-transform: uppercase;
     color: #333;
     margin-bottom: 10px;
+    font-style: italic;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.welcome-text p {
-    font-size: 16px;
+.welcome-text h3 {
+    font-size: 20px;
     color: #555;
     display: flex;
     align-items: center;
