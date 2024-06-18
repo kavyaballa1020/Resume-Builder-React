@@ -1,5 +1,4 @@
 // Resume2.js
-
 import React from 'react';
 import './Resume2.css';
 
