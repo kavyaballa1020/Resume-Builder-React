@@ -5,12 +5,14 @@
 }
 
 .form-wrapper {
-  width: 48%;
+  width: 30%;
+  padding-right: 20px;
+  height: calc(100vh - 40px); /* Adjust height as needed */
+  overflow-y: auto;
 }
 
 .resume-wrapper {
-  width: 48%;
-  border: 1px solid #ddd;
-  padding: 20px;
-  background-color: #f9f9f9;
+  width: 70%;
+  height: calc(100vh - 40px); /* Adjust height as needed */
+  overflow-y: auto;
 }
