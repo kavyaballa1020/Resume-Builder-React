@@ -22,7 +22,8 @@ const App = () => {
         addLanguage,
         handleAddExperience,
         handleDelete,
-        handleSubmit
+        handleSubmit,
+        handleFileChange // Add this line
     } = useFormHandlers();
 
     useEffect(() => {
@@ -82,6 +83,7 @@ const App = () => {
                                         handleNestedArrayChange={handleNestedArrayChange}
                                         handleSubmit={handleSubmit}
                                         handleDelete={handleDelete}
+                                        handleFileChange={handleFileChange} // Add this line
                                     />
                                 </div>
                                 <div className="resume-wrapper">
