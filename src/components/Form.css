@@ -9,6 +9,9 @@
     font-family: 'Roboto', sans-serif;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .form-container::before {
@@ -75,6 +78,7 @@ h2 {
     letter-spacing: 1.5px;
     position: relative;
     padding-bottom: 20px;
+    
 }
 
 h2::after {
@@ -128,6 +132,7 @@ h2::after {
 /* Form Groups */
 .form-group {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-bottom: 25px;
 }
@@ -138,15 +143,24 @@ h2::after {
 }
 
 .nested-form-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     margin: 40px 0;
-    padding: 40px;
+    padding: 20px;
     background-color: #f5f5f5;
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .nested-form-group .form-input {
-    margin: 15px 0;
+    width: 100%;
+    margin: 10px 1%;
+}
+
+.nested-form-group .delete-button {
+    margin: 15px;
+    align-self: center;
 }
 
 /* Select Dropdown */
@@ -191,5 +205,9 @@ select.form-input {
     .submit-button,
     .delete-button {
         font-size: 16px;
+    }
+    
+    .nested-form-group .form-input {
+        width: 100%;
     }
 }
