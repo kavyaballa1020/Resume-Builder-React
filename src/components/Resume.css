@@ -8,8 +8,9 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 1.6;
 }
-.resume-container {
-    padding: 20px;
+.contact-address {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .header {
@@ -34,24 +35,6 @@
 
 .left-column, .right-column {
     width: 48%;
-}
-
-section {
-    margin: 20px 0;
-}
-
-section h3 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-section ul {
-    padding: 0;
-    list-style-type: none;
-}
-
-section ul li {
-    margin-bottom: 5px;
 }
 
 .header {
@@ -114,8 +97,8 @@ section ul li {
     padding: 0;
 }
 
-.left-column ul li,
-.right-column ul li {
+.left-column ul li
+ {
     margin: 5px 0;
     padding: 10px;
     background: #e2e2e2;
@@ -130,16 +113,12 @@ section ul li {
     display: flex;
     flex-wrap: wrap;
 }
-
-
-
 .two-column-item {
     background: #dad9d9;
     border-radius: 20px;
     color: rgb(0, 0, 0);
     padding: 10px;
     width: 50%;
-    padding: 5px;
     box-sizing: border-box;
     margin-bottom: 5px;
     border-radius: 10px;
@@ -185,7 +164,6 @@ section ul li {
 
 .experience-details h4,
 .education-details h4 {
-    font-style: italic;
     font-size: 1.2em;
     color: #333;
     text-transform: capitalize;
@@ -195,8 +173,8 @@ section ul li {
 
 .intern,
 .education-item p {
-    color: #6f6f6f !important;
-    font-style: normal !important;
+    color: #686767 !important;
+    font-style: italic;
     text-transform: capitalize !important;
 }
 
@@ -204,7 +182,7 @@ section ul li {
 .education-details p {
     margin: 5px 0;
     font-style: italic !important;
-    color: #202020;
+    color: #686767 !important;
     font-size: 16px;
     text-transform: capitalize;
 }
