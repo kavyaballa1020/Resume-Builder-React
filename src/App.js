@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
 import Resume from './components/Resume';
-import Preloader from './components/Preloader'; 
+import Preloader from './components/Preloader';
+import {
+    handleChange,
+    handleArrayChange,
+    handleNestedArrayChange,
+    addSkill,
+    addEducation,
+    addCertificate,
+    addLanguage,
+    handleAddExperience,
+    handleDelete,
+    handleSubmit
+} from './components/Handler';
 import './App.css';
 
 const App = () => {
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
     const [formData, setFormData] = useState({
         name: '',
         title: '',
@@ -16,8 +28,8 @@ const App = () => {
             github: '',
             address: '',
         },
-        profile: '', 
-        profileText: '', 
+        profile: '',
+        profileText: '',
         skills: [],
         education: [],
         experience: [],
@@ -26,130 +38,12 @@ const App = () => {
     });
 
     useEffect(() => {
-        
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 3000); 
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, []);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-       
-        if (name === 'profile') {
-            let profileText = '';
-            switch (value) {
-                case 'fullStack':
-                    profileText = "I am an experienced full-stack developer with expertise in frontend (HTML/CSS/JavaScript, React) and backend (Node.js, Express) technologies. Skilled in building scalable applications, optimizing performance, and implementing best practices. Passionate about problem-solving and creating seamless user experiences.";
-                    break;
-                case 'software':
-                    profileText = "I am a software developer adept in designing and implementing robust applications. Proficient in multiple programming languages and frameworks, with a strong focus on code quality, scalability, and innovation. Committed to delivering solutions that meet both technical and business requirements effectively.";
-                    break;
-                case 'mernStack':
-                    profileText = "I am a MERN stack developer proficient in MongoDB, Express.js, React, and Node.js. Experienced in building full-stack applications, integrating APIs, and optimizing performance. Skilled in frontend and backend development, with a focus on creating responsive, user-friendly interfaces and scalable solutions.";
-                    break;
-                case 'appDeveloper':
-                    profileText = "I am an app developer skilled in designing and deploying native and hybrid applications for iOS and Android platforms. Proficient in UI/UX design, mobile development frameworks, and implementing robust backend solutions. Dedicated to creating intuitive user experiences and optimizing app performance for diverse user bases.";
-                    break;
-                case 'frontEnd':
-                    profileText = "I am a dedicated front-end web developer proficient in HTML, CSS, and JavaScript frameworks such as React and Vue.js. Experienced in creating responsive, user-friendly interfaces and optimizing web performance. Passionate about crafting visually appealing websites that enhance user experience and achieve business objectives.";
-                    break;
-                default:
-                    profileText = '';
-            }
-
-           
-            setFormData({ ...formData, profile: value, profileText: profileText });
-        } else {
-            
-            const keys = name.split('.');
-            if (keys.length > 1) {
-                setFormData(prevState => ({
-                    ...prevState,
-                    [keys[0]]: {
-                        ...prevState[keys[0]],
-                        [keys[1]]: value
-                    }
-                }));
-            } else {
-                setFormData({ ...formData, [name]: value });
-            }
-        }
-    };
-
-    const handleArrayChange = (e, index, field) => {
-        const newValue = e.target.value;
-        const newArray = [...formData[field]];
-        newArray[index] = newValue;
-        setFormData({
-            ...formData,
-            [field]: newArray,
-        });
-    };
-
-    const handleNestedArrayChange = (e, index, field, parentField) => {
-        const newValue = e.target.value;
-        const newArray = [...formData[parentField]];
-        newArray[index] = {
-            ...newArray[index],
-            [field]: newValue,
-        };
-        setFormData({
-            ...formData,
-            [parentField]: newArray,
-        });
-    };
-
-    const addSkill = () => {
-        setFormData({
-            ...formData,
-            skills: [...formData.skills, ''],
-        });
-    };
-
-    const addEducation = () => {
-        setFormData({
-            ...formData,
-            education: [...formData.education, { degree: '', institution: '', startYear: '', endYear: '' }],
-        });
-    };
-
-    const addCertificate = () => {
-        setFormData({
-            ...formData,
-            certificates: [...formData.certificates, ''],
-        });
-    };
-
-    const addLanguage = () => {
-        setFormData({
-            ...formData,
-            languages: [...formData.languages, ''],
-        });
-    };
-
-    const handleAddExperience = () => {
-        setFormData({
-            ...formData,
-            experience: [...formData.experience, { position: '', company: '', startMonth: '', startYear: '', endMonth: '', endYear: '', internships: '' }],
-        });
-    };
-
-    const handleDelete = (index, field) => {
-        const newArray = [...formData[field]];
-        newArray.splice(index, 1);
-        setFormData({
-            ...formData,
-            [field]: newArray,
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted', formData);
-    };
 
     return (
         <div className="app-container">
@@ -159,16 +53,16 @@ const App = () => {
                     <div className="form-wrapper">
                         <Form
                             formData={formData}
-                            handleChange={handleChange}
-                            handleArrayChange={handleArrayChange}
-                            addSkill={addSkill}
-                            addEducation={addEducation}
-                            addCertificate={addCertificate}
-                            addLanguage={addLanguage}
-                            handleAddExperience={handleAddExperience}
-                            handleNestedArrayChange={handleNestedArrayChange}
-                            handleSubmit={handleSubmit}
-                            handleDelete={handleDelete}
+                            handleChange={(e) => handleChange(e, formData, setFormData)}
+                            handleArrayChange={(e, index, field) => handleArrayChange(e, index, field, formData, setFormData)}
+                            addSkill={() => addSkill(formData, setFormData)}
+                            addEducation={() => addEducation(formData, setFormData)}
+                            addCertificate={() => addCertificate(formData, setFormData)}
+                            addLanguage={() => addLanguage(formData, setFormData)}
+                            handleAddExperience={() => handleAddExperience(formData, setFormData)}
+                            handleNestedArrayChange={(e, index, field, parentField) => handleNestedArrayChange(e, index, field, parentField, formData, setFormData)}
+                            handleSubmit={(e) => handleSubmit(e, formData)}
+                            handleDelete={(index, field) => handleDelete(index, field, formData, setFormData)}
                         />
                     </div>
                     <div className="resume-wrapper">
