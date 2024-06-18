@@ -22,10 +22,11 @@
     margin: 0;
 }
 
-.header h2 {
+.headerh1{
     font-size: 1.5em;
     margin: 5px 0;
     color: #666;
+    text-transform: uppercase;
 }
 
 .content {
@@ -43,21 +44,6 @@
     padding-bottom: 20px;
     margin-bottom: 20px;
     text-transform: capitalize;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-.header h2 {
-    margin: 0;
-    font-size: 1.5em;
-    color: #666;
-}
-
-.content {
-    display: flex;
 }
 
 .left-column {

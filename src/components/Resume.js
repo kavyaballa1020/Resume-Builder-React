@@ -23,7 +23,7 @@ const Resume = ({ resumeData }) => {
             <div id="resume" className="resume-container" ref={resumeRef}>
                 <div className="header">
                     <h1>{resumeData.name || 'Your Name'}</h1>
-                    <h2>{resumeData.title || 'Your Title'}</h2>
+                    <h1 className='headerh1'>{resumeData.title || 'Your Title'}</h1>
                 </div>
                 <div className="content">
                     <div className="left-column">
