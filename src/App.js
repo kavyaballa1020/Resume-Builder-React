@@ -134,6 +134,15 @@ const App = () => {
             experience: [...formData.experience, { position: '', company: '', startMonth: '', startYear: '', endMonth: '', endYear: '', internships: '' }],
         });
     };
+    const handleDelete = (index, field) => {
+        const newArray = [...formData[field]];
+        newArray.splice(index, 1);
+        setFormData({
+            ...formData,
+            [field]: newArray,
+        });
+    };
+
 
     // Function to handle form submission (currently just logs the form data)
     const handleSubmit = (e) => {
@@ -155,6 +164,7 @@ const App = () => {
                     handleAddExperience={handleAddExperience}
                     handleNestedArrayChange={handleNestedArrayChange}
                     handleSubmit={handleSubmit}
+                    handleDelete={handleDelete}
                 />
             </div>
             <div className="resume-wrapper">

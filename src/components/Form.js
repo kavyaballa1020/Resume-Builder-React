@@ -11,7 +11,8 @@ const Form = ({
     addLanguage,
     handleAddExperience,
     handleNestedArrayChange,
-    handleSubmit
+    handleSubmit,
+    handleDelete
 }) => {
     return (
         <form onSubmit={handleSubmit} className="form-container">
@@ -102,20 +103,24 @@ const Form = ({
                 onChange={handleChange}
             />
 
-            <h2>Skills</h2>
-            {formData.skills.map((skill, index) => (
-                <input
-                    key={index}
-                    className="form-input"
-                    type="text"
-                    placeholder="Skill"
-                    value={skill}
-                    onChange={(e) => handleArrayChange(e, index, 'skills')}
-                />
-            ))}
-            <button type="button" className="add-button" onClick={addSkill}>
-                Add Skill
-            </button>
+<h2>Skills</h2>
+{formData.skills.map((skill, index) => (
+    <div key={index} className="form-group">
+        <input
+            className="form-input"
+            type="text"
+            placeholder="Skill"
+            value={skill}
+            onChange={(e) => handleArrayChange(e, index, 'skills')}
+        />
+        <button type="button" className="delete-button" onClick={() => handleDelete(index, 'skills')}>
+            Delete
+        </button>
+    </div>
+))}
+<button type="button" className="add-button" onClick={addSkill}>
+    Add Skill
+</button>
 
             <h2>Education</h2>
             {formData.education.map((edu, index) => (
@@ -152,12 +157,15 @@ const Form = ({
                         onChange={(e) => handleNestedArrayChange(e, index, 'endYear', 'education')}
                         required
                     />
+                    <button type="button" className="delete-button" onClick={() => handleDelete(index, 'education')}>
+                        Delete
+                    </button>
                 </div>
             ))}
             <button type="button" className="add-button" onClick={addEducation}>
                 Add Education
             </button>
-
+            
             <h2>Experience</h2>
             {formData.experience.map((exp, index) => (
                 <div key={index} className="nested-form-group">
@@ -209,6 +217,9 @@ const Form = ({
                         value={exp.internships}
                         onChange={(e) => handleNestedArrayChange(e, index, 'internships', 'experience')}
                     />
+                    <button type="button" className="delete-button" onClick={() => handleDelete(index, 'experience')}>
+                        Delete
+                    </button>
                 </div>
             ))}
             <button type="button" className="add-button" onClick={handleAddExperience}>
@@ -217,14 +228,18 @@ const Form = ({
 
             <h2>Certificates</h2>
             {formData.certificates.map((certificate, index) => (
-                <input
-                    key={index}
-                    className="form-input"
-                    type="text"
-                    placeholder="Certificate"
-                    value={certificate}
-                    onChange={(e) => handleArrayChange(e, index, 'certificates')}
-                />
+                <div key={index} className="form-group">
+                    <input
+                        className="form-input"
+                        type="text"
+                        placeholder="Certificate"
+                        value={certificate}
+                        onChange={(e) => handleArrayChange(e, index, 'certificates')}
+                    />
+                    <button type="button" className="delete-button" onClick={() => handleDelete(index, 'certificates')}>
+                        Delete
+                    </button>
+                </div>
             ))}
             <button type="button" className="add-button" onClick={addCertificate}>
                 Add Certificate
@@ -232,14 +247,18 @@ const Form = ({
 
             <h2>Languages</h2>
             {formData.languages.map((lang, index) => (
-                <input
-                    key={index}
-                    className="form-input"
-                    type="text"
-                    placeholder="Language"
-                    value={lang}
-                    onChange={(e) => handleArrayChange(e, index, 'languages')}
-                />
+                <div key={index} className="form-group">
+                    <input
+                        className="form-input"
+                        type="text"
+                        placeholder="Language"
+                        value={lang}
+                        onChange={(e) => handleArrayChange(e, index, 'languages')}
+                    />
+                    <button type="button" className="delete-button" onClick={() => handleDelete(index, 'languages')}>
+                        Delete
+                    </button>
+                </div>
             ))}
             <button type="button" className="add-button" onClick={addLanguage}>
                 Add Language
