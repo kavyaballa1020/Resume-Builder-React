@@ -264,9 +264,7 @@ const Form = ({
                 Add Language
             </button>
 
-            <button type="submit" className="submit-button">
-                Generate Resume
-            </button>
+           
         </form>
     );
 };
