@@ -1,7 +1,7 @@
 import React from 'react';
-import './Form.css';
+import './Form2.css';
 
-const Form = ({
+const Form2 = ({
     formData,
     handleChange,
     handleArrayChange,
@@ -12,7 +12,8 @@ const Form = ({
     handleAddExperience,
     handleNestedArrayChange,
     handleSubmit,
-    handleDelete
+    handleDelete,
+    handleFileChange
 }) => {
     return (
         <form onSubmit={handleSubmit} className="form-container">
@@ -78,6 +79,14 @@ const Form = ({
                 placeholder=" Address"
                 value={formData.contact.address}
                 onChange={handleChange}
+            />
+ <h2><i className="fas fa-image"></i> Profile Photo</h2>
+            <input
+                className="form-input"
+                type="file"
+                name="photo"
+                accept="image/*"
+                onChange={handleFileChange}
             />
 
             <h2><i className="fas fa-user-tie"></i> Profile</h2>
@@ -271,4 +280,4 @@ const Form = ({
     );
 };
 
-export default Form;
+export default Form2;
