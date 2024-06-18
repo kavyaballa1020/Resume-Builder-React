@@ -27,29 +27,26 @@ const Resume = ({ resumeData }) => {
                 </div>
                 <div className="content">
                     <div className="left-column">
+                    <section>
+                    <h3><i className="fas fa-address-book"></i> Contact</h3>
+                        {resumeData.contact ? (
+                            <>
+                                <p><i className="fas fa-phone-alt"></i> {resumeData.contact.phone}</p>
+                                <p><i className="fas fa-envelope"></i> {resumeData.contact.email}</p>
+                                {resumeData.contact.linkedin && (
+                                    <p><i className="fab fa-linkedin"></i> <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+                                )}
+                                {resumeData.contact.github && (
+                                    <p><i className="fab fa-github"></i> <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+                                )}
+                                <p><i className="fas fa-map-marker-alt"></i> {resumeData.contact.address}</p>
+                            </>
+                        ) : (
+                            <p>No contact information available.</p>
+                        )}
+                    </section>
                         <section>
-<<<<<<<<<<<<<<  ✨ Codeium Command 🌟 >>>>>>>>>>>>>>>>
-                             <h3>Contact</h3>
-+                            <p>
-+                                <i className="fa fa-phone" aria-hidden="true"></i> {resumeData.contact?.phone}
-+                            </p>
-+                            <p>
-+                                <i className="fa fa-envelope" aria-hidden="true"></i> {resumeData.contact?.email}
-+                            </p>
-+                            {resumeData.contact?.linkedin && <p> <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin" aria-hidden="true"></i> LinkedIn Profile</a></p>}
-+                            {resumeData.contact?.github && <p> <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer"><i className="fa fa-github" aria-hidden="true"></i> GitHub Profile</a></p>}
-+                            <p>
-+                                <i className="fa fa-map-marker" aria-hidden="true"></i> {resumeData.contact?.address}
-+                            </p>
--                            <p> {resumeData.contact?.phone}</p>
--                            <p> {resumeData.contact?.email}</p>
--                            {resumeData.contact?.linkedin && <p> <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>}
--                            {resumeData.contact?.github && <p> <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>}
--                            <p> {resumeData.contact?.address}</p>
-<<<<<<<  2ec6abc3-c6d8-49a7-9515-0b60fa4bf750  >>>>>>>
-                        </section>
-                        <section>
-                            <h3>Skills</h3>
+                        <h3><i className="fas fa-cogs"></i> Skills</h3>
                             <ul>
                                 {resumeData.skills?.map((skill, index) => (
                                     <li key={index}>{skill}</li>
@@ -57,7 +54,7 @@ const Resume = ({ resumeData }) => {
                             </ul>
                         </section>
                         <section>
-                            <h3>Certificates</h3>
+                        <h3><i className="fas fa-award"></i> Certificates</h3>
                             <ul>
                                 {resumeData.certificates?.map((cert, index) => (
                                     <li key={index}>{cert}</li>
@@ -65,7 +62,7 @@ const Resume = ({ resumeData }) => {
                             </ul>
                         </section>
                         <section>
-                            <h3>Languages</h3>
+                        <h3><i className="fas fa-globe-americas"></i> Languages</h3>
                             <ul>
                                 {resumeData.languages?.map((lang, index) => (
                                     <li key={index}>{lang}</li>
@@ -75,11 +72,11 @@ const Resume = ({ resumeData }) => {
                     </div>
                     <div className="right-column">
                         <section>
-                            <h3>Profile</h3>
+                        <h3><i className="fas fa-user"></i> Profile</h3>
                             <p>{resumeData.profileText || 'No profile available.'}</p>
                         </section>
                         <section>
-                            <h3>Education</h3>
+                        <h3><i className="fas fa-graduation-cap"></i> Education</h3>
                             <ul>
                                 {resumeData.education?.map((edu, index) => (
                                     <li key={index}>
@@ -91,7 +88,7 @@ const Resume = ({ resumeData }) => {
                             </ul>
                         </section>
                         <section>
-                            <h3>Experience</h3>
+                        <h3><i className="fas fa-briefcase"></i> Work Experience</h3>
                             <ul>
                                 {resumeData.experience?.map((exp, index) => (
                                     <li key={index}>

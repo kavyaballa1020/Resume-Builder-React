@@ -12,7 +12,7 @@
 }
 
 .resume-wrapper {
-  width: 70%;
+  width: 80%;
   height: calc(100vh - 40px); /* Adjust height as needed */
   overflow-y: auto;
 }
