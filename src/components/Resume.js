@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './Resume.css';
 
 const Resume = ({ resumeData }) => {
@@ -20,6 +21,13 @@ const Resume = ({ resumeData }) => {
 
     return (
         <div>
+             <div className="button-container">
+                <Link to="/">
+                    <button className="home-button">
+                        <i className="fas fa-arrow-left" style={{marginRight: "10px"}}></i> Home 
+                    </button>
+                </Link>
+            </div>
             <div id="resume" className="resume-container" ref={resumeRef}>
                 <div className="header">
                     <h1>{resumeData.name || 'Your Name'}</h1>
@@ -111,6 +119,7 @@ const Resume = ({ resumeData }) => {
                     </div>
                 </div>
             </div>
+           
             <div className="download-button-container">
                 <button className="download-button" onClick={handleDownload}>
                     <i className="fas fa-download"></i> Download Resume
