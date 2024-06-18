@@ -1,129 +1,194 @@
-/* Form.css */
+/* Form Container */
 .form-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
 }
 
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    border-radius: 20px 20px 0 0;
+}
+
+.form-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    border-radius: 0 0 20px 20px;
+}
+
+/* Form Inputs */
 .form-input {
-    margin: 10px 0;
-    padding: 12px;
-    width: calc(100% - 24px);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    width: 100%;
+    padding: 20px 25px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 10px rgba(81, 129, 184, 0.5);
+    transform: translateY(-3px);
+}
+
+.form-input:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
 }
 
 textarea.form-input {
     resize: vertical;
-    min-height: 100px;
+    min-height: 150px;
 }
 
-.add-button {
-    margin-top: 10px;
-    padding: 12px 20px;
-    background: linear-gradient(to top,grey,rgb(78, 77, 77),rgb(31, 31, 31));
-    background-color: #353536;
-    color: white;
+/* Headings */
+h2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    border-radius: 2.5px;
+}
+
+/* Buttons */
+.add-button,
+.submit-button {
+    padding: 18px 36px;
+    background: linear-gradient(to right, #5181b8, #365e8a);
+    color: #fff;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.add-button:hover, .submit-button:hover {
-    background-color: #5b5b5b;
+.add-button:hover,
+.submit-button:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .delete-button {
-    margin-left: 10px;
-    padding: 10px;
-    background-color: #dc3545;
-    color: white;
+    padding: 15px 25px;
+    background-color: #d32f2f;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .delete-button:hover {
-    background-color: #c82333;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
+/* Form Groups */
 .form-group {
     display: flex;
     align-items: center;
+    margin-bottom: 25px;
 }
 
 .form-group .form-input {
     flex: 1;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .nested-form-group {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin: 40px 0;
+    padding: 40px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .nested-form-group .form-input {
-    margin: 10px 0;
-    width: calc(100% - 20px);
+    margin: 15px 0;
 }
 
-h2 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 24px;
-    color: #464646;
-    letter-spacing: 2px;
-    font-style: italic;
+/* Select Dropdown */
+select.form-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" fill="%23333"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
 }
 
-textarea {
-    font-family: Arial, sans-serif;
-}
-/* Form.css */
-
-/* Define scrollbar styles */
+/* Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px; /* Width of vertical scrollbar */
-    height: 10px; /* Height of horizontal scrollbar */
+    width: 12px;
+    height: 12px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color of the track */
+    background-color: #f5f5f5;
+    border-radius: 6px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar handle */
-    border-radius: 5px; /* Rounded corners of the handle */
+    background-color: #bbb;
+    border-radius: 6px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker color when hovering over scrollbar handle */
+    background-color: #999;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .form-container {
-        padding: 15px;
+        padding: 30px;
     }
-    
-    .form-input, textarea {
-        padding: 10px;
-    }
-    
-    .add-button, .submit-button, .delete-button {
-        padding: 10px 15px;
-        font-size: 14px;
+
+    .form-input,
+    .add-button,
+    .submit-button,
+    .delete-button {
+        font-size: 16px;
     }
 }

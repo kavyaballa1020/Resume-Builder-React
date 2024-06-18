@@ -36,7 +36,7 @@ const Form = ({
                 required
             />
 
-            <h2>Contact Information</h2>
+            <h2><i className="fas fa-address-book"></i> Contact Information</h2>
             <input
                 className="form-input"
                 type="text"
@@ -80,7 +80,7 @@ const Form = ({
                 onChange={handleChange}
             />
 
-            <h2>Profile</h2>
+            <h2><i className="fas fa-user-tie"></i> Profile</h2>
             <select
                 className="form-input"
                 name="profile"
@@ -103,7 +103,9 @@ const Form = ({
                 onChange={handleChange}
             />
 
-<h2>Skills</h2>
+<h2>
+    <i className="fas fa-cogs"></i> Skills
+</h2>
 {formData.skills.map((skill, index) => (
     <div key={index} className="form-group">
         <input
@@ -122,7 +124,7 @@ const Form = ({
     Add Skill
 </button>
 
-            <h2>Education</h2>
+            <h2><i className="fas fa-graduation-cap"></i> Education</h2>
             {formData.education.map((edu, index) => (
                 <div key={index} className="nested-form-group">
                     <input
@@ -166,7 +168,7 @@ const Form = ({
                 Add Education
             </button>
             
-            <h2>Experience</h2>
+            <h2><i className="fas fa-briefcase"></i> Experience</h2>
             {formData.experience.map((exp, index) => (
                 <div key={index} className="nested-form-group">
                     <input
@@ -226,7 +228,7 @@ const Form = ({
                 Add Experience
             </button>
 
-            <h2>Certificates</h2>
+            <h2><i className="fas fa-award"></i> Certificates</h2>
             {formData.certificates.map((certificate, index) => (
                 <div key={index} className="form-group">
                     <input
@@ -245,7 +247,7 @@ const Form = ({
                 Add Certificate
             </button>
 
-            <h2>Languages</h2>
+            <h2><i className="fas fa-globe-americas"></i> Languages</h2>
             {formData.languages.map((lang, index) => (
                 <div key={index} className="form-group">
                     <input
