@@ -1,4 +1,3 @@
-/* Form Container */
 .form-container {
     max-width: 800px;
     margin: auto;
@@ -36,7 +35,6 @@
     border-radius: 0 0 20px 20px;
 }
 
-/* Form Inputs */
 .form-input {
     width: 90%;
     padding: 20px 25px;
@@ -66,7 +64,6 @@ textarea.form-input {
     min-height: 150px;
 }
 
-/* Headings */
 h2 {
     margin-top: 50px;
     margin-bottom: 30px;
@@ -92,7 +89,6 @@ h2::after {
     border-radius: 2.5px;
 }
 
-/* Buttons */
 .add-button,
 .submit-button {
     padding: 18px 36px;
@@ -129,7 +125,6 @@ h2::after {
     transform: translateY(-5px);
 }
 
-/* Form Groups */
 .form-group {
     display: flex;
     justify-content: center;
@@ -163,7 +158,6 @@ h2::after {
     align-self: center;
 }
 
-/* Select Dropdown */
 select.form-input {
     appearance: none;
     -webkit-appearance: none;
@@ -174,7 +168,6 @@ select.form-input {
     padding-right: 50px;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -194,7 +187,6 @@ select.form-input {
     background-color: #999;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
     .form-container {
         padding: 30px;
