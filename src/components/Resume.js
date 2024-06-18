@@ -112,7 +112,9 @@ const Resume = ({ resumeData }) => {
                 </div>
             </div>
             <div className="download-button-container">
-                <button className="download-button" onClick={handleDownload}>Download Resume</button>
+                <button className="download-button" onClick={handleDownload}>
+                    <i className="fas fa-download"></i> Download Resume
+                </button>
             </div>
         </div>
     );

@@ -6,7 +6,7 @@
     background-color: #f8f9fa;
     border: 1px solid #ced4da;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-input {
@@ -23,9 +23,10 @@ textarea.form-input {
     min-height: 100px;
 }
 
-.add-button, .submit-button {
+.add-button {
     margin-top: 10px;
     padding: 12px 20px;
+    background: linear-gradient(to top,grey,rgb(78, 77, 77),rgb(31, 31, 31));
     background-color: #353536;
     color: white;
     border: none;

@@ -131,12 +131,13 @@
     width: 200px;
     margin: 20px auto;
     padding: 15px;
-    background: linear-gradient(to top,black,grey);
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 15px;
     cursor: pointer;
     text-align: center;
+    font-size: medium;
     text-decoration: none;
 }
 
