@@ -1,19 +1,40 @@
-// Resume2.js
-import React from 'react';
+import React, { useRef } from 'react';
 import './Resume2.css';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const Resume2 = ({ resumeData }) => {
-    const { name, title, contact, profileText, skills, education, experience, languages, certificates } = resumeData;
+    const { name, title, contact, photo, profileText, skills, education, experience, languages, certificates } = resumeData;
+    const resumeRef = useRef();
+
+    const handleDownload = () => {
+        const input = resumeRef.current;
+        // Hide the download button before taking the screenshot
+        const downloadButton = document.querySelector('.download-button-container');
+        downloadButton.style.display = 'none';
+
+        html2canvas(input, { scale: 2 }).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save('resume.pdf');
+            
+            // Show the download button again after the screenshot is taken
+            downloadButton.style.display = 'block';
+        });
+    };
 
     return (
-        <div className="resume2">
+        <div className="resume2" ref={resumeRef}>
             <div className="resume-header">
                 <div className="profile-image">
-                    <img src="your-profile-image-url" alt="Profile" />
+                    {photo && <img src={photo} alt="Profile" />}
                 </div>
                 <div className="header-text">
                     <h1>{name}</h1>
-                    <h2>{title}</h2>
+                    <h1>{title}</h1>
                 </div>
             </div>
             <div className="resume-body">
@@ -35,11 +56,11 @@ const Resume2 = ({ resumeData }) => {
                     </section>
                     <section className="personal-info">
                         <h3>Personal Info</h3>
-                        <p>{contact.address}</p>
-                        <p>{contact.email}</p>
-                        <p>{contact.phone}</p>
-                        <p>{contact.linkedin}</p>
-                        <p>{contact.github}</p>
+                        <p><i className="fas fa-map-marker-alt"></i> {contact.address}</p>
+                        <p><i className="fas fa-envelope"></i> {contact.email}</p>
+                        <p><i className="fas fa-phone-alt"></i> {contact.phone}</p>
+                        <p><i className="fab fa-linkedin"></i> {contact.linkedin}</p>
+                        <p><i className="fab fa-github"></i> {contact.github}</p>
                     </section>
                     <section className="languages">
                         <h3>Languages</h3>
@@ -87,6 +108,11 @@ const Resume2 = ({ resumeData }) => {
                         ))}
                     </section>
                 </div>
+            </div>
+            <div className="download-button-container">
+                <button className="download-button" onClick={handleDownload}>
+                    <i className="fas fa-download"></i> Download Resume
+                </button>
             </div>
         </div>
     );
