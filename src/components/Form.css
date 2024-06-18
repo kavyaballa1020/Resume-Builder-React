@@ -1,35 +1,128 @@
+/* Form.css */
 .form-container {
-    display: flex;
-    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-input {
     margin: 10px 0;
-    padding: 10px;
+    padding: 12px;
+    width: calc(100% - 24px);
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
 }
 
 .add-button, .submit-button {
     margin-top: 10px;
+    padding: 12px 20px;
+    background-color: #353536;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-button:hover, .submit-button:hover {
+    background-color: #5b5b5b;
+}
+
+.delete-button {
+    margin-left: 10px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #dc3545;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
-.add-button:hover, .submit-button:hover {
-    background-color: #0056b3;
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .form-input {
+    flex: 1;
+    margin-right: 10px;
 }
 
 .nested-form-group {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .nested-form-group .form-input {
-    margin: 5px 0;
+    margin: 10px 0;
+    width: calc(100% - 20px);
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #464646;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+
+textarea {
+    font-family: Arial, sans-serif;
+}
+/* Form.css */
+
+/* Define scrollbar styles */
+::-webkit-scrollbar {
+    width: 10px; /* Width of vertical scrollbar */
+    height: 10px; /* Height of horizontal scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+    border-radius: 5px; /* Rounded corners of the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color when hovering over scrollbar handle */
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+    
+    .form-input, textarea {
+        padding: 10px;
+    }
+    
+    .add-button, .submit-button, .delete-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
 }
