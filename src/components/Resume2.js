@@ -120,11 +120,13 @@ const Resume2 = ({ resumeData }) => {
         </div>
     ))}
 </section>
-                     <section className="awards">
+                
+                
+                  <section className="awards">
     <h3>Awards</h3>
     {certificates.map((cert, index) => (
         <div key={index} className="award-item">
-            <span key={index}>{cert}</span>
+            <h6 key={index}>{cert}</h6>
         </div>
     ))}
 </section>
