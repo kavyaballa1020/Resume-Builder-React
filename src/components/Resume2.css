@@ -46,7 +46,7 @@
 }
 
 .sidebar {
-    width: 50%;
+    width: 55%;
     background-color: #15293c;
     color: white;
     padding: 20px;
@@ -97,7 +97,7 @@
 h3 {
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 30px !important;
+    font-size: 27px !important;
     font-weight: 100 !important;
     padding-bottom: 20px;
     margin-top: 0; 
