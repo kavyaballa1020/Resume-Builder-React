@@ -160,6 +160,14 @@ const Form2 = ({
                         required
                     />
                     <input
+    className="form-input"
+    type="text"
+    placeholder="Location"
+    value={edu.location}  // Update to include location field
+    onChange={(e) => handleNestedArrayChange(e, index, 'location', 'education')}
+/>
+
+                    <input
                         className="form-input"
                         type="text"
                         placeholder="Start Year"
@@ -201,6 +209,14 @@ const Form2 = ({
                         value={exp.company}
                         onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')}
                     />
+                    <input
+    className="form-input"
+    type="text"
+    placeholder="Location"
+    value={exp.location}  // Update to include location field
+    onChange={(e) => handleNestedArrayChange(e, index, 'location', 'experience')}
+/>
+
                     <input
                         className="form-input"
                         type="text"
