@@ -72,22 +72,7 @@ const useFormHandlers = () => {
         }
     };
 
-    const handleArrayChange = (e, index, field, subField = null) => {
-        const newValue = e.target.value;
-        const newArray = [...formData[field]];
-        if (subField) {
-            newArray[index] = {
-                ...newArray[index],
-                [subField]: newValue,
-            };
-        } else {
-            newArray[index] = newValue;
-        }
-        setFormData({
-            ...formData,
-            [field]: newArray,
-        });
-    };
+   
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -119,17 +104,27 @@ const useFormHandlers = () => {
     const addSkill = () => {
         setFormData({
             ...formData,
-            skills: [...formData.skills, { name: '', percentage: 0 }],
+            skills: [...formData.skills, ''],  // Initialize with an empty string
         });
     };
+    
+    const handleArrayChange = (e, index, field, subField = null) => {
+        const newValue = e.target.value;
+        const newArray = [...formData[field]];
+        newArray[index] = newValue;  // Update the value directly if it's an array of strings
+    
+        setFormData({
+            ...formData,
+            [field]: newArray,
+        });
+    };
+    
+    
 
     const addEducation = () => {
         setFormData({
             ...formData,
-            education: [
-                ...formData.education,
-                { degree: '', institution: '', branch: '', cgpa: '', cgpaType: 'percentage', startYear: '', endYear: '', location: '' }
-            ],
+            education: [...formData.education, { degree: '', institution: '', startYear: '', endYear: '' }],
         });
     };
 
@@ -143,17 +138,14 @@ const useFormHandlers = () => {
     const addLanguage = () => {
         setFormData({
             ...formData,
-            languages: [...formData.languages, { name: '', percentage: 0 }],
+            languages: [...formData.languages, ''],  // Initialize with an empty string
         });
     };
 
     const handleAddExperience = () => {
         setFormData({
             ...formData,
-            experience: [
-                ...formData.experience,
-                { position: '', company: '', location: '', startMonth: '', startYear: '', endMonth: '', endYear: '', internships: '' }
-            ],
+            experience: [...formData.experience, { position: '', company: '', startMonth: '', startYear: '', endMonth: '', endYear: '', internships: '' }],
         });
     };
 
