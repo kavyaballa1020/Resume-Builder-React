@@ -69,8 +69,8 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 100px; /* Adjust as needed */
-    height: auto;
+    width: 200px;
+    height: 200px;
     border-radius: 50%; /* Optional: if you want a circular image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
