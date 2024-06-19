@@ -39,11 +39,11 @@ const Resume2 = ({ resumeData }) => {
                 <div className="resume-body">
                     <div className="sidebar">
                         <section className="about-me">
-                            <h3>About Me</h3>
+                            <h3><i className="fas fa-user-circle"></i> About Me</h3>
                             <p>{profileText}</p>
                         </section>
                         <section className="personal-skills">
-                            <h3>Skills</h3>
+                            <h3><i className="fas fa-cogs"></i> Skills</h3>
                             {skills.map((skill, index) => (
                                 <div key={index} className="skill">
                                     <span>{skill.name}</span>
@@ -54,7 +54,7 @@ const Resume2 = ({ resumeData }) => {
                             ))}
                         </section>
                         <section className="personal-info">
-                            <h3>Personal Info</h3>
+                            <h3><i className="fas fa-user"></i> Personal Info</h3>
                             <p><i className="fas fa-map-marker-alt"></i> {contact.address}</p>
                             <p><i className="fas fa-envelope"></i> {contact.email}</p>
                             <p><i className="fas fa-phone-alt"></i> {contact.phone}</p>
@@ -62,7 +62,7 @@ const Resume2 = ({ resumeData }) => {
                             <p><i className="fab fa-github"></i> {contact.github}</p>
                         </section>
                         <section className="languages">
-                            <h3>Languages</h3>
+                            <h3><i className="fas fa-language"></i> Languages</h3>
                             {languages.map((language, index) => (
                                 <div key={index} className="language">
                                     <span>{language.name}</span>
@@ -75,7 +75,7 @@ const Resume2 = ({ resumeData }) => {
                     </div>
                     <div className="main-content">
                     <section className="Work-experience">
-    <h3>Work Experience</h3>
+    <h3><i className="fas fa-briefcase"></i> Work Experience</h3>
     {experience.map((exp, index) => (
         <div key={index} className="Experience-item">
             <div className="Experience-duration">
@@ -100,7 +100,7 @@ const Resume2 = ({ resumeData }) => {
 
 
 <section className="Education">
-    <h3>Education</h3>
+    <h3><i className="fas fa-graduation-cap"></i> Education</h3>
     {education.map((edu, index) => (
         <div key={index} className="Education-item">
             <div className="Education-duration">
@@ -123,7 +123,7 @@ const Resume2 = ({ resumeData }) => {
                 
                 
                   <section className="awards">
-    <h3>Awards</h3>
+    <h3><i className="fas fa-award"></i> Awards</h3>
     {certificates.map((cert, index) => (
         <div key={index} className="award-item">
             <h6 key={index}>{cert}</h6>
