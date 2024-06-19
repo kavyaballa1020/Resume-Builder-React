@@ -13,11 +13,11 @@
     word-wrap: break-word;
 }
 
-.header {
+.header1 {
     text-align: center;
 }
 
-.header h1 {
+.header1 h1 {
     font-size: 2.4em !important;
     margin: 0;
 }
@@ -34,11 +34,11 @@
     justify-content: space-between;
 }
 
-.left-column, .right-column {
-    width: 48%;
+.left-column1, .right-column {
+    width: 50%;
 }
 
-.header {
+.header1 {
     text-align: center;
     border-bottom: 2px solid #333;
     padding-bottom: 20px;
@@ -46,8 +46,8 @@
     text-transform: capitalize;
 }
 
-.left-column {
-    width: 30%;
+.left-column1 {
+    width: 40% !important;
     padding-right: 20px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -59,42 +59,37 @@
     padding-left: 20px;
 }
 
-.left-column section,
+.left-column1 section,
 .right-column section {
     margin-bottom: 20px;
 }
 
-.left-column h3,
+.left-column1 h3,
 .right-column h3 {
-    font-size: 1.2em;
+    font-size: 1.4em !important;
     text-transform: uppercase;
     border-bottom: 2px dotted #5a5858;
     padding-bottom: 5px;
     margin-bottom: 10px;
     letter-spacing: 2.5px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 700;
+    font-weight: 700 !important;
     color: rgb(99, 99, 103);
 }
 
-.left-column ul,
+.left-column1 ul,
 .right-column ul {
     list-style-type: none;
     padding: 0;
 }
-
-.left-column ul li
- {
+.left-column1 ul li {
     margin: 5px 0;
-    padding-left: 15px;
-    padding-bottom: 35px;
+    padding: 10px 15px; /* Adjust padding as needed */
     background: #dad9d9;
     border-radius: 12px;
-    height:20px;
-}
-
-.left-column p i {
-    margin-right: 10px;
+    text-align: center;
+    word-wrap: break-word;
+    /* Ensures the element only takes as much width as needed */
 }
 
 .two-column-list {
@@ -109,6 +104,11 @@
     box-sizing: border-box;
     margin-bottom: 5px;
     text-transform: capitalize;
+}
+ul {
+    list-style-type: none; /* Remove default list style */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
 .home-button {
