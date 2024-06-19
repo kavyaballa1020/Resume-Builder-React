@@ -15,14 +15,25 @@
 .preloaderh3 {
     text-transform: capitalize;
 }
-
+.brand-name1{
+    position: absolute !important;
+    top: 15em !important;
+    top: 20px !important;
+    left: 20px !important;
+    font-size: 34px !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #444443;
+}
 .brand-name {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 34px;
-    font-weight: 900;
-    font-style: italic;
+    position: absolute !important;
+    top: 15em !important;
+    top: 20px !important;
+    left: 20px !important;
+    font-size: 34px !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #444443;
 }
@@ -69,8 +80,8 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 200px;
-    height: 200px;
+    width: 270px;
+    height: 270px;
     border-radius: 50%; /* Optional: if you want a circular image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
