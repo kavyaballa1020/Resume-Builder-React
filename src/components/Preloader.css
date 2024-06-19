@@ -1,5 +1,3 @@
-/* Preloader.css */
-
 .preloader {
     position: fixed;
     top: 0;
@@ -13,15 +11,17 @@
     background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
     z-index: 9999; /* Make sure it covers other elements */
 }
-.preloaderh3{
+
+.preloaderh3 {
     text-transform: capitalize;
 }
+
 .brand-name {
     position: absolute;
     top: 20px;
     left: 20px;
     font-size: 34px;
-    font-weight: 900px;
+    font-weight: 900;
     font-style: italic;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #444443;
@@ -63,4 +63,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.preloader-image {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px; /* Adjust as needed */
+    height: auto;
+    border-radius: 50%; /* Optional: if you want a circular image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
