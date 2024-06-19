@@ -162,14 +162,14 @@ h3 {
     margin-left: -20px; 
     padding-left: 20px; 
 }
-.Education-item {
+.Education-item,.Experience-item {
     display: flex;
     margin-bottom: 20px;
 }
 
-.Education-duration {
-    width: 120px; /* Adjust as needed */
-    flex-shrink: 0; /* Prevents item from shrinking */
+.Education-duration,.Experience-duration {
+    width: 120px; 
+    flex-shrink: 0; 
     text-align: right;
     margin-right: 90px;
     font-weight: bold;
@@ -178,12 +178,13 @@ h3 {
     font-size: larger;
 }
 
-.Education-details {
+
+.Education-details,.Experience-details {
     display: flex;
     flex-direction: column;
 }
 
-.Education-header {
+.Education-header,.Experience-header {
     font-size: larger;
     margin-bottom: 0;
     display: inline; 
@@ -192,10 +193,11 @@ h3 {
     text-transform: capitalize;/* Adjust spacing between duration and header */
 }
 
-.Education-content {
+.Education-content,.Experience-content {
     
     margin-top: 10px;
     margin-bottom: 10px;
     text-transform: capitalize; 
     line-height: 25px;/* Make institution and location italic */
 }
+
