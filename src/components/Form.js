@@ -103,27 +103,24 @@ const Form = ({
                 onChange={handleChange}
             />
 
-<h2>
-    <i className="fas fa-cogs"></i> Skills
-</h2>
-{formData.skills.map((skill, index) => (
-    <div key={index} className="form-group">
-        <input
-            className="form-input"
-            type="text"
-            placeholder="Skill"
-            value={skill}
-            onChange={(e) => handleArrayChange(e, index, 'skills')}
-        />
-        <button type="button" className="delete-button" onClick={() => handleDelete(index, 'skills')}>
-            Delete
-        </button>
-    </div>
-))}
-<button type="button" className="add-button" onClick={addSkill}>
-    Add Skill
-</button>
-
+<h2><i className="fas fa-cogs"></i> Skills</h2>
+            {formData.skills.map((skill, index) => (
+                <div key={index} className="form-group">
+                    <input
+                        className="form-input"
+                        type="text"
+                        placeholder="Skill"
+                        value={skill}  // Directly render the string value
+                        onChange={(e) => handleArrayChange(e, index, 'skills')}
+                    />
+                    <button type="button" className="delete-button" onClick={() => handleDelete(index, 'skills')}>
+                        Delete
+                    </button>
+                </div>
+            ))}
+            <button type="button" className="add-button" onClick={addSkill}>
+                Add Skill
+            </button>
             <h2><i className="fas fa-graduation-cap"></i> Education</h2>
             {formData.education.map((edu, index) => (
                 <div key={index} className="nested-form-group">
@@ -254,7 +251,7 @@ const Form = ({
                         className="form-input"
                         type="text"
                         placeholder="Language"
-                        value={lang}
+                        value={lang}  // Directly render the string value
                         onChange={(e) => handleArrayChange(e, index, 'languages')}
                     />
                     <button type="button" className="delete-button" onClick={() => handleDelete(index, 'languages')}>
