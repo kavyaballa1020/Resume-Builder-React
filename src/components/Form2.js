@@ -234,13 +234,7 @@ const Form2 = ({
                         value={exp.company}
                         onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')}
                     />
-                    <input
-                        className="form-input"
-                        type="text"
-                        placeholder="Location"
-                        value={exp.location}
-                        onChange={(e) => handleNestedArrayChange(e, index, 'location', 'experience')}
-                    />
+                    
                     <input
                         className="form-input"
                         type="text"
@@ -284,7 +278,7 @@ const Form2 = ({
                 Add Experience
             </button>
 
-            <h2><i className="fas fa-award"></i> Certificates</h2>
+            <h2><i className="fas fa-award"></i>Certificate</h2>
             {formData.certificates.map((certificate, index) => (
                 <div key={index} className="form-group">
                     <input
@@ -331,7 +325,7 @@ const Form2 = ({
                 Add Language
             </button>
             
-            <button type="submit" className="submit-button">Submit</button>
+            
         </form>
     );
 };
