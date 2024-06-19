@@ -13,7 +13,9 @@
     background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
     z-index: 9999; /* Make sure it covers other elements */
 }
-
+.preloaderh3{
+    text-transform: capitalize;
+}
 .brand-name {
     position: absolute;
     top: 20px;
