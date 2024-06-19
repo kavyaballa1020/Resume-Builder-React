@@ -295,6 +295,7 @@ const Form2 = ({
                 Add Certificate
             </button>
 
+            <h2><i className="fas fa-globe-americas"></i> Languages</h2>
             {formData.languages.map((lang, index) => (
     <div key={index} className="form-group">
         <input
