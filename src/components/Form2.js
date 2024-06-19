@@ -160,13 +160,20 @@ const Form2 = ({
                         required
                     />
                     <input
-    className="form-input"
-    type="text"
-    placeholder="Location"
-    value={edu.location}  // Update to include location field
-    onChange={(e) => handleNestedArrayChange(e, index, 'location', 'education')}
-/>
-
+                        className="form-input"
+                        type="text"
+                        placeholder="Branch"
+                        value={edu.branch}
+                        onChange={(e) => handleNestedArrayChange(e, index, 'branch', 'education')}
+                        required
+                    />
+                    <input
+                        className="form-input"
+                        type="text"
+                        placeholder="Location"
+                        value={edu.location}
+                        onChange={(e) => handleNestedArrayChange(e, index, 'location', 'education')}
+                    />
                     <input
                         className="form-input"
                         type="text"
@@ -183,6 +190,24 @@ const Form2 = ({
                         onChange={(e) => handleNestedArrayChange(e, index, 'endYear', 'education')}
                         required
                     />
+                    <div className="form-group">
+                        <input
+                            className="form-input"
+                            type="text"
+                            placeholder="CGPA"
+                            value={edu.cgpa}
+                            onChange={(e) => handleNestedArrayChange(e, index, 'cgpa', 'education')}
+                            required
+                        />
+                        <select
+                            className="form-input"
+                            value={edu.cgpaType}
+                            onChange={(e) => handleNestedArrayChange(e, index, 'cgpaType', 'education')}
+                        >
+                            <option value="percentage">Percentage</option>
+                            <option value="cgpa">CGPA</option>
+                        </select>
+                    </div>
                     <button type="button" className="delete-button" onClick={() => handleDelete(index, 'education')}>
                         Delete
                     </button>
@@ -210,13 +235,12 @@ const Form2 = ({
                         onChange={(e) => handleNestedArrayChange(e, index, 'company', 'experience')}
                     />
                     <input
-    className="form-input"
-    type="text"
-    placeholder="Location"
-    value={exp.location}  // Update to include location field
-    onChange={(e) => handleNestedArrayChange(e, index, 'location', 'experience')}
-/>
-
+                        className="form-input"
+                        type="text"
+                        placeholder="Location"
+                        value={exp.location}
+                        onChange={(e) => handleNestedArrayChange(e, index, 'location', 'experience')}
+                    />
                     <input
                         className="form-input"
                         type="text"
@@ -306,6 +330,8 @@ const Form2 = ({
             <button type="button" className="add-button" onClick={addLanguage}>
                 Add Language
             </button>
+            
+            <button type="submit" className="submit-button">Submit</button>
         </form>
     );
 };
