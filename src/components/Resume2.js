@@ -79,16 +79,18 @@ const Resume2 = ({ resumeData }) => {
     {experience.map((exp, index) => (
         <div key={index} className="Experience-item">
             <div className="Experience-duration">
-                <span>{exp.startYear} {exp.startMonth} - {exp.endYear} {exp.endMonth}</span>
+                <span>{exp.startYear}  - {exp.endYear} </span>
             </div>
             <div className="Experience-details">
                 <div className="Experience-header">
                     <h4> {exp.company}</h4>
                 </div>
                 <div className="Experience-content">
+                <p>{exp.startMonth} - {exp.endMonth} </p>
                 <p>{exp.position} </p>
                     <p>{exp.location}</p>
                     <p>{exp.internships}</p>
+                    
                 </div>
             </div>
         </div>
@@ -118,16 +120,15 @@ const Resume2 = ({ resumeData }) => {
         </div>
     ))}
 </section>
+                     <section className="awards">
+    <h3>Awards</h3>
+    {certificates.map((cert, index) => (
+        <div key={index} className="award-item">
+            <span>{cert.name}</span>
+        </div>
+    ))}
+</section>
 
-
-                        <section className="awards">
-                            <h3>Awards</h3>
-                            {certificates.map((cert, index) => (
-                                <div key={index} className="award-item">
-                                    <span>{cert}</span>
-                                </div>
-                            ))}
-                        </section>
                     </div>
                 </div>
             </div>
