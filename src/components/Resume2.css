@@ -70,7 +70,7 @@
     border-radius: 5px;
     overflow: hidden;
     height: 10px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     margin-top: 4px;
 }
 
@@ -89,24 +89,14 @@
     margin-bottom: 20px;
 }
 
-.experience-item,
-.education-item,
-.award-item {
-    margin-bottom: 20px;
-}
-
 h3 {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 30px !important;
-    font-weight: 400;
+    font-weight: 100 !important;
     padding-bottom: 20px;
-}
-
-.experience-details h4,
-.education-details h4 {
-    margin: 5px 0;
-    font-size: 18px;
+    margin-top: 0; 
+    margin-left: 0; 
 }
 
 .personal-info {
@@ -143,31 +133,28 @@ h3 {
     font-weight: 300;
     color: rgb(230, 228, 228);
 }
-.language-bar {
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 10px;
-    margin-bottom: 20px; 
-    margin-top: 4px;
+
+.work-experience h3,
+.education h3,
+.awards h3 {
+    background-color: #15293c;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    width: 60%;
 }
 
-.language-level {
-    height: 100%;
-    border-radius: 5px;
-    background-color: #3b82f6;
-}
-.skill-bar {
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 10px;
-    margin-bottom: 20px; 
-    margin-top: 4px;
+.sidebar .work-experience,
+.sidebar .education,
+.sidebar .awards {
+    margin-bottom: 30px; /* Adjust as needed */
 }
 
-.skill-level {
-    height: 100%;
-    border-radius: 5px;
-    background-color: #3b82f6;
+/* Adjustments to position h3 headings next to the sidebar */
+.work-experience h3,
+.education h3,
+.awards h3 {
+    margin-left: -20px; /* Negative margin to bring the headings closer to the sidebar */
+    padding-left: 20px; /* Add padding to maintain distance from the sidebar content */
 }
