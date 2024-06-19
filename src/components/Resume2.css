@@ -65,16 +65,13 @@
     margin: 0 0 10px;
 }
 
-.skill {
-    margin-bottom: 10px !important; /* Adjusted margin bottom */
-}
-
 .skill-bar {
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
     height: 10px;
-    margin-bottom: 10px; /* Adjusted margin bottom */
+    margin-bottom: 20px; 
+    margin-top: 4px;
 }
 
 .skill-level {
@@ -145,4 +142,32 @@ h3 {
     text-align: left;
     font-weight: 300;
     color: rgb(230, 228, 228);
+}
+.language-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 20px; 
+    margin-top: 4px;
+}
+
+.language-level {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #3b82f6;
+}
+.skill-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 20px; 
+    margin-top: 4px;
+}
+
+.skill-level {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #3b82f6;
 }
