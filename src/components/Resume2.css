@@ -1,4 +1,3 @@
-/* Existing styles */
 .resume2 {
     display: flex;
     flex-direction: column;
@@ -42,7 +41,7 @@
 }
 
 .sidebar {
-    width: 40%;
+    width: 50%;
     background-color: #15293c;
     color: white;
     padding: 20px;
@@ -66,9 +65,22 @@
     margin: 0 0 10px;
 }
 
-.skill,
-.language {
-    margin-bottom: 10px;
+.skill {
+    margin-bottom: 10px !important; /* Adjusted margin bottom */
+}
+
+.skill-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 10px; /* Adjusted margin bottom */
+}
+
+.skill-level {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #3b82f6;
 }
 
 .main-content {
@@ -91,7 +103,7 @@ h3 {
     letter-spacing: 2px;
     font-size: 30px !important;
     font-weight: 400;
-    padding-bottom: 20px; /* Ensure font weight is 400 */
+    padding-bottom: 20px;
 }
 
 .experience-details h4,
@@ -115,22 +127,22 @@ h3 {
     display: flex;
     align-items: center;
     margin: 0 0 10px 0;
-    color: rgb(230, 228, 228); /* Lighten the font weight for a softer look */
-    word-break: break-word; /* Ensure long text breaks and wraps */
-    overflow-wrap: break-word; /* Add this for better compatibility */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    color: rgb(230, 228, 228);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .personal-info p i {
-    margin-right: 20px; /* Adjust this value to set the gap */
+    margin-right: 20px;
 }
 
 .about-me p {
     font-size: 16px;
-    line-height: 1.6; 
-    margin: 10px 0; /* Add margin for spacing */
-    text-align: left; /* Justify text */
-    font-weight: 300; 
-    color: rgb(230, 228, 228); /* Lighten the font weight for a softer look */
+    line-height: 1.6;
+    margin: 10px 0;
+    text-align: left;
+    font-weight: 300;
+    color: rgb(230, 228, 228);
 }
