@@ -50,11 +50,11 @@ const App = () => {
     useEffect(() => {
         const timeout1 = setTimeout(() => {
             setLoading1(false); // Set loading state for the first form handler
-        }, 2000);
+        }, 5000);
 
         const timeout2 = setTimeout(() => {
             setLoading2(false); // Set loading state for the second form handler
-        }, 3000);
+        }, 5000);
 
         return () => {
             clearTimeout(timeout1);
