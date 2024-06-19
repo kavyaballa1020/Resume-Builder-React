@@ -74,30 +74,43 @@ const Resume2 = ({ resumeData }) => {
                         </section>
                     </div>
                     <div className="main-content">
-                        <section className="work-experience">
-                            <h3>Work Experience</h3>
-                            {experience.map((exp, index) => (
-                                <div key={index} className="experience-item">
-                                    <span>{exp.startYear} - {exp.endYear}</span>
-                                    <div className="experience-details">
-                                        <h4>{exp.position} - {exp.company}</h4>
-                                        <p>{exp.description}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </section>
-                        <section className="education">
-                            <h3>Education</h3>
-                            {education.map((edu, index) => (
-                                <div key={index} className="education-item">
-                                    <span>{edu.startYear} - {edu.endYear}</span>
-                                    <div className="education-details">
-                                        <h4>{edu.degree}</h4>
-                                        <p>{edu.institution}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </section>
+                    <section className="Work-experience">
+    <h3>Work Experience</h3>
+    {experience.map((exp, index) => (
+        <div key={index} className="Experience-item">
+            <div className="Experience-duration">
+                <span>{exp.startYear} - {exp.endYear}</span>
+            </div>
+            <div className="Experience-details">
+                <h4>{exp.position} - {exp.company}</h4>
+                <p><i className="fas fa-map-marker-alt"></i> {exp.location}</p> {/* Display location */}
+                <p>{exp.description}</p>
+            </div>
+        </div>
+    ))}
+</section>
+
+
+<section className="Education">
+    <h3>Education</h3>
+    {education.map((edu, index) => (
+        <div key={index} className="Education-item">
+            <div className="Education-duration">
+                <span>{edu.startYear} - {edu.endYear}</span>
+            </div>
+            <div className="Education-details">
+                <div className="Education-header">
+                    <h4>{edu.degree}</h4>
+                </div>
+                <div className="Education-content">
+                    <p>{edu.institution}</p>
+                    <p>{edu.location}</p> {/* Display location */}
+                </div>
+            </div>
+        </div>
+    ))}
+</section>
+
                         <section className="awards">
                             <h3>Awards</h3>
                             {certificates.map((cert, index) => (
