@@ -115,6 +115,7 @@ const useFormHandlers = () => {
             [parentField]: newArray,
         });
     };
+    
 
     const addSkill = () => {
         setFormData({
@@ -126,9 +127,13 @@ const useFormHandlers = () => {
     const addEducation = () => {
         setFormData({
             ...formData,
-            education: [...formData.education, { degree: '', institution: '', startYear: '', endYear: '' }],
+            education: [
+                ...formData.education,
+                { degree: '', institution: '', startYear: '', endYear: '', location: '' }
+            ],
         });
     };
+    
 
     const addCertificate = () => {
         setFormData({
@@ -147,9 +152,13 @@ const useFormHandlers = () => {
     const handleAddExperience = () => {
         setFormData({
             ...formData,
-            experience: [...formData.experience, { position: '', company: '', startMonth: '', startYear: '', endMonth: '', endYear: '', internships: '' }],
+            experience: [
+                ...formData.experience,
+                { position: '', company: '', location: '', startMonth: '', startYear: '', endMonth: '', endYear: '', internships: '' }
+            ],
         });
     };
+    
 
     const handleDelete = (index, field) => {
         const newArray = [...formData[field]];
