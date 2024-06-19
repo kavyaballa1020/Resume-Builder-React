@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .resume2 {
     display: flex;
     flex-direction: column;
@@ -134,26 +139,63 @@ h3 {
     color: rgb(230, 228, 228);
 }
 
-.work-experience h3,
-.education h3,
+.Work-experience h3,
+.Education h3,
 .awards h3 {
     background-color: #15293c;
     color: white;
-    text-align: center;
+    text-align:center;
     padding: 10px 0;
     margin: 0;
     width: 60%;
 }
 
-.sidebar .work-experience,
-.sidebar .education,
+.sidebar .Work-experience,
+.sidebar .Education,
 .sidebar .awards {
     margin-bottom: 30px; 
 }
 
-.work-experience h3,
-.education h3,
+.Work-experience h3,
+.Education h3,
 .awards h3 {
     margin-left: -20px; 
     padding-left: 20px; 
+}
+.Education-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.Education-duration {
+    width: 120px; /* Adjust as needed */
+    flex-shrink: 0; /* Prevents item from shrinking */
+    text-align: right;
+    margin-right: 90px;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 23px;
+    font-size: larger;
+}
+
+.Education-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.Education-header {
+    font-size: larger;
+    margin-bottom: 0;
+    display: inline; 
+    margin-top: 23px;
+    font-style: italic;
+    text-transform: capitalize;/* Adjust spacing between duration and header */
+}
+
+.Education-content {
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-transform: capitalize; 
+    line-height: 25px;/* Make institution and location italic */
 }
