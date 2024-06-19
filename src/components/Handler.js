@@ -1,5 +1,3 @@
-// Handler.js
-
 import { useState, useEffect } from 'react';
 
 const useFormHandlers = () => {
@@ -21,7 +19,7 @@ const useFormHandlers = () => {
         experience: [],
         certificates: [],
         languages: [],
-        photo:'',
+        photo: '',
     });
 
     useEffect(() => {
@@ -74,15 +72,23 @@ const useFormHandlers = () => {
         }
     };
 
-    const handleArrayChange = (e, index, field) => {
+    const handleArrayChange = (e, index, field, subField = null) => {
         const newValue = e.target.value;
         const newArray = [...formData[field]];
-        newArray[index] = newValue;
+        if (subField) {
+            newArray[index] = {
+                ...newArray[index],
+                [subField]: newValue,
+            };
+        } else {
+            newArray[index] = newValue;
+        }
         setFormData({
             ...formData,
             [field]: newArray,
         });
     };
+
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
@@ -96,6 +102,7 @@ const useFormHandlers = () => {
             reader.readAsDataURL(file);
         }
     };
+
     const handleNestedArrayChange = (e, index, field, parentField) => {
         const newValue = e.target.value;
         const newArray = [...formData[parentField]];
@@ -112,7 +119,7 @@ const useFormHandlers = () => {
     const addSkill = () => {
         setFormData({
             ...formData,
-            skills: [...formData.skills, ''],
+            skills: [...formData.skills, { name: '', percentage: 0 }],
         });
     };
 
@@ -133,7 +140,7 @@ const useFormHandlers = () => {
     const addLanguage = () => {
         setFormData({
             ...formData,
-            languages: [...formData.languages, ''],
+            languages: [...formData.languages, { name: '', percentage: 0 }],
         });
     };
 
