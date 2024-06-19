@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './Resume2.css';
 import { jsPDF } from 'jspdf';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import html2canvas from 'html2canvas';
 
 const Resume2 = ({ resumeData }) => {
@@ -26,6 +27,13 @@ const Resume2 = ({ resumeData }) => {
 
     return (
         <div>
+         <div className="button-container">
+                <Link to="/">
+                    <button className="home-button">
+                        <i className="fas fa-arrow-left" style={{marginRight: "10px"}}></i> Home 
+                    </button>
+                </Link>
+            </div>
             <div className="resume2" ref={resumeRef}>
                 <div className="resume-header">
                     <div className="profile-image">
