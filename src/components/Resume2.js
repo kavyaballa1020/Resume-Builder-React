@@ -79,16 +79,22 @@ const Resume2 = ({ resumeData }) => {
     {experience.map((exp, index) => (
         <div key={index} className="Experience-item">
             <div className="Experience-duration">
-                <span>{exp.startYear} - {exp.endYear}</span>
+                <span>{exp.startYear} {exp.startMonth} - {exp.endYear} {exp.endMonth}</span>
             </div>
             <div className="Experience-details">
-                <h4>{exp.position} - {exp.company}</h4>
-                <p><i className="fas fa-map-marker-alt"></i> {exp.location}</p> {/* Display location */}
-                <p>{exp.description}</p>
+                <div className="Experience-header">
+                    <h4> {exp.company}</h4>
+                </div>
+                <div className="Experience-content">
+                <p>{exp.position} </p>
+                    <p>{exp.location}</p>
+                    <p>{exp.internships}</p>
+                </div>
             </div>
         </div>
     ))}
 </section>
+
 
 
 <section className="Education">
@@ -104,12 +110,15 @@ const Resume2 = ({ resumeData }) => {
                 </div>
                 <div className="Education-content">
                     <p>{edu.institution}</p>
-                    <p>{edu.location}</p> {/* Display location */}
+                    <p>Location : {edu.location}</p>
+                    <p>Branch: {edu.branch}</p> {/* Display branch */}
+                    <p>Marks : {edu.cgpa} {edu.cgpaType === 'percentage' ? 'Percentage' : 'CGPA'}</p> {/* Display CGPA with type */}
                 </div>
             </div>
         </div>
     ))}
 </section>
+
 
                         <section className="awards">
                             <h3>Awards</h3>
