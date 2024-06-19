@@ -200,4 +200,7 @@ h3 {
     text-transform: capitalize; 
     line-height: 25px;/* Make institution and location italic */
 }
-
+.award-item{
+    color: black;
+    background-color: red;
+}

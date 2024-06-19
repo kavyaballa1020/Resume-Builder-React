@@ -111,7 +111,7 @@ const Form2 = ({
                 value={formData.profileText}
                 onChange={handleChange}
             />
-
+ <h2><i className="fas fa-skill"></i> Skills</h2>
 {formData.skills.map((skill, index) => (
     <div key={index} className="form-group">
         <input
@@ -284,7 +284,7 @@ const Form2 = ({
                         type="text"
                         placeholder="Certificate"
                         value={certificate}
-                        onChange={(e) => handleArrayChange(e, index, 'certificates')}
+                        onChange={(e) => handleArrayChange(e, index, 'certificates','name')}
                     />
                     <button type="button" className="delete-button" onClick={() => handleDelete(index, 'certificates')}>
                         Delete
@@ -322,8 +322,6 @@ const Form2 = ({
 <button type="button" className="add-button" onClick={addLanguage}>
     Add Language
 </button>
-            
-            
         </form>
     );
 };

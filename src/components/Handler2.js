@@ -72,28 +72,28 @@ const useFormHandlers2 = () => {
         }
     };
 
-    const handleArrayChange = (e, index, field, subField = null) => {
-        const newValue = e.target.value;
-        const newArray = [...formData[field]]; // Create a copy of the array to avoid mutating state directly
-    
-        if (subField !== null) {
-            // If subField is provided, update a specific property within an object in the array
-            newArray[index] = {
-                ...newArray[index],
-                [subField]: newValue,
-            };
-        } else {
-            // If no subField is provided, update a simple array of strings
-            newArray[index] = newValue;
-        }
-    
-        // Update the formData state with the new array
-        setFormData({
-            ...formData,
-            [field]: newArray,
-        });
-    };
-    
+   const handleArrayChange = (e, index, field, subField = null) => {
+    const newValue = e.target.value;
+    const newArray = [...formData[field]]; // Create a copy of the array to avoid mutating state directly
+
+    if (subField !== null) {
+        // If subField is provided, update a specific property within an object in the array
+        newArray[index] = {
+            ...newArray[index],
+            [subField]: newValue,
+        };
+    } else {
+        // If no subField is provided, update a simple array of strings
+        newArray[index] = newValue;
+    }
+
+    // Update the formData state with the new array
+    setFormData({
+        ...formData,
+        [field]: newArray,
+    });
+};
+
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
