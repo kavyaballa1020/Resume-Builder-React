@@ -45,12 +45,12 @@ const Resume2 = ({ resumeData }) => {
                             <p>{profileText}</p>
                         </section>
                         <section className="personal-skills">
-                            <h3>Personal Skills</h3>
+                            <h3>Skills</h3>
                             {skills.map((skill, index) => (
                                 <div key={index} className="skill">
-                                    <span>{skill}</span>
-                                    <div className="skill-level">
-                                        <div className="skill-bar" style={{ width: `${Math.random() * 100}%` }}></div>
+                                    <span>{skill.name}</span>
+                                    <div className="skill-bar">
+                                        <div className="skill-level" style={{ width: `${skill.percentage}%` }}></div>
                                     </div>
                                 </div>
                             ))}
@@ -67,9 +67,9 @@ const Resume2 = ({ resumeData }) => {
                             <h3>Languages</h3>
                             {languages.map((language, index) => (
                                 <div key={index} className="language">
-                                    <span>{language}</span>
-                                    <div className="language-level">
-                                        <div className="language-bar" style={{ width: `${Math.random() * 100}%` }}></div>
+                                    <span>{language.name}</span>
+                                    <div className="language-bar">
+                                        <div className="language-level" style={{ width: `${language.percentage}%` }}></div>
                                     </div>
                                 </div>
                             ))}
