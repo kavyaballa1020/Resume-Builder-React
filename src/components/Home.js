@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Resume1Image from './Resume1.jpg';
+import Resume2Image from './Resume2.jpg';  // Corrected the image filename
+import KavyaImage from './Kavya.JPG';  // Adding the profile picture
 import './Home.css';
 
 const Home = () => {
@@ -28,22 +30,21 @@ const Home = () => {
 
     return (
         <div className="home-page">
-            <div className="header">
-                <h1>Welcome to My Resume Builder</h1>
-                <p>Explore my Beautiful Proffessional Resumes</p>
-            </div>
+   <h1 className="brand-name"><i className="fas fa-fire"></i> Kavya-Resume-Builder</h1>
+                <img src={KavyaImage} alt="Kavya" className="profile-picture" />
+                
             <div className="pictures">
                 <img
                     src={Resume1Image}
-                    alt="First Picture"
+                    alt="First Resume"
                     onClick={() => handlePictureClick(Resume1Image)}
                     onMouseEnter={(e) => toggleTooltip(e, true)}
                     onMouseLeave={(e) => toggleTooltip(e, false)}
                 />
                 <img
-                    src="/path/to/second-pic.jpg"
-                    alt="Second Picture"
-                    onClick={() => handlePictureClick('/path/to/second-pic.jpg')}
+                    src={Resume2Image}
+                    alt="Second Resume"
+                    onClick={() => handlePictureClick(Resume2Image)}
                     onMouseEnter={(e) => toggleTooltip(e, true)}
                     onMouseLeave={(e) => toggleTooltip(e, false)}
                 />
