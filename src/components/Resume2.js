@@ -62,7 +62,7 @@ const Resume2 = ({ resumeData }) => {
                             <p><i className="fab fa-github"></i> {contact.github}</p>
                         </section>
                         <section className="languages">
-                            <h3><i className="fas fa-language"></i> Languages</h3>
+                            <h3><i className="fas fa-globe-americas"></i> Languages</h3>
                             {languages.map((language, index) => (
                                 <div key={index} className="language">
                                     <span>{language.name}</span>
