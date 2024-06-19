@@ -29,12 +29,12 @@ const Resume = ({ resumeData }) => {
                 </Link>
             </div>
             <div id="resume" className="resume-container" ref={resumeRef}>
-                <div className="header">
+                <div className="header1">
                     <h1>{resumeData.name || 'Your Name'}</h1>
                     <h4 className='headerh1'>{resumeData.title || 'Your Title'}</h4>
                 </div>
                 <div className="content">
-                    <div className="left-column">
+                    <div className="left-column1">
                         <section>
                             <h3><i className="fas fa-address-book"></i> Contact</h3>
                             {resumeData.contact ? (
@@ -73,7 +73,7 @@ const Resume = ({ resumeData }) => {
                         </section>
                         <section>
                             <h3><i className="fas fa-globe-americas"></i> Languages</h3>
-                            <ul className="two-column-list">
+                            <ul className="two-column-list ">
                                 {resumeData.languages?.map((lang, index) => (
                                     <li className="two-column-item" key={index}>
                                         {lang}
