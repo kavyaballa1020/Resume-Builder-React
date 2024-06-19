@@ -124,7 +124,7 @@ const Resume2 = ({ resumeData }) => {
     <h3>Awards</h3>
     {certificates.map((cert, index) => (
         <div key={index} className="award-item">
-            <span>{cert.name}</span>
+            <span key={index}>{cert}</span>
         </div>
     ))}
 </section>
