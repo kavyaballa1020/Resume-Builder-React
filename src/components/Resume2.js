@@ -9,7 +9,6 @@ const Resume2 = ({ resumeData }) => {
 
     const handleDownload = () => {
         const input = resumeRef.current;
-        // Hide the download button before taking the screenshot
         const downloadButton = document.querySelector('.download-button-container');
         downloadButton.style.display = 'none';
 
@@ -21,7 +20,6 @@ const Resume2 = ({ resumeData }) => {
             pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.save('resume.pdf');
             
-            // Show the download button again after the screenshot is taken
             downloadButton.style.display = 'block';
         });
     };

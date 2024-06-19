@@ -148,13 +148,12 @@ h3 {
 .sidebar .work-experience,
 .sidebar .education,
 .sidebar .awards {
-    margin-bottom: 30px; /* Adjust as needed */
+    margin-bottom: 30px; 
 }
 
-/* Adjustments to position h3 headings next to the sidebar */
 .work-experience h3,
 .education h3,
 .awards h3 {
-    margin-left: -20px; /* Negative margin to bring the headings closer to the sidebar */
-    padding-left: 20px; /* Add padding to maintain distance from the sidebar content */
+    margin-left: -20px; 
+    padding-left: 20px; 
 }
