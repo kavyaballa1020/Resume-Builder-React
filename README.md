@@ -71,7 +71,7 @@ yarn build
    <img src="src/components/screenshots/Resume1.jpg" alt="Home Page" width="500">
 2. **Form:** Fill out the form fields to customize your resume. All changes are reflected in real-time.
    
-   ![Form](src/components/screenshots/Resume2.jpg)
+   <img src="src/components/screenshots/Resume2.jpg" alt="Form Page" width="500">
 
 ## Skills and Technologies
 
