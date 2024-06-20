@@ -1,5 +1,3 @@
-
-```markdown
 # Dynamic Resume Builder
 
 ## Introduction
