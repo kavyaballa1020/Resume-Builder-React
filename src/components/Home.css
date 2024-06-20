@@ -59,7 +59,7 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 .brand-name{
-    left: -1em !important;
+    left: 15em !important;
     top: -1em !important;
 }
 .zoomed-picture {
