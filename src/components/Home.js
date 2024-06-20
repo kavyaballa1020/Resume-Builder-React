@@ -31,7 +31,6 @@ const Home = () => {
     return (
         <div className="home-page">
    <h1 className="brand-name"><i className="fas fa-fire"></i> Kavya-Resume-Builder</h1>
-                <img src={KavyaImage} alt="Kavya" className="profile-picture" />
                 
             <div className="pictures">
                 <img
