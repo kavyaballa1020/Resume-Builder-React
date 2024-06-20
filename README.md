@@ -68,11 +68,11 @@ yarn build
 
 1. **Home Page:** Start by navigating to the home page where you can choose to create a resume in one of two styles.
    
-   ![Home Page](src/components/screenshots/home_page.png)
+   ![Home Page](src/components/screenshots/Resume1.jpg)
    
 2. **Form:** Fill out the form fields to customize your resume. All changes are reflected in real-time.
    
-   ![Form](src/components/screenshots/form_page.png)
+   ![Form](src/components/screenshots/Resume2.jpg)
 
 ## Skills and Technologies
 
