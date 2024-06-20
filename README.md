@@ -104,4 +104,4 @@ Thank you to all the open-source projects and contributors that helped make this
 ---
 
 Feel free to contribute to this project by opening issues or submitting pull requests. Happy resume building!
-```
+
