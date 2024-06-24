@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Resume1Image from './Resume1.jpg';
 import Resume2Image from './Resume2.jpg';  // Corrected the image filename
-import KavyaImage from './Kavya.JPG';  // Adding the profile picture
 import './Home.css';
 
 const Home = () => {
