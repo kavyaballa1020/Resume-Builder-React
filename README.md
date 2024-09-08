@@ -99,8 +99,3 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 Thank you to all the open-source projects and contributors that helped make this application possible.
-
----
-
-Feel free to contribute to this project by opening issues or submitting pull requests. Happy resume building!
-
