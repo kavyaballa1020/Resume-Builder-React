@@ -1,0 +1,82 @@
+/* ATSChecker.css */
+.ats-checker-container {
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 150px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%; /* Ensure the button spans the width */
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .ats-result {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .ats-result h3 {
+    color: #333;
+  }
+  
+  .ats-result p {
+    color: #666;
+  }
+  
+  .matched-keywords, .missing-keywords {
+    background-color: #eef9ee;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .matched-keywords {
+    color: #4CAF50;
+  }
+  
+  .missing-keywords {
+    color: #f44336;
+  }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 768px) {
+    button {
+      width: 100%;
+    }
+  }
+  

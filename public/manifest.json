@@ -1,6 +1,6 @@
 {
-  "short_name": "Kavya",
-  "name": "Kavya's Resume Builder",
+  "short_name": "ResumeBuilder",
+  "name": "Smart Resume Builder",
   "icons": [
     {
       "src": "Assets/resume-16x16.png",

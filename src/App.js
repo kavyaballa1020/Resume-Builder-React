@@ -7,12 +7,13 @@ import Resume2 from './components/Resume2';
 import Preloader from './components/Preloader';
 import Home from './components/Home';
 import useFormHandlers from './components/Handler'; // Assuming this is for the first form
-import useFormHandlers2 from './components/Handler2'; // Import useFormHandlers2
+import useFormHandlers2 from './components/Handler2';
+import ATSChecker from './components/ATSChecker'; // Import ATSChecker component
 import './App.css';
 
 const App = () => {
-    const [loading1, setLoading1] = useState(true); // State for useFormHandlers (assuming for the first form)
-    const [loading2, setLoading2] = useState(true); // State for useFormHandlers2 (assuming for the second form)
+    const [loading1, setLoading1] = useState(true); // State for useFormHandlers (for the first form)
+    const [loading2, setLoading2] = useState(true); // State for useFormHandlers2 (for the second form)
 
     // Form handler for resume 1 (using useFormHandlers)
     const {
@@ -31,7 +32,6 @@ const App = () => {
 
     // Form handler for resume 2 (using useFormHandlers2)
     const {
-        loading: loading2State, // Rename to loading2State to avoid redeclaration
         formData: formData2,
         handleChange: handleChange2,
         handleArrayChange: handleArrayChange2,
@@ -120,6 +120,13 @@ const App = () => {
                                 <div className="resume-wrapper">
                                     <Resume2 resumeData={formData2} />
                                 </div>
+                            </div>
+                        } />
+
+                        {/* Route for ATS Checker */}
+                        <Route path="/ats-checker" element={
+                            <div className="ats-checker-wrapper">
+                                <ATSChecker resumeText={formData1} /> {/* Passing the resume data to ATSChecker */}
                             </div>
                         } />
                     </Routes>
