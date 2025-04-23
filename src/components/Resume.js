@@ -129,4 +129,4 @@ const Resume = ({ resumeData }) => {
     );
 };
 
-export default Resume;
+export default Resume;

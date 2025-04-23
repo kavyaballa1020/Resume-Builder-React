@@ -29,7 +29,7 @@ const Home = () => {
 
     return (
         <div className="home-page">
-   <h1 className="brand-name"><i className="fas fa-fire"></i> Kavya-Resume-Builder</h1>
+            <h1 className="brand-name"><i className="fas fa-fire"></i> Resume-Builder</h1>
                 
             <div className="pictures">
                 <img
@@ -52,6 +52,7 @@ const Home = () => {
                     </div>
                 )}
             </div>
+
             <div className="buttons">
                 <Link to="/resume/1">
                     <button className="primary-btn">First Resume</button>
@@ -59,7 +60,13 @@ const Home = () => {
                 <Link to="/resume/2">
                     <button className="primary-btn">Second Resume</button>
                 </Link>
+                
+                {/* Link to the ATS Checker */}
+                <Link to="/ats-checker">
+                    <button className="primary-btn">Go to ATS Checker</button>
+                </Link>
             </div>
+
             {zoomedPicture && (
                 <div className="zoomed-picture" onClick={closeZoomedPicture}>
                     <span className="close-btn" onClick={closeZoomedPicture}>
