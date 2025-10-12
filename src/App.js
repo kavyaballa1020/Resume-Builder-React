@@ -6,9 +6,15 @@ import Form2 from './components/Form2';
 import Resume2 from './components/Resume2';
 import Preloader from './components/Preloader';
 import Home from './components/Home';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Profile from './components/Profile';
+import ChooseTemplate from './components/ChooseTemplate';
 import useFormHandlers from './components/Handler'; // Assuming this is for the first form
 import useFormHandlers2 from './components/Handler2';
 import ATSChecker from './components/ATSChecker'; // Import ATSChecker component
+import VideoTutorials from './components/VideoTutorials'; // Import VideoTutorials component
+import TextToSpeech from './components/TextToSpeech'; // Import TextToSpeech component
 import './App.css';
 
 const App = () => {
@@ -22,6 +28,11 @@ const App = () => {
         handleArrayChange: handleArrayChange1,
         handleNestedArrayChange: handleNestedArrayChange1,
         addSkill: addSkill1,
+        addSkillWithValue: addSkillWithValue1,
+        addLanguageWithValue: addLanguageWithValue1,
+        setLanguagesFromText,
+        addCertificateWithValue: addCertificateWithValue1,
+        setCertificatesFromText,
         addEducation: addEducation1,
         addCertificate: addCertificate1,
         addLanguage: addLanguage1,
@@ -45,6 +56,32 @@ const App = () => {
         handleSubmit: handleSubmit2,
         handleFileChange: handleFileChange2
     } = useFormHandlers2(); // Destructure the returned object from useFormHandlers2
+
+    // authentication state (simple client-side flag persisted to localStorage)
+    const [isAuthenticated, setIsAuthenticated] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('isAuthenticated')) || false;
+        } catch (e) {
+            return false;
+        }
+    });
+
+    // mute state for global audio control
+    const [isMuted, setIsMuted] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('isMuted')) || false;
+        } catch (e) {
+            return false;
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticated));
+    }, [isAuthenticated]);
+
+    useEffect(() => {
+        localStorage.setItem('isMuted', JSON.stringify(isMuted));
+    }, [isMuted]);
 
     // useEffect for loading states
     useEffect(() => {
@@ -72,7 +109,13 @@ const App = () => {
             <div className="app-container">
                 <div className="main-content">
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<Home isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} isMuted={isMuted} setIsMuted={setIsMuted} />} />
+
+                        {/* Login / Signup routes */}
+                        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+                        <Route path="/signup" element={<Signup setIsAuthenticated={setIsAuthenticated} />} />
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/templates" element={<ChooseTemplate isAuthenticated={isAuthenticated} />} />
 
                         {/* Route for Resume 1 */}
                         <Route path="/resume/1" element={
@@ -83,6 +126,11 @@ const App = () => {
                                         handleChange={handleChange1}
                                         handleArrayChange={handleArrayChange1}
                                         addSkill={addSkill1}
+                                        addSkillWithValue={addSkillWithValue1}
+                                        addLanguageWithValue={addLanguageWithValue1}
+                                        setLanguagesFromText={setLanguagesFromText}
+                                        addCertificateWithValue={addCertificateWithValue1}
+                                        setCertificatesFromText={setCertificatesFromText}
                                         addEducation={addEducation1}
                                         addCertificate={addCertificate1}
                                         addLanguage={addLanguage1}
@@ -129,6 +177,12 @@ const App = () => {
                                 <ATSChecker resumeText={formData1} /> {/* Passing the resume data to ATSChecker */}
                             </div>
                         } />
+
+                        {/* Route for Video Tutorials */}
+                        <Route path="/videos" element={<VideoTutorials />} />
+
+                        {/* Route for Text-to-Speech */}
+                        <Route path="/text-to-speech" element={<TextToSpeech />} />
                     </Routes>
                 </div>
             </div>

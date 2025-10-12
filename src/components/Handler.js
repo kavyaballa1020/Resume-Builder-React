@@ -104,8 +104,54 @@ const useFormHandlers = () => {
     const addSkill = () => {
         setFormData({
             ...formData,
-            skills: [...formData.skills, ''],  // Initialize with an empty string
+            // Initialize new skill with a visible placeholder so it shows in the template
+            skills: [...formData.skills, 'New Skill'],
         });
+    };
+
+    // Add a skill by value (used by the form's suggestion input)
+    const addSkillWithValue = (value) => {
+        if (!value || typeof value !== 'string') return;
+        setFormData(prev => ({
+            ...prev,
+            skills: [...(prev.skills || []), value]
+        }));
+    };
+    
+    // Add a language by value (used by the form's suggestion input)
+    const addLanguageWithValue = (value) => {
+        if (!value || typeof value !== 'string') return;
+        setFormData(prev => ({
+            ...prev,
+            languages: [...(prev.languages || []), value]
+        }));
+    };
+
+    // Set languages from multi-line text (one language per line or comma-separated)
+    const setLanguagesFromText = (text) => {
+        if (typeof text !== 'string') return;
+        const items = text.split(/\n|,/) // split by newline or comma
+            .map(s => s.trim())
+            .filter(Boolean);
+        setFormData(prev => ({ ...prev, languages: items }));
+    };
+
+    // Add a certificate by value (used by the form's suggestion input)
+    const addCertificateWithValue = (value) => {
+        if (!value || typeof value !== 'string') return;
+        setFormData(prev => ({
+            ...prev,
+            certificates: [...(prev.certificates || []), value]
+        }));
+    };
+
+    // Set certificates from multi-line text (one certificate per line or comma-separated)
+    const setCertificatesFromText = (text) => {
+        if (typeof text !== 'string') return;
+        const items = text.split(/\n|,/) // split by newline or comma
+            .map(s => s.trim())
+            .filter(Boolean);
+        setFormData(prev => ({ ...prev, certificates: items }));
     };
     
     const handleArrayChange = (e, index, field, subField = null) => {
@@ -170,6 +216,11 @@ const useFormHandlers = () => {
         handleArrayChange,
         handleNestedArrayChange,
         addSkill,
+        addSkillWithValue,
+        addLanguageWithValue,
+        setLanguagesFromText,
+        addCertificateWithValue,
+        setCertificatesFromText,
         addEducation,
         addCertificate,
         addLanguage,

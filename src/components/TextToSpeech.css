@@ -1,0 +1,175 @@
+.tts-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    text-align: center;
+}
+
+.tts-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    font-size: 28px;
+}
+
+.tts-container > p {
+    color: var(--muted-color);
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.tts-input-section {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.tts-input-section textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid rgba(108, 99, 255, 0.2);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.tts-input-section textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.char-count {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 12px;
+    color: var(--muted-color);
+}
+
+.tts-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.voice-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.voice-selector label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.voice-selector select {
+    padding: 8px 12px;
+    border: 2px solid rgba(108, 99, 255, 0.2);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.voice-selector select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.tts-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.speak-btn, .stop-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow-light);
+}
+
+.speak-btn {
+    background: var(--accent-color);
+    color: var(--background-color);
+}
+
+.speak-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.stop-btn {
+    background: #ff4757;
+    color: var(--background-color);
+}
+
+.stop-btn:hover:not(:disabled) {
+    background: #ff3742;
+    box-shadow: var(--box-shadow-hover);
+}
+
+.speak-btn:disabled, .stop-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.tts-tips {
+    text-align: left;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.tts-tips h3 {
+    margin: 0 0 12px;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.tts-tips ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.tts-tips li {
+    margin-bottom: 8px;
+    color: var(--muted-color);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .tts-container {
+        padding: 20px;
+    }
+
+    .tts-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .voice-selector {
+        justify-content: space-between;
+    }
+
+    .tts-buttons {
+        flex-direction: column;
+    }
+
+    .speak-btn, .stop-btn {
+        width: 100%;
+    }
+}

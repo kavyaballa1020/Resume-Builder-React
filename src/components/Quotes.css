@@ -1,0 +1,200 @@
+/* Quotes Section */
+.quotes-section {
+    padding: 56px 24px;
+    background: linear-gradient(45deg, #f0f8ff, #e6f3ff, #f0f8ff);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    border-radius: var(--border-radius);
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    box-shadow: var(--box-shadow-light);
+    text-align: center;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.quotes-inner h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.quote-card {
+    background-color: var(--secondary-color);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 20px rgba(74, 108, 247, 0.1), inset 0 0 20px rgba(74, 108, 247, 0.05);
+    margin-bottom: 24px;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(74, 108, 247, 0.1), inset 0 0 20px rgba(74, 108, 247, 0.05);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(74, 108, 247, 0.2), inset 0 0 30px rgba(74, 108, 247, 0.1);
+    }
+}
+
+.quote-card:hover {
+    box-shadow: 0 0 40px rgba(74, 108, 247, 0.3), inset 0 0 30px rgba(74, 108, 247, 0.15);
+}
+
+.quote-text {
+    font-size: 24px;
+    font-style: italic;
+    color: var(--text-color);
+    margin: 0 0 16px;
+    line-height: 1.4;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+}
+
+.quote-text.typing {
+    border-right: 2px solid var(--accent-color);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-color: transparent;
+    }
+    51%, 100% {
+        border-color: var(--accent-color);
+    }
+}
+
+.cursor {
+    border-right: 2px solid var(--accent-color);
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+.quote-author {
+    font-size: 18px;
+    color: var(--muted-color);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.quote-author.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.speak-quote-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--accent-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: var(--box-shadow-light);
+    transition: background 0.3s ease;
+}
+
+.speak-quote-btn:hover {
+    background: var(--primary-color);
+}
+
+.quote-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--muted-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--accent-color);
+}
+
+.mute-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+.mute-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.quote-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.quote-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-width: 140px;
+}
+
+.quote-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.quote-btn.next-reflection {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+}
+
+.quote-btn.inspire-again {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 159, 67, 0.3));
+}
+
+.quote-card.fade {
+    opacity: 0.7;
+    transform: scale(0.98);
+    transition: all 0.5s ease;
+}

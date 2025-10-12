@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
@@ -6,6 +6,101 @@ import './Resume.css';
 
 const Resume = ({ resumeData }) => {
     const resumeRef = useRef();
+    const [isSpeaking, setIsSpeaking] = useState(false);
+    const [voices, setVoices] = useState([]);
+    const [selectedVoice, setSelectedVoice] = useState(null);
+
+    useEffect(() => {
+        const loadVoices = () => {
+            const availableVoices = speechSynthesis.getVoices();
+            setVoices(availableVoices);
+            // Select a varied voice - prefer female or non-default if available
+            const variedVoice = availableVoices.find(voice => 
+                voice.name.includes('Female') || 
+                voice.name.includes('Zira') || 
+                voice.name.includes('Samantha') || 
+                (voice.lang.startsWith('en-') && voice.name !== 'Google US English')
+            ) || availableVoices[0];
+            setSelectedVoice(variedVoice);
+        };
+
+        loadVoices();
+        speechSynthesis.onvoiceschanged = loadVoices;
+    }, []);
+
+    const generateResumeText = () => {
+        let text = `Resume for ${resumeData.name || 'Your Name'}, ${resumeData.title || 'Your Title'}. `;
+        
+        if (resumeData.profileText) {
+            text += `About me: ${resumeData.profileText}. `;
+        }
+
+        if (resumeData.contact) {
+            text += `Contact information: Address ${resumeData.contact.address}, Email ${resumeData.contact.email}, Phone ${resumeData.contact.phone}. `;
+            if (resumeData.contact.linkedin) text += `LinkedIn ${resumeData.contact.linkedin}. `;
+            if (resumeData.contact.github) text += `GitHub ${resumeData.contact.github}. `;
+        }
+
+        if (resumeData.skills && resumeData.skills.length > 0) {
+            text += 'Skills: ';
+            resumeData.skills.forEach(skill => {
+                text += `${skill}. `;
+            });
+        }
+
+        if (resumeData.languages && resumeData.languages.length > 0) {
+            text += 'Languages: ';
+            resumeData.languages.forEach(lang => {
+                text += `${lang}. `;
+            });
+        }
+
+        if (resumeData.education && resumeData.education.length > 0) {
+            text += 'Education: ';
+            resumeData.education.forEach(edu => {
+                text += `${edu.degree} from ${edu.institution}, ${edu.startYear} - ${edu.endYear}. `;
+            });
+        }
+
+        if (resumeData.experience && resumeData.experience.length > 0) {
+            text += 'Work Experience: ';
+            resumeData.experience.forEach(exp => {
+                text += `${exp.position} at ${exp.company}, ${exp.location || ''}, from ${exp.startMonth} ${exp.startYear} to ${exp.endMonth} ${exp.endYear}. ${exp.internships}. `;
+            });
+        }
+
+        if (resumeData.certificates && resumeData.certificates.length > 0) {
+            text += 'Certificates and Awards: ';
+            resumeData.certificates.forEach(cert => {
+                text += `${cert}. `;
+            });
+        }
+
+        return text;
+    };
+
+    const handleVoiceOver = () => {
+        if (isSpeaking) {
+            speechSynthesis.cancel();
+            setIsSpeaking(false);
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(generateResumeText());
+        utterance.rate = 0.9; // Slightly slower for better comprehension
+        utterance.pitch = 1.1; // Slightly higher pitch for variety
+        utterance.volume = 1;
+
+        if (selectedVoice) {
+            utterance.voice = selectedVoice;
+        }
+
+        utterance.onstart = () => setIsSpeaking(true);
+        utterance.onend = () => setIsSpeaking(false);
+        utterance.onerror = () => setIsSpeaking(false);
+
+        speechSynthesis.speak(utterance);
+    };
 
     const handleDownload = () => {
         const input = resumeRef.current;
@@ -58,7 +153,9 @@ const Resume = ({ resumeData }) => {
                             <ul className="two-column-list">
                                 {resumeData.skills?.map((skill, index) => (
                                     <li className="two-column-item" key={index}>
-                                        {skill}
+                                        <button type="button" onClick={() => window.dispatchEvent(new CustomEvent('focusSkill', {detail: index}))} style={{all:'unset',cursor:'pointer'}}>
+                                            {skill}
+                                        </button>
                                     </li>
                                 ))}
                             </ul>
@@ -124,6 +221,32 @@ const Resume = ({ resumeData }) => {
                 <button className="download-button" onClick={handleDownload}>
                     <i className="fas fa-download"></i> Download Resume
                 </button>
+                <div className="voice-controls">
+                    <select 
+                        value={selectedVoice ? selectedVoice.name : ''} 
+                        onChange={(e) => {
+                            const voice = voices.find(v => v.name === e.target.value);
+                            setSelectedVoice(voice || null);
+                        }} 
+                        className="voice-selector"
+                        disabled={isSpeaking}
+                    >
+                        <option value="">Select Voice</option>
+                        {voices.filter(voice => voice.lang.startsWith('en-')).map(voice => (
+                            <option key={voice.name} value={voice.name}>
+                                {voice.name} ({voice.lang})
+                            </option>
+                        ))}
+                    </select>
+                    <button 
+                        className={`voice-over-button ${isSpeaking ? 'speaking' : ''}`} 
+                        onClick={handleVoiceOver}
+                        disabled={!selectedVoice || voices.length === 0}
+                    >
+                        <i className={`fas ${isSpeaking ? 'fa-stop' : 'fa-volume-up'}`}></i> 
+                        {isSpeaking ? 'Stop' : 'Play'}
+                    </button>
+                </div>
             </div>
         </div>
     );
