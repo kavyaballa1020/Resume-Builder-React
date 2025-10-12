@@ -17,7 +17,8 @@ const Form = ({
     handleSubmit,
     handleDelete,
     setCertificatesFromText,
-    setLanguagesFromText
+    setLanguagesFromText,
+    handleFileChange
 }) => {
     const skillRefs = useRef([]);
     const [showCertificatesBox, setShowCertificatesBox] = useState(false);
@@ -78,6 +79,15 @@ const Form = ({
                 value={formData.title}
                 onChange={handleChange}
                 required
+            />
+
+            <h2><i className="fas fa-image"></i> Profile Photo</h2>
+            <input
+                className="form-input"
+                type="file"
+                name="photo"
+                accept="image/*"
+                onChange={handleFileChange}
             />
 
             <h2><i className="fas fa-address-book"></i> Contact Info</h2>

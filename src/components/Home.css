@@ -182,7 +182,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background-image: url('https://source.unsplash.com/featured/?workspace,office'), linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background-blend-mode: overlay;
 }
 
 .hero {

@@ -15,6 +15,7 @@ import useFormHandlers2 from './components/Handler2';
 import ATSChecker from './components/ATSChecker'; // Import ATSChecker component
 import VideoTutorials from './components/VideoTutorials'; // Import VideoTutorials component
 import TextToSpeech from './components/TextToSpeech'; // Import TextToSpeech component
+import AIAssistant from './components/AIAssistant'; // Import AIAssistant component
 import './App.css';
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
         handleAddExperience: handleAddExperience1,
         handleDelete: handleDelete1,
         handleSubmit: handleSubmit1,
+        handleFileChange: handleFileChange1,
     } = useFormHandlers();
 
     // Form handler for resume 2 (using useFormHandlers2)
@@ -106,26 +108,29 @@ const App = () => {
     useEffect(() => {
         if (bgMusicRef.current) {
             bgMusicRef.current.volume = isMuted ? 0 : 1;
-            bgMusicRef.current.play().then(() => {
-                // Autoplay succeeded
-            }).catch(() => {
-                // Autoplay blocked, set up click to start
-                const startMusic = () => {
-                    if (bgMusicRef.current) {
-                        bgMusicRef.current.volume = isMuted ? 0 : 1;
-                        bgMusicRef.current.play().catch(e => console.log('Play failed:', e));
-                    }
-                    document.removeEventListener('click', startMusic);
-                };
-                document.addEventListener('click', startMusic);
-            });
         }
+        // Set up click to start music
+        const startMusic = () => {
+            if (bgMusicRef.current) {
+                bgMusicRef.current.volume = isMuted ? 0 : 1;
+                bgMusicRef.current.play().catch(e => console.log('Play failed:', e));
+            }
+            document.removeEventListener('click', startMusic);
+        };
+        document.addEventListener('click', startMusic);
     }, []);
 
     // Update background music on mute change
     useEffect(() => {
         if (bgMusicRef.current) {
-            bgMusicRef.current.volume = isMuted ? 0 : 1;
+            if (isMuted) {
+                bgMusicRef.current.pause();
+            } else {
+                bgMusicRef.current.volume = 1;
+                if (bgMusicRef.current.paused) {
+                    bgMusicRef.current.play().catch(e => console.log('Play failed:', e));
+                }
+            }
         }
     }, [isMuted]);
 
@@ -168,6 +173,7 @@ const App = () => {
                                         handleNestedArrayChange={handleNestedArrayChange1}
                                         handleSubmit={handleSubmit1}
                                         handleDelete={handleDelete1}
+                                        handleFileChange={handleFileChange1}
                                     />
                                 </div>
                                 <div className="resume-wrapper">
@@ -213,6 +219,9 @@ const App = () => {
 
                         {/* Route for Text-to-Speech */}
                         <Route path="/text-to-speech" element={<TextToSpeech />} />
+
+                        {/* Route for AI Assistant */}
+                        <Route path="/ai-assistant" element={<AIAssistant />} />
                     </Routes>
                 </div>
 
@@ -222,7 +231,7 @@ const App = () => {
                 </button>
 
                 {/* Global Background Music */}
-                <audio ref={bgMusicRef} src="/Assets/audio/background.mp3" loop preload="auto" autoPlay></audio>
+                <audio ref={bgMusicRef} src="/Assets/audio/background.mp3" loop preload="auto"></audio>
             </div>
         </Router>
     );

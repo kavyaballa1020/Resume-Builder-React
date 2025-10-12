@@ -125,6 +125,7 @@ const Resume = ({ resumeData }) => {
             </div>
             <div id="resume" className="resume-container" ref={resumeRef}>
                 <div className="header1">
+                    {resumeData.photo && <img src={resumeData.photo} alt="Profile" className="profile-photo" />}
                     <h1>{resumeData.name || 'Your Name'}</h1>
                     <h4 className='headerh1'>{resumeData.title || 'Your Title'}</h4>
                 </div>

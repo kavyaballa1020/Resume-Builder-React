@@ -55,26 +55,11 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
     }, []);
 
 
-    // Typewriter effect
+    // Display quote instantly
     useEffect(() => {
-        const quote = quotes[currentQuoteIndex];
-        setDisplayedText('');
-        setIsTyping(true);
-        setIsFading(true); // Start fade in
-
-        let index = 0;
-        const typingInterval = setInterval(() => {
-            if (index < quote.text.length) {
-                setDisplayedText(prev => prev + quote.text[index]);
-                index++;
-            } else {
-                clearInterval(typingInterval);
-                setIsTyping(false);
-                setIsFading(false); // End fade
-            }
-        }, 50); // Typing speed
-
-        return () => clearInterval(typingInterval);
+        setDisplayedText(quotes[currentQuoteIndex].text);
+        setIsTyping(false);
+        setIsFading(false);
     }, [currentQuoteIndex]);
 
     // Auto-rotate quotes every 7 seconds, pause on hover

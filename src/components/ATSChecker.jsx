@@ -30,26 +30,11 @@ const ATSChecker = () => {
 
   const intervalRef = useRef(null);
 
-  // Typewriter effect for messages
+  // Display message instantly
   useEffect(() => {
-    const message = messages[currentMessageIndex];
-    setDisplayedText('');
-    setIsTyping(true);
-    setIsFading(true); // Start fade in
-
-    let index = 0;
-    const typingInterval = setInterval(() => {
-      if (index < message.text.length) {
-        setDisplayedText(prev => prev + message.text[index]);
-        index++;
-      } else {
-        clearInterval(typingInterval);
-        setIsTyping(false);
-        setIsFading(false); // End fade
-      }
-    }, 50); // Typing speed
-
-    return () => clearInterval(typingInterval);
+    setDisplayedText(messages[currentMessageIndex].text);
+    setIsTyping(false);
+    setIsFading(false);
   }, [currentMessageIndex]);
 
   // Auto-rotate messages every 5 seconds, nonstop
