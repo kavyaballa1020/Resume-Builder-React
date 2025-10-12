@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Resume2.css';
 import { jsPDF } from 'jspdf';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
@@ -7,6 +7,99 @@ import html2canvas from 'html2canvas';
 const Resume2 = ({ resumeData }) => {
     const { name, title, contact, photo, profileText, skills, education, experience, languages, certificates } = resumeData;
     const resumeRef = useRef();
+    const [voices, setVoices] = useState([]);
+    const [selectedVoice, setSelectedVoice] = useState(null);
+    const [isSpeaking, setIsSpeaking] = useState(false);
+
+    useEffect(() => {
+        const loadVoices = () => {
+            const availableVoices = speechSynthesis.getVoices();
+            setVoices(availableVoices);
+            // Select a varied voice - prefer female or non-default if available
+            const variedVoice = availableVoices.find(voice => 
+                voice.name.includes('Female') || 
+                voice.name.includes('Zira') || 
+                voice.name.includes('Samantha') || 
+                (voice.lang.startsWith('en-') && voice.name !== 'Google US English')
+            ) || availableVoices[0];
+            setSelectedVoice(variedVoice);
+        };
+
+        loadVoices();
+        speechSynthesis.onvoiceschanged = loadVoices;
+    }, []);
+
+    const generateResumeText = () => {
+        let text = `Resume for ${name}, ${title}. `;
+        
+        if (profileText) {
+            text += `About me: ${profileText}. `;
+        }
+
+        if (contact) {
+            text += `Contact information: Address ${contact.address}, Email ${contact.email}, Phone ${contact.phone}. `;
+        }
+
+        if (skills && skills.length > 0) {
+            text += 'Skills: ';
+            skills.forEach(skill => {
+                text += `${skill.name} at ${skill.percentage} percent. `;
+            });
+        }
+
+        if (languages && languages.length > 0) {
+            text += 'Languages: ';
+            languages.forEach(lang => {
+                text += `${lang.name} at ${lang.percentage} percent. `;
+            });
+        }
+
+        if (education && education.length > 0) {
+            text += 'Education: ';
+            education.forEach(edu => {
+                text += `${edu.degree} from ${edu.institution}, ${edu.location}, ${edu.cgpa} ${edu.cgpaType}. `;
+            });
+        }
+
+        if (experience && experience.length > 0) {
+            text += 'Work Experience: ';
+            experience.forEach(exp => {
+                text += `${exp.position} at ${exp.company}, ${exp.location}, from ${exp.startMonth} ${exp.startYear} to ${exp.endMonth} ${exp.endYear}. ${exp.internships}. `;
+            });
+        }
+
+        if (certificates && certificates.length > 0) {
+            text += 'Certificates and Awards: ';
+            certificates.forEach(cert => {
+                text += `${cert}. `;
+            });
+        }
+
+        return text;
+    };
+
+    const handleVoiceOver = () => {
+        if (isSpeaking) {
+            speechSynthesis.cancel();
+            setIsSpeaking(false);
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(generateResumeText());
+        utterance.rate = 0.9; // Slightly slower for better comprehension
+        utterance.pitch = 1.1; // Slightly higher pitch for variety
+        utterance.volume = 1;
+
+        if (selectedVoice) {
+            utterance.voice = selectedVoice;
+        }
+
+        utterance.onstart = () => setIsSpeaking(true);
+        utterance.onend = () => setIsSpeaking(false);
+        utterance.onerror = () => setIsSpeaking(false);
+
+        speechSynthesis.speak(utterance);
+    };
 
     const handleDownload = () => {
         const input = resumeRef.current;
@@ -146,6 +239,32 @@ const Resume2 = ({ resumeData }) => {
                 <button className="download-button" onClick={handleDownload}>
                     <i className="fas fa-download"></i> Download Resume
                 </button>
+                <div className="voice-controls">
+                    <select 
+                        value={selectedVoice ? selectedVoice.name : ''} 
+                        onChange={(e) => {
+                            const voice = voices.find(v => v.name === e.target.value);
+                            setSelectedVoice(voice || null);
+                        }} 
+                        className="voice-selector"
+                        disabled={isSpeaking}
+                    >
+                        <option value="">Select Voice</option>
+                        {voices.filter(voice => voice.lang.startsWith('en-')).map(voice => (
+                            <option key={voice.name} value={voice.name}>
+                                {voice.name} ({voice.lang})
+                            </option>
+                        ))}
+                    </select>
+                    <button 
+                        className={`voice-over-button ${isSpeaking ? 'speaking' : ''}`} 
+                        onClick={handleVoiceOver}
+                        disabled={!selectedVoice || voices.length === 0}
+                    >
+                        <i className={`fas ${isSpeaking ? 'fa-stop' : 'fa-volume-up'}`}></i> 
+                        {isSpeaking ? 'Stop' : 'Play'}
+                    </button>
+                </div>
             </div>
         </div>
     );

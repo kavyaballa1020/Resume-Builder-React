@@ -1,4 +1,21 @@
-/* ATSChecker.css */
+.ats-checker-container{max-width:980px;margin:30px auto;padding:20px;background:linear-gradient(180deg,#fff,#fbfdff);border-radius:14px;box-shadow:0 20px 60px rgba(20,24,60,0.06)}
+.ats-checker-container h2{margin-top:0}
+.ats-checker-container textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e9ef;margin-top:12px}
+.ats-checker-container button{margin-top:12px;padding:10px 16px;border-radius:10px;border:none;background:linear-gradient(90deg,#6c63ff,#4fb3ff);color:#fff;font-weight:800;cursor:pointer}
+
+.ats-scanner{display:flex;gap:18px;align-items:flex-start}
+.scanner-actions{flex:1;min-width:240px}
+.scanner-preview{flex:1}
+.file-label{display:block;margin-bottom:8px;font-weight:700}
+.camera-controls{display:flex;gap:8px;margin-top:12px}
+.small-btn{padding:8px 12px;border-radius:8px;border:none;background:#fff;color:#333;cursor:pointer;box-shadow:0 6px 18px rgba(20,24,60,0.06)}
+.small-btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
+.scanner-status{margin-top:10px;color:#2b6f2b}
+.scanner-error{margin-top:10px;color:#b00020}
+.ocr-result{margin-top:12px;background:#f7f9ff;padding:10px;border-radius:8px;border:1px solid #e6eefc}
+
+.ats-result{margin-top:18px;padding:12px;background:#fff;border-radius:8px;border:1px solid #eef3ff}
+.ats-result h3{margin:0 0 8px}
 .ats-checker-container {
     padding: 30px;
     max-width: 900px;

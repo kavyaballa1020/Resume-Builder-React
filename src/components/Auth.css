@@ -1,0 +1,16 @@
+/* Shared auth form styles */
+.auth-page{min-height:68vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(180deg,#f8f7ff,#f1f7ff)}
+
+.auth-card{width:460px;max-width:94%;background:linear-gradient(180deg,#2b1040,#4b2fa6);padding:28px;border-radius:14px;box-shadow:0 40px 110px rgba(20,24,60,0.22);border:1px solid rgba(255,255,255,0.06)}
+.auth-card h2{margin:0 0 14px;font-size:22px;color:#fff}
+.auth-card label{display:block;margin-top:12px;color:#e7e0ff;font-weight:700}
+.auth-card input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(20,20,30,0.08);margin-top:8px;font-size:14px;background:#ffffff;color:#111}
+.auth-card input::placeholder{color:#7b7b85}
+.auth-btn{margin-top:18px;width:100%;padding:12px;background:linear-gradient(90deg,#7b5cff,#4fb3ff);color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:800;box-shadow:0 18px 60px rgba(110,65,255,0.18)}
+.auth-switch{text-align:center;margin-top:12px;color:rgba(255,255,255,0.9)}
+.auth-switch a{color:#ffdfff;text-decoration:underline}
+.auth-error{margin-top:12px;color:#fff;background:rgba(255,80,100,0.18);padding:8px;border-radius:6px}
+
+@media (max-width:480px){
+    .auth-card{padding:18px}
+}
