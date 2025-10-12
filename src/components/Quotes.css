@@ -198,3 +198,7 @@
     transform: scale(0.98);
     transition: all 0.5s ease;
 }
+
+.quote-card {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}

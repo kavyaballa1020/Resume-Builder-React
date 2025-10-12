@@ -470,7 +470,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
             </footer>
 
             {/* Audio elements */}
-            <audio id="bgMusic" src="/assets/audio/background.mp3" loop preload="auto"></audio>
+<audio id="bgMusic" src="/Assets/audio/background.mp3" loop preload="auto"></audio>
             <audio id="whooshSound" src="/assets/audio/whoosh.mp3" preload="auto"></audio>
 
             {/* Particles background */}

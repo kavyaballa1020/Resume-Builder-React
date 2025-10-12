@@ -177,6 +177,14 @@ body {
 }
 
 /* HERO */
+.hero.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
 .hero {
     background-color: var(--background-color);
     padding: 64px 24px;
@@ -637,4 +645,61 @@ body {
         font-size: 14px;
         padding: 12px;
     }
+}
+
+/* Particles */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(108, 99, 255, 0.3);
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.mute-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+.mute-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
 }
