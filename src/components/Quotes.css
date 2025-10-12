@@ -31,7 +31,7 @@
 }
 
 .quote-card {
-    background-color: var(--secondary-color);
+    background-color: white;
     padding: 32px;
     border-radius: var(--border-radius);
     box-shadow: 0 0 20px rgba(74, 108, 247, 0.1), inset 0 0 20px rgba(74, 108, 247, 0.05);
@@ -117,6 +117,8 @@
 .speak-quote-btn:hover {
     background: var(--primary-color);
 }
+
+
 
 .quote-indicators {
     display: flex;

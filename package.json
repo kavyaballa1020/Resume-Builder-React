@@ -15,6 +15,7 @@
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.3",
     "react-scripts": "5.0.1",
+    "tesseract.js": "^6.0.1",
     "web-vitals": "^5.1.0",
     "yup": "^1.7.1"
   },

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Form from './components/Form';
 import Resume from './components/Resume';
@@ -75,6 +75,9 @@ const App = () => {
         }
     });
 
+    // ref for background music
+    const bgMusicRef = useRef(null);
+
     useEffect(() => {
         localStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticated));
     }, [isAuthenticated]);
@@ -98,6 +101,33 @@ const App = () => {
             clearTimeout(timeout2);
         };
     }, []);
+
+    // Initialize background music
+    useEffect(() => {
+        if (bgMusicRef.current) {
+            bgMusicRef.current.volume = isMuted ? 0 : 1;
+            bgMusicRef.current.play().then(() => {
+                // Autoplay succeeded
+            }).catch(() => {
+                // Autoplay blocked, set up click to start
+                const startMusic = () => {
+                    if (bgMusicRef.current) {
+                        bgMusicRef.current.volume = isMuted ? 0 : 1;
+                        bgMusicRef.current.play().catch(e => console.log('Play failed:', e));
+                    }
+                    document.removeEventListener('click', startMusic);
+                };
+                document.addEventListener('click', startMusic);
+            });
+        }
+    }, []);
+
+    // Update background music on mute change
+    useEffect(() => {
+        if (bgMusicRef.current) {
+            bgMusicRef.current.volume = isMuted ? 0 : 1;
+        }
+    }, [isMuted]);
 
     // Render loading indicator if either form is loading
     if (loading1 || loading2) {
@@ -185,6 +215,14 @@ const App = () => {
                         <Route path="/text-to-speech" element={<TextToSpeech />} />
                     </Routes>
                 </div>
+
+                {/* Global Mute Button */}
+                <button className="global-mute-btn" onClick={() => setIsMuted(!isMuted)} aria-label={isMuted ? 'Unmute' : 'Mute'}>
+                    {isMuted ? '🔇' : '🔊'}
+                </button>
+
+                {/* Global Background Music */}
+                <audio ref={bgMusicRef} src="/Assets/audio/background.mp3" loop preload="auto" autoPlay></audio>
             </div>
         </Router>
     );

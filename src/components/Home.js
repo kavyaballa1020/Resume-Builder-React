@@ -28,6 +28,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [showAuthor, setShowAuthor] = useState(false);
     const [isFading, setIsFading] = useState(false);
+    const [isSpeaking, setIsSpeaking] = useState(false);
     const quotes = [
         { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
         { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
@@ -37,8 +38,6 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
     ];
 
     const intervalRef = useRef(null);
-    const bgMusicRef = useRef(null);
-    const whooshRef = useRef(null);
 
     // Load voices asynchronously for better TTS
     const [voicesLoaded, setVoicesLoaded] = useState(false);
@@ -55,38 +54,13 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }, []);
 
-    // Initialize audio on mount
-    useEffect(() => {
-        bgMusicRef.current = document.getElementById('bgMusic');
-        whooshRef.current = document.getElementById('whooshSound');
-        if (bgMusicRef.current && !isMuted) {
-            bgMusicRef.current.volume = 0.2; // Slightly lower for more subtle background music
-            bgMusicRef.current.play().catch(e => console.log('Autoplay prevented:', e));
-        }
-    }, []);
 
-    // Update audio volume on mute change
-    useEffect(() => {
-        if (bgMusicRef.current) {
-            bgMusicRef.current.muted = isMuted;
-            if (!isMuted && document.visibilityState === 'visible') {
-                bgMusicRef.current.play().catch(e => console.log('Play failed:', e));
-            }
-        }
-    }, [isMuted]);
-
-    // Typewriter effect with whoosh on start and auto-TTS on complete
+    // Typewriter effect
     useEffect(() => {
         const quote = quotes[currentQuoteIndex];
         setDisplayedText('');
         setIsTyping(true);
         setIsFading(true); // Start fade in
-
-        // Play whoosh sound on new quote
-        if (whooshRef.current && !isMuted) {
-            whooshRef.current.currentTime = 0;
-            whooshRef.current.play().catch(e => console.log('Whoosh play failed:', e));
-        }
 
         let index = 0;
         const typingInterval = setInterval(() => {
@@ -97,31 +71,11 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
                 clearInterval(typingInterval);
                 setIsTyping(false);
                 setIsFading(false); // End fade
-
-                // Auto TTS with improved natural voice after typing completes
-                if (!isMuted && voicesLoaded) {
-                    // Small delay to ensure sync
-                    setTimeout(() => {
-                        const utterance = new SpeechSynthesisUtterance(quote.text);
-                        utterance.rate = 0.8; // Slightly faster for natural flow
-                        utterance.pitch = 1.0; // Neutral pitch
-                        utterance.volume = 0.8; // Balanced volume
-                        const voices = window.speechSynthesis.getVoices();
-                        // Prefer natural Google voices or similar for less robotic sound
-                        let naturalVoice = voices.find(v => v.name.includes('Google US English') || v.name.includes('Microsoft Zira') || v.name.includes('Samantha') || (v.lang === 'en-US' && v.name.toLowerCase().includes('natural')));
-                        if (!naturalVoice) {
-                            naturalVoice = voices.find(v => v.lang === 'en-US') || voices[0];
-                        }
-                        if (naturalVoice) utterance.voice = naturalVoice;
-                        window.speechSynthesis.cancel();
-                        window.speechSynthesis.speak(utterance);
-                    }, 500); // Delay for better sync with display
-                }
             }
         }, 50); // Typing speed
 
         return () => clearInterval(typingInterval);
-    }, [currentQuoteIndex, isMuted, voicesLoaded]);
+    }, [currentQuoteIndex]);
 
     // Auto-rotate quotes every 7 seconds, pause on hover
     useEffect(() => {
@@ -185,10 +139,6 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
                         <a href="#ats">ATSChecker</a>
                         <a href="/videos">Videos</a>
                     </nav>
-
-                    <button className="mute-btn" onClick={() => setIsMuted(!isMuted)} aria-label={isMuted ? 'Unmute' : 'Mute'}>
-                        {isMuted ? '🔇' : '🔊'}
-                    </button>
 
                     <div className="auth-buttons">
                         {!isAuthenticated ? (
@@ -262,24 +212,31 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
                                 className="speak-quote-btn"
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    if (voicesLoaded) {
-                                        const utterance = new SpeechSynthesisUtterance(displayedText || quotes[currentQuoteIndex].text);
-                                        utterance.rate = 0.9;
-                                        utterance.pitch = 1.0;
-                                        utterance.volume = 0.8;
-                                        const voices = window.speechSynthesis.getVoices();
-                                        let naturalVoice = voices.find(v => v.name.includes('Google US English') || v.name.includes('Microsoft Zira') || v.name.includes('Samantha') || (v.lang === 'en-US' && v.name.toLowerCase().includes('natural')));
-                                        if (!naturalVoice) {
-                                            naturalVoice = voices.find(v => v.lang === 'en-US') || voices[0];
+                                    if (!isSpeaking) {
+                                        if (voicesLoaded) {
+                                            const utterance = new SpeechSynthesisUtterance(displayedText || quotes[currentQuoteIndex].text);
+                                            utterance.rate = 0.9;
+                                            utterance.pitch = 1.0;
+                                            utterance.volume = 0.8;
+                                            const voices = window.speechSynthesis.getVoices();
+                                            let naturalVoice = voices.find(v => v.name.includes('Google US English') || v.name.includes('Microsoft Zira') || v.name.includes('Samantha') || (v.lang === 'en-US' && v.name.toLowerCase().includes('natural')));
+                                            if (!naturalVoice) {
+                                                naturalVoice = voices.find(v => v.lang === 'en-US') || voices[0];
+                                            }
+                                            if (naturalVoice) utterance.voice = naturalVoice;
+                                            window.speechSynthesis.cancel();
+                                            window.speechSynthesis.speak(utterance);
+                                            setIsSpeaking(true);
+                                            utterance.onend = () => setIsSpeaking(false);
                                         }
-                                        if (naturalVoice) utterance.voice = naturalVoice;
+                                    } else {
                                         window.speechSynthesis.cancel();
-                                        window.speechSynthesis.speak(utterance);
+                                        setIsSpeaking(false);
                                     }
                                 }}
-                                aria-label="Speak quote"
+                                aria-label={isSpeaking ? "Stop speaking" : "Speak quote"}
                             >
-                                🔊
+                                {isSpeaking ? '🔇' : '🔊'}
                             </button>
                         </div>
                         <div className="quote-indicators">
@@ -468,10 +425,6 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
 
                 <div className="footer-bottom">© 2024 ResumeForge. All rights reserved.</div>
             </footer>
-
-            {/* Audio elements */}
-<audio id="bgMusic" src="/Assets/audio/background.mp3" loop preload="auto"></audio>
-            <audio id="whooshSound" src="/assets/audio/whoosh.mp3" preload="auto"></audio>
 
             {/* Particles background */}
             <div className="particles">

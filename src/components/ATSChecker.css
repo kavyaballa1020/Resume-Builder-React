@@ -96,4 +96,69 @@
       width: 100%;
     }
   }
+
+/* Animated Message Styles */
+.message-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.message-text {
+    font-size: 18px;
+    font-style: italic;
+    color: #333;
+    margin: 0 0 12px;
+    line-height: 1.4;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+}
+
+.message-text.typing {
+    border-right: 2px solid #4CAF50;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-color: transparent;
+    }
+    51%, 100% {
+        border-color: #4CAF50;
+    }
+}
+
+.cursor {
+    border-right: 2px solid #4CAF50;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+.message-author {
+    font-size: 16px;
+    color: #666;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.message-author.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message-card.fade {
+    opacity: 0.7;
+    transform: scale(0.98);
+    transition: all 0.5s ease;
+}
   
