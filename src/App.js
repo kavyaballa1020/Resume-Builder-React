@@ -15,7 +15,7 @@ import useFormHandlers2 from './components/Handler2';
 import ATSChecker from './components/ATSChecker'; // Import ATSChecker component
 import VideoTutorials from './components/VideoTutorials'; // Import VideoTutorials component
 import TextToSpeech from './components/TextToSpeech'; // Import TextToSpeech component
-import AIAssistant from './components/AIAssistant'; // Import AIAssistant component
+
 import './App.css';
 
 const App = () => {
@@ -149,7 +149,7 @@ const App = () => {
                         {/* Login / Signup routes */}
                         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                         <Route path="/signup" element={<Signup setIsAuthenticated={setIsAuthenticated} />} />
-                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/profile" element={<Profile setIsAuthenticated={setIsAuthenticated} />} />
                         <Route path="/templates" element={<ChooseTemplate isAuthenticated={isAuthenticated} />} />
 
                         {/* Route for Resume 1 */}
@@ -220,8 +220,7 @@ const App = () => {
                         {/* Route for Text-to-Speech */}
                         <Route path="/text-to-speech" element={<TextToSpeech />} />
 
-                        {/* Route for AI Assistant */}
-                        <Route path="/ai-assistant" element={<AIAssistant />} />
+
                     </Routes>
                 </div>
 

@@ -164,6 +164,8 @@ const ATSChecker = () => {
       setIsRecordingJob(true);
     }
   };
+
+
   return (
     <div className="ats-checker-container">
       <h2>ATS Checker</h2>

@@ -1,16 +1,17 @@
 /* Redesigned Home.css for cute, professional, neat, responsive, minimalistic style */
 
 :root {
-    --primary-color: #6c63ff;
-    --secondary-color: #f5f5ff;
-    --accent-color: #ff6584;
-    --text-color: #333;
-    --muted-color: #777;
+    --primary-color: #4a6cf7;
+    --secondary-color: #f8f9fb;
+    --accent-color: #ff6b6b;
+    --text-color: #2a2a72;
+    --muted-color: #666;
     --background-color: #ffffff;
-    --border-radius: 16px;
-    --box-shadow-light: 0 4px 12px rgba(108, 99, 255, 0.15);
-    --box-shadow-hover: 0 8px 24px rgba(108, 99, 255, 0.25);
-    --font-family: 'Poppins', sans-serif;
+    --border-radius: 12px;
+    --box-shadow-light: 0 4px 12px rgba(74, 108, 247, 0.1);
+    --box-shadow-hover: 0 8px 24px rgba(74, 108, 247, 0.2);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition: all 0.3s ease;
 }
 
 * {

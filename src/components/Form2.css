@@ -2,15 +2,20 @@
     max-width: 800px;
     margin: auto;
     padding: 40px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    font-family: var(--font-family);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    transition: var(--transition);
+}
+
+.form-container:hover {
+    box-shadow: var(--box-shadow-hover);
 }
 
 .form-container::before {
@@ -19,9 +24,9 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 15px;
-    background: linear-gradient(to right, #5181b8, #365e8a);
-    border-radius: 20px 20px 0 0;
+    height: 8px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .form-container::after {
@@ -30,33 +35,35 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 15px;
-    background: linear-gradient(to right, #5181b8, #365e8a);
-    border-radius: 0 0 20px 20px;
+    height: 8px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 .form-input {
     width: 90%;
     padding: 20px 25px;
     margin: 15px 0;
-    border: none;
-    border-radius: 10px;
-    background-color: #f5f5f5;
-    color: #333;
+    border: 2px solid rgba(74, 108, 247, 0.2);
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     font-size: 18px;
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.393);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: var(--box-shadow-light);
+    transition: var(--transition);
 }
 
 .form-input:focus {
     outline: none;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 10px rgba(81, 129, 184, 0.5);
-    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1), var(--box-shadow-hover);
+    transform: translateY(-2px);
 }
 
 .form-input:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-2px);
 }
 
 textarea.form-input {
@@ -68,14 +75,13 @@ h2 {
     margin-top: 50px;
     margin-bottom: 30px;
     font-size: 26px;
-    color: #333;
+    color: var(--text-color);
     font-weight: bold;
     text-transform: uppercase;
     font-style: italic;
     letter-spacing: 1.5px;
     position: relative;
     padding-bottom: 20px;
-    
 }
 
 h2::after {
@@ -85,44 +91,48 @@ h2::after {
     left: 0;
     width: 120px;
     height: 5px;
-    background: linear-gradient(to right, #5181b8, #365e8a);
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
     border-radius: 2.5px;
 }
 
 .add-button,
 .submit-button {
     padding: 18px 36px;
-    background: linear-gradient(to right, #5181b8, #365e8a);
-    color: #fff;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--background-color);
     border: none;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 18px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    box-shadow: var(--box-shadow-light);
+    transition: var(--transition);
 }
 
 .add-button:hover,
 .submit-button:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
 }
 
 .delete-button {
     padding: 15px 25px;
-    background-color: #d32f2f;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: var(--background-color);
     border: none;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    box-shadow: var(--box-shadow-light);
+    transition: var(--transition);
 }
 
 .delete-button:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-3px);
+    background-color: #e74c3c;
 }
 
 .form-group {
@@ -130,6 +140,7 @@ h2::after {
     justify-content: center;
     align-items: center;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .form-group .form-input {
@@ -143,9 +154,15 @@ h2::after {
     align-items: flex-start;
     margin: 40px 0;
     padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    border: 1px solid rgba(74, 108, 247, 0.1);
+    transition: var(--transition);
+}
+
+.nested-form-group:hover {
+    box-shadow: var(--box-shadow-hover);
 }
 
 .nested-form-group .form-input {
@@ -162,10 +179,11 @@ select.form-input {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" fill="%23333"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" fill="%23666"/></svg>');
     background-repeat: no-repeat;
     background-position: right 20px center;
     padding-right: 50px;
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -174,17 +192,17 @@ select.form-input {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f5f5f5;
+    background-color: var(--secondary-color);
     border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #bbb;
+    background-color: var(--primary-color);
     border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #999;
+    background-color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -198,8 +216,18 @@ select.form-input {
     .delete-button {
         font-size: 16px;
     }
-    
+
     .nested-form-group .form-input {
         width: 100%;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-group .form-input {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 }

@@ -17,6 +17,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
     const nameFromStorage = typeof window !== 'undefined' ? localStorage.getItem('profileName') : null;
     const [profileImage, setProfileImage] = useState(profileFromStorage || '/logo192.png');
     const [profileName, setProfileName] = useState(nameFromStorage || null);
+    const fileInputRef = useRef(null);
 
     // State to track hovered feature card index
     const [hoveredFeatureIndex, setHoveredFeatureIndex] = useState(null);
@@ -109,6 +110,28 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
 
         navigate(target);
     };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+            setProfileImage(reader.result);
+            localStorage.setItem('profileImage', reader.result);
+            // dispatch event so header can update
+            window.dispatchEvent(new CustomEvent('profileUpdated', { detail: { profileImage: reader.result } }));
+        };
+        reader.readAsDataURL(file);
+    };
+
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('profileImage');
+        localStorage.removeItem('profileName');
+        setShowProfile(false);
+        navigate('/');
+    };
     return (
         <div className="site-root">
             <header className="site-header">
@@ -139,17 +162,18 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
                                 {showProfile && (
                                     <div className="profile-menu" role="menu">
                                             {profileName && <div className="profile-name">{profileName}</div>}
+                                            <button className="profile-menu-item" onClick={() => { fileInputRef.current.click(); setShowProfile(false); }}>Change Photo</button>
                                             <button className="profile-menu-item" onClick={() => { navigate('/profile'); setShowProfile(false); }}>Profile</button>
-<button className="profile-menu-item" onClick={() => { 
-    setIsAuthenticated(false); 
-    localStorage.removeItem('isAuthenticated'); 
-    localStorage.removeItem('profileImage'); 
-    localStorage.removeItem('profileName'); 
-    setShowProfile(false); 
-    navigate('/'); 
-}}>Logout</button>
+                                            <button className="profile-menu-item" onClick={handleLogout}>Logout</button>
                                     </div>
                                 )}
+                                <input
+                                    type="file"
+                                    ref={fileInputRef}
+                                    style={{ display: 'none' }}
+                                    accept="image/*"
+                                    onChange={handleFileChange}
+                                />
                             </div>
                         )}
                     </div>

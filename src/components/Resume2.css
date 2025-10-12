@@ -6,7 +6,7 @@
 .resume2 {
     display: flex;
     flex-direction: column;
-    font-family: sans-serif;
+    font-family: var(--font-family);
 }
 
 .resume-header {
@@ -14,15 +14,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #15293c;
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--background-color);
+    box-shadow: var(--box-shadow-light);
+    transition: var(--transition);
 }
 
 .profile-image img {
     border-radius: 50%;
     width: 140px;
     height: 140px;
-    border: 3px solid white;
+    border: 3px solid var(--background-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .header-text h1 {
@@ -31,6 +34,7 @@
     font-weight: 400 !important;
     margin-bottom: 10px;
     text-transform: capitalize;
+    color: var(--background-color);
 }
 
 .header-text h3 {
@@ -38,7 +42,7 @@
     margin: 0;
     font-style: italic;
     text-transform: uppercase;
-    color: rgb(230, 228, 228);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .resume-body {
@@ -47,9 +51,11 @@
 
 .sidebar {
     width: 55%;
-    background-color: #15293c;
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--background-color);
     padding: 20px;
+    box-shadow: var(--box-shadow-light);
+    transition: var(--transition);
 }
 
 .sidebar section {
@@ -142,12 +148,14 @@ h3 {
 .Work-experience h3,
 .Education h3,
 .awards h3 {
-    background-color: #15293c;
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--background-color);
     text-align:center;
     padding: 10px 0;
     margin: 0;
     width: 60%;
+    box-shadow: var(--box-shadow-light);
+    transition: var(--transition);
 }
 
 .sidebar .Work-experience,

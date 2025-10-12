@@ -4,25 +4,25 @@
     max-width: 900px;
     margin: 30px auto;
     padding: 30px 40px;
-    background: linear-gradient(135deg, #f8f9fb, #e6eefc);
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--secondary-color), #e6eefc);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    font-family: var(--font-family);
     line-height: 1.8;
-    color: #222;
-    transition: all 0.3s ease-in-out;
+    color: var(--text-color);
+    transition: var(--transition);
 }
 
 .contact-address {
     white-space: pre-wrap;
     word-wrap: break-word;
     font-style: normal;
-    color: #444;
+    color: var(--muted-color);
 }
 
 .header1 {
     text-align: center;
-    border-bottom: 3px solid #4a6cf7;
+    border-bottom: 3px solid var(--primary-color);
     padding-bottom: 25px;
     margin-bottom: 30px;
     text-transform: capitalize;
@@ -38,7 +38,7 @@
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #4a6cf7;
+    border: 4px solid var(--primary-color);
     box-shadow: 0 8px 20px rgba(74, 108, 247, 0.3);
 }
 
@@ -46,7 +46,7 @@
     font-size: 3em !important;
     margin: 0;
     font-weight: 900;
-    color: #2a2a72;
+    color: var(--text-color);
     letter-spacing: 2px;
     text-shadow: 1px 1px 3px rgba(74, 108, 247, 0.5);
 }
@@ -54,7 +54,7 @@
 .headerh1 {
     font-size: 1.6em !important;
     margin: 10px 0;
-    color: #555 !important;
+    color: var(--muted-color) !important;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 3px;
@@ -95,13 +95,13 @@
 .right-column h3 {
     font-size: 1.6em !important;
     text-transform: uppercase;
-    border-bottom: 3px dotted #4a6cf7;
+    border-bottom: 3px dotted var(--primary-color);
     padding-bottom: 8px;
     margin-bottom: 15px;
     letter-spacing: 3px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-family);
     font-weight: 800 !important;
-    color: #2a2a72;
+    color: var(--text-color);
 }
 
 .left-column1 ul,

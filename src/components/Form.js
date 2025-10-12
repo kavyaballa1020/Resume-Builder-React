@@ -59,6 +59,8 @@ const Form = ({
         window.addEventListener('focusSkill', handler);
         return () => window.removeEventListener('focusSkill', handler);
     }, []);
+
+
     return (
         <form onSubmit={handleSubmit} className="form-container">
             <h2><i className="fas fa-user"></i> Personal Info</h2>
