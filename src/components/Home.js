@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
-import './Quotes.css';
 // Use public assets for template thumbnails (place your images in public/Assets)
 // Expected filenames (please add these to public/Assets):
 // - template-classic.png
@@ -22,24 +21,6 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
     // State to track hovered feature card index
     const [hoveredFeatureIndex, setHoveredFeatureIndex] = useState(null);
 
-    // State for rotating quotes
-    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
-    const [displayedText, setDisplayedText] = useState('');
-    const [isTyping, setIsTyping] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
-    const [showAuthor, setShowAuthor] = useState(false);
-    const [isFading, setIsFading] = useState(false);
-    const [isSpeaking, setIsSpeaking] = useState(false);
-    const quotes = [
-        { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-        { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
-        { text: "Your time is limited, so don't waste it living someone else's life.", author: "Steve Jobs" },
-        { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
-        { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky" }
-    ];
-
-    const intervalRef = useRef(null);
-
     // Load voices asynchronously for better TTS
     const [voicesLoaded, setVoicesLoaded] = useState(false);
 
@@ -54,41 +35,6 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
         loadVoices();
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }, []);
-
-
-    // Display quote instantly
-    useEffect(() => {
-        setDisplayedText(quotes[currentQuoteIndex].text);
-        setIsTyping(false);
-        setIsFading(false);
-    }, [currentQuoteIndex]);
-
-    // Auto-rotate quotes every 7 seconds, pause on hover
-    useEffect(() => {
-        if (isHovered) return;
-
-        intervalRef.current = setInterval(() => {
-            setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-        }, 7000);
-
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        };
-    }, [isHovered, quotes.length]);
-
-    // Show author after typing completes
-    useEffect(() => {
-        if (!isTyping) {
-            const timer = setTimeout(() => {
-                setShowAuthor(true);
-            }, 300); // Delay for fade-in
-            return () => clearTimeout(timer);
-        } else {
-            setShowAuthor(false);
-        }
-    }, [isTyping]);
 
     // update profile image on custom event (Profile page dispatches this)
     React.useEffect(() => {
@@ -202,77 +148,20 @@ const Home = ({ isAuthenticated, setIsAuthenticated, isMuted, setIsMuted }) => {
                     </div>
                 </section>
 
-                <section className="quotes-section">
-                    <div className="quotes-inner">
-                        <h2>Inspirational Quotes</h2>
-                        <div
-                            className={`quote-card ${isFading ? 'fade' : ''}`}
-                            onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => setIsHovered(false)}
-                        >
-                            <blockquote className={`quote-text ${isTyping ? 'typing' : ''}`}>
-                                "{displayedText}"
-                                {isTyping && <span className="cursor">|</span>}
-                            </blockquote>
-                            <cite className={`quote-author ${showAuthor ? 'fade-in' : ''}`}>
-                                — {quotes[currentQuoteIndex].author}
-                            </cite>
-                            <button
-                                className="speak-quote-btn"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    if (!isSpeaking) {
-                                        if (voicesLoaded) {
-                                            const utterance = new SpeechSynthesisUtterance(displayedText || quotes[currentQuoteIndex].text);
-                                            utterance.rate = 0.9;
-                                            utterance.pitch = 1.0;
-                                            utterance.volume = 0.8;
-                                            const voices = window.speechSynthesis.getVoices();
-                                            let naturalVoice = voices.find(v => v.name.includes('Google US English') || v.name.includes('Microsoft Zira') || v.name.includes('Samantha') || (v.lang === 'en-US' && v.name.toLowerCase().includes('natural')));
-                                            if (!naturalVoice) {
-                                                naturalVoice = voices.find(v => v.lang === 'en-US') || voices[0];
-                                            }
-                                            if (naturalVoice) utterance.voice = naturalVoice;
-                                            window.speechSynthesis.cancel();
-                                            window.speechSynthesis.speak(utterance);
-                                            setIsSpeaking(true);
-                                            utterance.onend = () => setIsSpeaking(false);
-                                        }
-                                    } else {
-                                        window.speechSynthesis.cancel();
-                                        setIsSpeaking(false);
-                                    }
-                                }}
-                                aria-label={isSpeaking ? "Stop speaking" : "Speak quote"}
+                <section className="video-section">
+                    <div className="video-inner">
+                        <h2>What is a Resume?</h2>
+                        <div className="video-card">
+                            <video
+                                width="100%"
+                                controls
+                                loop
+                                preload="metadata"
                             >
-                                {isSpeaking ? '🔇' : '🔊'}
-                            </button>
-                        </div>
-                        <div className="quote-indicators">
-                            {quotes.map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={`indicator ${index === currentQuoteIndex ? 'active' : ''}`}
-                                    onClick={() => setCurrentQuoteIndex(index)}
-                                ></span>
-                            ))}
-                        </div>
-                        <div className="quote-buttons">
-                            <button
-                                className="quote-btn next-reflection"
-                                onClick={() => setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length)}
-                            >
-                                Next Reflection
-                            </button>
-                            <button
-                                className="quote-btn inspire-again"
-                                onClick={() => {
-                                    const randomIndex = Math.floor(Math.random() * quotes.length);
-                                    setCurrentQuoteIndex(randomIndex);
-                                }}
-                            >
-                                Inspire Me Again
-                            </button>
+                                <source src="/videos/What is a resume_.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <p>Learn the fundamentals of what a resume is and its purpose in job applications.</p>
                         </div>
                     </div>
                 </section>
